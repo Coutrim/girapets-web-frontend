@@ -1,0 +1,48 @@
+::ng-deep {
+  .p-dialog{
+    width: 50%;
+    min-width: 360px;
+    height: 70%;
+    z-index: 1001;
+  }
+  img {
+    border-radius: 7px;
+    width: 320px;
+    height: 320px;
+  }
+
+  .container-modal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .botao-card-animal-detalhar .p-button {
+    background-image: linear-gradient(to right, #ff6a00, #dd4141);
+    height: 39.2px !important;
+    border-radius: 5px;
+    border-color: #ff6a00;
+  }
+
+  .botao-card-animal-detalhar .p-button:hover {
+    background-image: linear-gradient(to right, #b65008, #dd4141);
+    border-color: #ff6a00;
+  }
+
+
+  .botoes-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+  }
+
+
+
+
+
+
+
+
+
+
+}

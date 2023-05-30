@@ -1,0 +1,48 @@
+<div class="container-modal">
+  <img [src]="'data:image/gif;base64,' + atributosModal.imagem" />
+  <div style="display: flex; flex-direction: column;">
+    <ul>
+      <li>
+        <h3 >Nome </h3>
+        {{ atributosModal.nome }}
+      </li>
+      <li>
+        <h3>Especie</h3>
+        {{atributosModal.especie}}
+      </li>
+      <li>
+        <h3>Sexo</h3>
+        {{atributosModal.sexo}}
+      </li>
+      <li>
+        <h3>Raça</h3>
+        {{atributosModal.raca}}
+      </li>
+      <li>
+        <h3>Descrição</h3>
+        {{atributosModal.descricao}}
+      </li>
+      <li>
+        <h3>Idade</h3>
+        {{atributosModal.idade}}
+      </li>
+      <li>
+        <h3>Cidade</h3>
+        {{atributosModal.cidade}}
+      </li>
+
+    </ul>
+
+
+  </div>
+
+
+</div>
+
+<div class="container-do-container-botoes" style="display: flex;
+justify-content: flex-end;">
+<div class="botoes-container">
+  <p-button  label="Fechar" (click)="FecharModal()"></p-button>
+  <p-button class="botao-card-animal-detalhar" routerLink="/login" label="Quero adotar"></p-button>
+</div>
+</div>

@@ -1,0 +1,44 @@
+
+
+<svg *ngIf="isLoading" class="spinner-gerenciar-animais" width="65px" height="65px" viewBox="0 0 66 66"
+xmlns="http://www.w3.org/2000/svg">
+<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+</svg>
+
+
+<div>
+  <p-button label="Adicionar" icon="pi pi-plus" iconPos="center" (click)="addAnimal()"></p-button>
+
+<!-- container de cards -->
+<div *ngIf="!isLoading" class="container-animais p-grid">
+
+
+<!-- cards de animais -->
+
+<div class="p-grid">
+  <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
+    class="p-card-shadow p-col p-md-4">
+    <p-header>
+      <img [src]="'data:image/gif;base64,' + objeto.imagem" />
+    </p-header>
+    <p-title>
+      <i class="fa-solid fa-heart"></i>
+    </p-title>
+    <ng-template class="gerenciar-animais-footer" pTemplate="footer">
+      <div style="display: flex; justify-content:flex-end;">
+      <div class="botoes-card">
+      <button class="botao-card-editar" (click)="show()"
+        (click)="editarAnimal(objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.imagem, objeto.raca, objeto.idade, objeto. cidade)">
+        Editar
+      </button>
+
+      <button type="button" class="botao-card-excluir"  (click)="excluirAnimal(objeto.id)">Excluir</button>
+
+    </div>
+  </div>
+    </ng-template>
+  </p-card>
+</div>
+</div>
+
+</div>
