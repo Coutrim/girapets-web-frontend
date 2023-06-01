@@ -159,7 +159,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   addAnimal() {
 
-       for (const image of this.selectedImages) {
+    for (const image of this.selectedImages) {
       this.formData.append('imagem', image);
     }
     if (this.animaisFormGroup.invalid || this.selectedImages.length === 0) {
@@ -204,25 +204,25 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   }
 
 
-    for (const image of this.selectedImages) {
-      const formDataImagem = new FormData();
-      formDataImagem.append('imagens', image, image.name);
-      formDataImagem.append('animal_nome', animalData.nome)
-      // formData.append('id', this.animaisFormGroup.get('id').value);
+    // for (const image of this.selectedImages) {
+    //   const formDataImagem = new FormData();
+    //   formDataImagem.append('imagens', image, image.name);
+    //   formDataImagem.append('animal_nome', animalData.nome)
+    //   // formData.append('id', this.animaisFormGroup.get('id').value);
 
-      setTimeout(() => {
-      this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
-        (response: any) => {
-          // Lida com a resposta da requisição
-          console.log('Imagem enviada com sucesso:', response);
-        },
-        (error: any) => {
-          // Lida com o erro da requisição
-          console.error('Erro ao enviar imagem:', error);
-        }
-      );
-    }, 3000);
-    }
+    //   setTimeout(() => {
+    //   this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
+    //     (response: any) => {
+    //       // Lida com a resposta da requisição
+    //       console.log('Imagem enviada com sucesso:', response);
+    //     },
+    //     (error: any) => {
+    //       // Lida com o erro da requisição
+    //       console.error('Erro ao enviar imagem:', error);
+    //     }
+    //   );
+    // }, 3000);
+    // }
   }
 
   ExibirMensagemCamposNulos(){
