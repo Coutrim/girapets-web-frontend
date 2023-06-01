@@ -65,6 +65,7 @@ export class AdotarAnimaisComponent implements OnInit {
 
   ngOnInit() {
     this.exibirAnimais()
+    window.scrollTo(0,0)
 
 
   }

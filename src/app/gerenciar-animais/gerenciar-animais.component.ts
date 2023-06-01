@@ -23,8 +23,10 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   isLoading: boolean = true;
   animais: AnimaisModel[] = [];
+  imageUrls: string[] = [];
 
   ngOnInit() {
+    window.scrollTo(0,0)
     this.exibirAnimais()
   }
 
@@ -42,6 +44,8 @@ export class GerenciarAnimaisComponent implements OnInit {
         console.log('Erro:', error);
       }
     );
+
+
   }
 
 
@@ -61,7 +65,7 @@ export class GerenciarAnimaisComponent implements OnInit {
     const ref = this.dialogService.open(AdicionarAnimalComponent, {
       header: "Adicionar novos animais",
       width: '50%',
-      height: '90%',
+      height: '100%',
     });
 
     ref.onClose.subscribe(() => {
@@ -70,6 +74,7 @@ export class GerenciarAnimaisComponent implements OnInit {
   }
 
   excluirAnimal(id){
+    window.scrollTo(0,0)
     this.isLoading = true
     this.animaisService.removerAnimal(id).subscribe(
       (response) => {

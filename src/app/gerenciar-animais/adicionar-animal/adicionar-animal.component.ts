@@ -6,7 +6,8 @@ import {
   AfterViewInit,
   Component,
   forwardRef,
-  OnInit
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
 import {
   AbstractControl,
@@ -37,6 +38,7 @@ import {
   selector: 'app-adicionar-animal',
   templateUrl: './adicionar-animal.component.html',
   styleUrls: ['./adicionar-animal.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [FormBuilder, {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => AdicionarAnimalComponent),
@@ -61,6 +63,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   }
 
   uploadedFiles: any[] = [];
+  atributosAnimal: any
 
   onUpload(event) {
     for (let file of event.files) {
@@ -110,11 +113,58 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   });
 
 
+  // addAnimal() {
+
+
+    // for (const image of this.selectedImages) {
+    //   this.formData.append('imagem', image);
+    // }
+
+  //   const animalData = {
+  //     nome: this.animaisFormGroup.get('nome').value,
+  //     sexo: this.animaisFormGroup.get('sexo').value,
+  //     raca: this.animaisFormGroup.get('raça').value,
+  //     cidade: this.animaisFormGroup.get('cidade').value,
+  //     idade: this.animaisFormGroup.get('idade').value,
+  //     descricao: this.animaisFormGroup.get('descricao').value,
+  //     especie: this.animaisFormGroup.get('especie').value,
+  //   }
+
+
+  //   this.formData.append('animal', new Blob([JSON.stringify(animalData)], {
+  //     type: 'application/json'
+  //   }));
+
+
+  //   if (this.animaisFormGroup.invalid || this.uploadedImages.length === 0) {
+  //     this.ExibirMensagemCamposNulos()
+  //   }
+  //   else{
+  //   this.animaisService.adicionarAnimal(this.formData).subscribe(
+  //     (response: any) => {
+  //       this.messageService.add({severity:'success', summary:'Animal salvo com sucesso.'});
+  //       this.animaisFormGroup.reset()
+  //       this.ref.close()
+
+  //       console.log("Animal adicionado com sucesso")
+  //     },
+  //     (error: any) => {
+  //       error
+  //     }
+  //   );
+  //   this.animaisFormGroup.reset()
+
+  // }
+  // }
+
   addAnimal() {
 
-
-    for (const image of this.selectedImages) {
+       for (const image of this.selectedImages) {
       this.formData.append('imagem', image);
+    }
+    if (this.animaisFormGroup.invalid || this.selectedImages.length === 0) {
+      this.ExibirMensagemCamposNulos();
+      return;
     }
 
     const animalData = {
@@ -140,7 +190,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     this.animaisService.adicionarAnimal(this.formData).subscribe(
       (response: any) => {
         this.messageService.add({severity:'success', summary:'Animal salvo com sucesso.'});
-        this.animaisFormGroup.reset()
+        // this.animaisFormGroup.reset()
         this.ref.close()
 
         console.log("Animal adicionado com sucesso")
@@ -149,9 +199,30 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
         error
       }
     );
-    this.animaisFormGroup.reset()
+    // this.animaisFormGroup.reset()
 
   }
+
+
+    for (const image of this.selectedImages) {
+      const formDataImagem = new FormData();
+      formDataImagem.append('imagens', image, image.name);
+      formDataImagem.append('animal_nome', animalData.nome)
+      // formData.append('id', this.animaisFormGroup.get('id').value);
+
+      setTimeout(() => {
+      this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
+        (response: any) => {
+          // Lida com a resposta da requisição
+          console.log('Imagem enviada com sucesso:', response);
+        },
+        (error: any) => {
+          // Lida com o erro da requisição
+          console.error('Erro ao enviar imagem:', error);
+        }
+      );
+    }, 3000);
+    }
   }
 
   ExibirMensagemCamposNulos(){

@@ -1,6 +1,23 @@
+<!-- <div *ngFor="let imagem of arrayImagens">
+  <p-card>
+    <img [src]="'data:image/gif;base64,' + imagem.url" alt="Imagem">
+  </p-card>
+</div> -->
+
+
+
+<!-- <img [src]="'data:image/gif;base64,' + arrayImagens[1].url" alt="Imagem"> -->
+
+<button (click)="decrementIndex()">Anterior</button>
+<img [src]="'data:image/gif;base64,' + arrayImagens[arrayIndex]?.url" alt="Imagem">
+<button (click)="incrementIndex()">Próximo</button>
+
+
+
 <div class="container-modal">
-  <img [src]="'data:image/gif;base64,' + atributosModal.imagem" />
+  <!-- <img [src]="'data:image/gif;base64,' + atributosModal.imagem" /> -->
   <div style="display: flex; flex-direction: column;">
+
     <ul>
       <li>
         <h3 >Nome </h3>
