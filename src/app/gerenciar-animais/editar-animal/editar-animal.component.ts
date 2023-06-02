@@ -45,15 +45,18 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
 
   ngOnInit() {
-    this.animaisService.getAtributos().subscribe(valor => {
-      this.atributosModal = valor;
 
-    });
-
+    this.buscarDadosAnimal()
   }
   uploadedFiles: any[] = [];
 
 
+  buscarDadosAnimal(){
+    this.animaisService.getAtributos().subscribe(valor => {
+      this.atributosModal = valor;
+      console.log(this.atributosModal.imagens)
+    });
+  }
 
   onUpload(event) {
     for (let file of event.files) {
@@ -109,33 +112,17 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
   }
 
 
-  novaImagemAcionada(){
-    this.novaImagemDetectada = true;
-
-  }
-
-   arrayDeFiles: File[] = [];
 
 
   editarAnimal() {
 
 
-
-
-    if(this.novaImagemDetectada === true){
-
       for (const image of this.selectedImages) {
         this.formData.append('imagem', image);
-        console.log(this.selectedImages);
-      }
-    } else{
-      for (const image of this.atributosModal.imagens) {
 
-        this.formData.append('imagem', image.url);
-        console.log(this.selectedImages);
       }
 
-    }
+
 
       this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
         type: 'application/json'
@@ -167,13 +154,15 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
       this.animaisService.excluirImagem(this.atributosModal.imagens[this.arrayIndex].id).subscribe(
         (response: any) => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Imagem excluída com sucesso'
-          });
+
         },
         (error: any) => {
           if (error.status === 200) {
+
+            setTimeout(() => {
+              this.buscarDadosAnimal();
+            }, 2000);
+
             this.messageService.add({
               severity: 'success',
             summary: 'Imagem excluída com sucesso'
