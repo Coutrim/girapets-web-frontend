@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "8d5e15a2-15a7-463d-9037-762c6ee641f4",
+		"name": "Gira-pets-rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22647699"
+	},
+	"item": [
+		{
+			"name": "Serviço de usuario",
+			"item": [
+				{
+					"name": "Inserir usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Henrique\",\r\n    \"senha\":\"123\",\r\n    \"email\":\"cara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"nome\": \"Editado\",\r\n        \"email\": \"cara\",\r\n        \"senha\": \"123\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviço de animais",
+			"item": [
+				{
+					"name": "Listar animais",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/animais/57",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais",
+								"57"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar animal com imagem",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/dog1.jpg",
+									"disabled": true
+								},
+								{
+									"key": "animal",
+									"value": "{\"nome\":\"Balelion\", \"sexo\":\"Macho\", \"raca\":\"Bulldog\",  \"cidade\":\"Girassol-GO\", \"idade\":\"1.5\"}",
+									"contentType": "application/json",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "henrique",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar animal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagens\n",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/dog-face.png"
+								},
+								{
+									"key": "animaisDTO",
+									"value": "{\n    \n    \"nome\": \"Dono das fotos\",\n    \"sexo\": \"ADICIONADO NOVO\",\n    \"especie\": \"ADICIONADO NOVO\",\n    \"descricao\": \"ADICIONADO NOVO\",\n    \"raca\": \"ADICIONADO NOVO\",\n    \"cidade\": \"ADICIONADO NOVO\",\n    \"idade\": 2.0\n    \n}\n",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "imagens",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/gato1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar animal com foto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/dog-face.png",
+									"disabled": true
+								},
+								{
+									"key": "animal",
+									"value": "{\"nome\":\"Editado com foto2\", \"sexo\":\"Macho\", \"raca\":\"Bulldog\", \"cidade\":\"Girassol-GO\", \"idade\":\"1.5\", \"descricao\":\"Animal dócil encontrando na mata\", \"especie\":\"Cachorro\"}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "{\"nome\":\"Balelion\", \"sexo\":\"Macho\", \"raca\":\"Bulldog\",  \"cidade\":\"Girassol-GO\", \"idade\":\"1.5\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/dog2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animais/84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais",
+								"84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar animal sem foto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 19,\r\n    \"nome\": \"EDITADO2\",\r\n    \"sexo\": \"EDITADO2\",\r\n    \"especie\": \"EDITADO2\",\r\n    \"descricao\": \"EDITADO2\"\r\n    \r\n    \r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/animais/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"animais",
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviço de imagens",
+			"item": [
+				{
+					"name": "Adicionar imagens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "60",
+									"type": "text"
+								},
+								{
+									"key": "imagens\n",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/dog3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/imagens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"imagens"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar imagens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/imagens/79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"imagens",
+								"79"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "79",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar imagens",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/imagens/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"imagens",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar imagens",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "animal_nome",
+									"value": "{\"animal_nome\":\"Balelion\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagens",
+									"type": "file",
+									"src": "/C:/Users/Henrique/Desktop/girapets-web/src/assets/favicon.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/imagens/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"imagens",
+								"18"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "Balelion",
+									"disabled": true
+								},
+								{
+									"key": "url",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
