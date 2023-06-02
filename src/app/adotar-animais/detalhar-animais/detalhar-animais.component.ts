@@ -13,11 +13,10 @@ export class DetalharAnimaisComponent implements OnInit {
 
   constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef) { }
 
+
+  arrayImagens: any
   arrayIndex = 0; // Índice inicial do array
   atributosModal: any;
-  nomeAnimal:any;
-  arrayImagens: any
-  imageUrls = [];
 
 
 
@@ -29,30 +28,12 @@ export class DetalharAnimaisComponent implements OnInit {
       console.log(this.atributosModal)
     });
 
-
-    this.imageUrls = this.atributosModal.imagem
-
-
-
-      // Lista as imagens passando nome do animal como parâmetro
-      this.animaisService.listarImagens(this.atributosModal.nome).subscribe(
-        (objetos) => {
-          this.arrayImagens = objetos;
-          console.log(this.arrayImagens)
-        },
-        (error) => {
-          console.log('Erro: ao carregar imagens', error);
-        }
-      )
-
-
-
   }
 
 
 
   incrementIndex() {
-    if (this.arrayIndex < this.arrayImagens.length - 1) {
+    if (this.arrayIndex < this.atributosModal.imagens.length - 1) {
       this.arrayIndex++;
     }
   }

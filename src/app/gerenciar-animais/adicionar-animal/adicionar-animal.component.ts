@@ -28,7 +28,9 @@ import {
 import {
   MessageService
 } from 'primeng/api';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import {
+  DynamicDialogRef
+} from 'primeng/dynamicdialog';
 import {
   AnimaisService
 } from '../../shared/services/animais.service';
@@ -77,7 +79,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     });
   }
 
-   formData = new FormData();
+  formData = new FormData();
 
   selectedImages: File[] = [];
   uploadedImages: {
@@ -93,13 +95,16 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
       const file = this.selectedImages[i];
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.uploadedImages.push({ name: file.name, url: e.target.result });
+        this.uploadedImages.push({
+          name: file.name,
+          url: e.target.result
+        });
       };
       reader.readAsDataURL(file);
     }
   }
 
-
+  formDataAnimal = new FormData();
 
   animaisFormGroup: FormGroup = new FormGroup({
     nome: new FormControl(null, Validators.required),
@@ -113,59 +118,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   });
 
 
-  // addAnimal() {
-
-
-    // for (const image of this.selectedImages) {
-    //   this.formData.append('imagem', image);
-    // }
-
-  //   const animalData = {
-  //     nome: this.animaisFormGroup.get('nome').value,
-  //     sexo: this.animaisFormGroup.get('sexo').value,
-  //     raca: this.animaisFormGroup.get('raça').value,
-  //     cidade: this.animaisFormGroup.get('cidade').value,
-  //     idade: this.animaisFormGroup.get('idade').value,
-  //     descricao: this.animaisFormGroup.get('descricao').value,
-  //     especie: this.animaisFormGroup.get('especie').value,
-  //   }
-
-
-  //   this.formData.append('animal', new Blob([JSON.stringify(animalData)], {
-  //     type: 'application/json'
-  //   }));
-
-
-  //   if (this.animaisFormGroup.invalid || this.uploadedImages.length === 0) {
-  //     this.ExibirMensagemCamposNulos()
-  //   }
-  //   else{
-  //   this.animaisService.adicionarAnimal(this.formData).subscribe(
-  //     (response: any) => {
-  //       this.messageService.add({severity:'success', summary:'Animal salvo com sucesso.'});
-  //       this.animaisFormGroup.reset()
-  //       this.ref.close()
-
-  //       console.log("Animal adicionado com sucesso")
-  //     },
-  //     (error: any) => {
-  //       error
-  //     }
-  //   );
-  //   this.animaisFormGroup.reset()
-
-  // }
-  // }
-
   addAnimal() {
-
-    for (const image of this.selectedImages) {
-      this.formData.append('imagem', image);
-    }
-    if (this.animaisFormGroup.invalid || this.selectedImages.length === 0) {
-      this.ExibirMensagemCamposNulos();
-      return;
-    }
 
     const animalData = {
       nome: this.animaisFormGroup.get('nome').value,
@@ -178,56 +131,71 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     }
 
 
-    this.formData.append('animal', new Blob([JSON.stringify(animalData)], {
+    for (const image of this.selectedImages) {
+
+      this.formDataAnimal.append('imagem', image, image.name);
+
+    }
+
+    this.formDataAnimal.append('animal', new Blob([JSON.stringify(animalData)], {
       type: 'application/json'
     }));
 
-
     if (this.animaisFormGroup.invalid || this.uploadedImages.length === 0) {
-      this.ExibirMensagemCamposNulos()
+      // this.ExibirMensagemCamposNulos()
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Campos obrigatórios não informados.'
+      });
+
+    } else {
+      this.animaisService.adicionarAnimal(this.formDataAnimal).subscribe(
+        (response: any) => {
+
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Animal salvo com sucesso.'
+          });
+          // this.animaisFormGroup.reset()
+
+          this.ref.close()
+          console.log(response)
+
+        },
+        (error: any) => {
+          error
+        }
+      );
+
+
     }
-    else{
-    this.animaisService.adicionarAnimal(this.formData).subscribe(
-      (response: any) => {
-        this.messageService.add({severity:'success', summary:'Animal salvo com sucesso.'});
-        // this.animaisFormGroup.reset()
-        this.ref.close()
-
-        console.log("Animal adicionado com sucesso")
-      },
-      (error: any) => {
-        error
-      }
-    );
-    // this.animaisFormGroup.reset()
-
-  }
 
 
     // for (const image of this.selectedImages) {
     //   const formDataImagem = new FormData();
     //   formDataImagem.append('imagens', image, image.name);
-    //   formDataImagem.append('animal_nome', animalData.nome)
-    //   // formData.append('id', this.animaisFormGroup.get('id').value);
+    //   formDataImagem.append('id', animalData.nome)
 
-    //   setTimeout(() => {
-    //   this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
-    //     (response: any) => {
-    //       // Lida com a resposta da requisição
-    //       console.log('Imagem enviada com sucesso:', response);
-    //     },
-    //     (error: any) => {
-    //       // Lida com o erro da requisição
-    //       console.error('Erro ao enviar imagem:', error);
+
+    //       setTimeout(() => {
+    //       this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
+    //         (response: any) => {
+    //           // Lida com a resposta da requisição
+    //              this.animaisFormGroup.reset()
+    //           console.log('Imagem enviada com sucesso:', response);
+    //         },
+    //         (error: any) => {
+    //           // Lida com o erro da requisição
+    //           console.error('Erro ao enviar imagem:', error);
+    //         }
+    //       );
+    //     }, 3000);
     //     }
-    //   );
-    // }, 3000);
-    // }
-  }
+    //   }
 
-  ExibirMensagemCamposNulos(){
-    this.messageService.add({severity:'warn', summary:'Campos obrigatórios não informados'});
-}
+    //   ExibirMensagemCamposNulos(){
+    //     this.messageService.add({severity:'warn', summary:'Campos obrigatórios não informados'});
+  }
 
 
 
@@ -256,4 +224,5 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   setDisabledState ? (isDisabled: boolean) : void {
 
   }
+
 }

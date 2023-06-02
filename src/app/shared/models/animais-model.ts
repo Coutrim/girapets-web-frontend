@@ -1,5 +1,6 @@
 export class AnimaisModel {
 
+  id: number;
   nome: string;
   sexo: string;
   descricao: string;

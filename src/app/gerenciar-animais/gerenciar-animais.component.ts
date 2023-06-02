@@ -8,6 +8,7 @@ import { AnimaisService } from '../shared/services/animais.service';
 import { AdotarAnimaisComponent } from '../adotar-animais/adotar-animais.component';
 import { AdicionarAnimalComponent } from './adicionar-animal/adicionar-animal.component';
 import { MessageService } from 'primeng/api';
+import { EditarAnimalComponent } from './editar-animal/editar-animal.component';
 
 @Component({
   selector: 'app-gerenciar-animais',
@@ -48,17 +49,37 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   }
 
+  nomeAnimal: any;
 
-  show() {
+  // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
+  buscarDadosAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal,imagens) {
+    let idModel = id;
+    this.nomeAnimal = nomeAnimal;
+    let sexoModel = sexoAnimal;
+    let descricaoModel = descricaoAnimal;
+    let especieModel = especieAnimal;
+    let racaModel = racaAnimal;
+    let idadeModel = idadeAnimal;
+    let cidadeModel = cidadeAnimal
+    const imagensModel = imagens;
+
+
+    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel,imagensModel);
+  }
+
+  abrirModalEditar() {
     setTimeout(() => {
 
-      const ref = this.dialogService.open(DetalharAnimaisComponent, {
-        header: "Header",
+      const ref = this.dialogService.open(EditarAnimalComponent, {
+        header: "Editar animal ",
         width: '50%',
         height: '70%',
       });
-
-    }, 100); // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
+      ref.onClose.subscribe(() => {
+        this.exibirAnimais()
+    });
+    }, 100);
+    // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
   }
 
   addAnimal(){

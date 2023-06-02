@@ -26,7 +26,7 @@ xmlns="http://www.w3.org/2000/svg">
   <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
     class="p-card-shadow p-col p-md-4">
     <p-header>
-      <img [src]="'data:image/gif;base64,' + objeto.imagem" />
+      <img [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
     </p-header>
     <p-title>
       <i class="fa-solid fa-heart"></i>
@@ -34,8 +34,8 @@ xmlns="http://www.w3.org/2000/svg">
     <ng-template class="gerenciar-animais-footer" pTemplate="footer">
       <div style="display: flex; justify-content:flex-end;">
       <div class="botoes-card">
-      <button class="botao-card-editar" (click)="show()"
-        (click)="editarAnimal(objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.imagem, objeto.raca, objeto.idade, objeto. cidade)">
+      <button class="botao-card-editar"  (click)="abrirModalEditar()"
+        (click)="buscarDadosAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto.cidade, objeto.imagens)">
         Editar
       </button>
 

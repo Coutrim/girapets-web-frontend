@@ -1,3 +1,110 @@
-<p>
-  editar-animal works!
-</p>
+<div class="p-grid">
+
+
+
+  <div style="display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;">
+
+    <!-- Botão upload -->
+
+    <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
+      <i class="pi pi-trash" style="font-size: 20px;"></i>
+    </button>
+
+
+
+
+    <button style="margin-top: 30px; margin-left: 20px;" class="botao-card-editar"  type="button" (click)="fileInput.click(); novaImagemAcionada()">
+      <i class="pi pi-upload"></i>
+      Adicionar novas fotos
+    </button>
+    <!-- Exibe as imagens upadas -->
+
+    <div *ngFor="let image of uploadedImages">
+      <img [src]="image?.url" [alt]="image.name">
+    </div>
+
+
+
+    <!-- Exibe as imagens do serviço de imagens -->
+    <button (click)="decrementIndex()">Anterior</button>
+    <img style="width: 300px;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url" alt="Imagem">
+    <button (click)="incrementIndex()">Próximo</button>
+
+    <!-- Elemento input type="file" oculto -->
+    <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple
+      class="hidden-file-input">
+
+  </div>
+
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Nome</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.nome" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Especie</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.especie" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Raça</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.raca" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Sexo</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.sexo" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Idade</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.idade" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Descrição</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.descricao" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-col">
+      <h3>Cidade</h3>
+      <div class="p-field">
+        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.cidade" />
+        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div style="display: flex; justify-content: flex-end;">
+  <p-button type="button" (click)="editarAnimal()">Salvar</p-button>
+</div>

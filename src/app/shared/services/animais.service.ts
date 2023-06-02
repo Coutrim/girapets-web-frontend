@@ -16,19 +16,20 @@ export class AnimaisService {
   nomeAnimal: any
 
   // Pega como parâmetro dados vindo do objeto no HTML e passa pra variavel criando um novo objeto apenas do animal selecionado.
-  setAtributos(nome: any, sexo, descricao, especie, imagem, raca, idade, cidade) {
+  setAtributos(id, nome: any, sexo, descricao, especie, raca, idade, cidade,imagens) {
 
     this.nomeAnimal = nome;
 
     const animalObj = {
+      id: id,
       nome: this.nomeAnimal,
       sexo: sexo,
       descricao: descricao,
       especie: especie,
-      imagem: imagem,
       raca: raca,
       idade: idade,
-      cidade: cidade
+      cidade: cidade,
+      imagens: imagens
     };
 
 
@@ -67,12 +68,20 @@ export class AnimaisService {
     return this.http.post('http://localhost:8080/api/imagens', formData);
   }
 
-  listarImagens(nomeAnimal: string): Observable<any> {
-    const params = new HttpParams().set('animal_nome', nomeAnimal);
-    return this.http.get<any>('http://localhost:8080/api/imagens', { params });
+  listarImagens(id: number): Observable<any> {
+    return this.http.get<any>( `http://localhost:8080/api/imagens/${id}`)
   }
 
-  deletarImagem(){
 
+  editarAnimal(formData: FormData, id: number) {
+    return this.http.put(`http://localhost:8080/api/animais/${id}`, formData);
+  }
+
+  editarImagens(formData: FormData, id: number): Observable<any> {
+    return this.http.put(`http://localhost:8080/api/imagens/${id}`, formData);
+  }
+
+  excluirImagem(id: number): Observable<any>{
+    return this.http.delete<any>( `http://localhost:8080/api/imagens/${id}`)
   }
 }

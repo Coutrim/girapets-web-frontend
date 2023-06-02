@@ -9,7 +9,7 @@
 <!-- <img [src]="'data:image/gif;base64,' + arrayImagens[1].url" alt="Imagem"> -->
 
 <button (click)="decrementIndex()">Anterior</button>
-<img [src]="'data:image/gif;base64,' + arrayImagens[arrayIndex]?.url" alt="Imagem">
+<img style="width: 300px;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url" alt="Imagem">
 <button (click)="incrementIndex()">Próximo</button>
 
 

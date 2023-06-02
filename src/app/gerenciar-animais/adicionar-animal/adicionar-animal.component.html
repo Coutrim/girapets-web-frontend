@@ -16,7 +16,7 @@
         <img [src]="image.url" [alt]="image.name">
       </div>
       <!-- Elemento input type="file" oculto -->
-      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple formControlName="imagem"
+      <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple formControlName="imagem"
         class="hidden-file-input">
 
     </div>

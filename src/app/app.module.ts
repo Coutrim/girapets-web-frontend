@@ -14,6 +14,7 @@ import { DetalharAnimaisComponent } from './adotar-animais/detalhar-animais/deta
 import { GerenciarAnimaisComponent } from './gerenciar-animais/gerenciar-animais.component';
 import { MessageService } from 'primeng/api';
 import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/adicionar-animal.component';
+import { EditarAnimalComponent } from './gerenciar-animais/editar-animal/editar-animal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/a
     HomeComponent,
     DetalharAnimaisComponent,
     GerenciarAnimaisComponent,
-    AdicionarAnimalComponent
+    AdicionarAnimalComponent,
+    EditarAnimalComponent
   ],
   imports: [
     BrowserModule,

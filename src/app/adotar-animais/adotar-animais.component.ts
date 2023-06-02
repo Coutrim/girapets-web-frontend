@@ -23,6 +23,11 @@ import {
 import {
   DetalharAnimaisComponent
 } from './detalhar-animais/detalhar-animais.component';
+import { concatMap } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
+
+
+
 
 @Component({
   selector: 'app-adotar-animais',
@@ -41,23 +46,25 @@ export class AdotarAnimaisComponent implements OnInit {
   animais: AnimaisModel[] = [];
   imagemUrl: string;
   isLoading: boolean = true;
+  animaisId:any
 
 
 
   nomeAnimal: any;
 
   // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  detalharAnimal(nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, imagemAnimal, racaAnimal, idadeAnimal, cidadeAnimal) {
+  detalharAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal, imagens) {
+    let idModel = id;
     this.nomeAnimal = nomeAnimal;
     let sexoModel = sexoAnimal;
     let descricaoModel = descricaoAnimal;
     let especieModel = especieAnimal;
-    let imagemModel = imagemAnimal;
     let racaModel = racaAnimal;
     let idadeModel = idadeAnimal;
     let cidadeModel = cidadeAnimal
+    let imagensModel = imagens
 
-    this.animaisService.setAtributos(this.nomeAnimal, sexoModel, descricaoModel, especieModel, imagemModel, racaModel, idadeModel, cidadeModel)
+    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel, imagensModel)
   }
 
 
@@ -69,6 +76,8 @@ export class AdotarAnimaisComponent implements OnInit {
 
 
   }
+
+
 
   // Exibindo lista de animais do serviço
   exibirAnimais() {
@@ -82,6 +91,7 @@ export class AdotarAnimaisComponent implements OnInit {
         console.log('Erro:', error);
       }
     );
+
   }
 
   // Abre a modal de detalhar animal
