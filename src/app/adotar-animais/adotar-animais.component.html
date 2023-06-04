@@ -41,10 +41,16 @@ padding-left: 3%;">
           <i class="fa-solid fa-heart"></i>
         </p-title>
         <ng-template class="footer-adotar-animais" pTemplate="footer">
-          <p-button label="Detalhes" (click)="show()"
+          <div style="display: flex !important;
+          justify-content: flex-end !important;">
+          <div class="container-botoes">
+          <button  class="botao-card-detalhes" label="Detalhes" (click)="show()"
             (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto. cidade, objeto.imagens)">
-          </p-button>
-          <p-button class="botao-card-animal" routerLink="/login" label="Quero adotar"></p-button>
+            Detalhes
+          </button>
+          <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
+        </div>
+      </div>
         </ng-template>
       </p-card>
     </div>

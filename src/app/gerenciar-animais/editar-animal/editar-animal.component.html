@@ -26,7 +26,7 @@
     <button (click)="incrementIndex()">Próximo</button>
 
     <!-- Elemento input type="file" oculto -->
-    <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple
+    <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png" multiple
       class="hidden-file-input">
   </div>
   <div class="p-col">

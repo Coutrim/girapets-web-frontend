@@ -11,6 +11,10 @@
   .footer-adotar-animais .p-card-footer{
     margin-left: 50px;
   }
+
+  .p-card .p-card-footer {
+    padding:0
+}
   .p-ripple{
     border-radius: 5px;
   }
@@ -31,18 +35,25 @@
     text-transform: uppercase;
   }
 
-  .botao-card-animal .p-button{
 
+  .botao-card-adotar1{
     background-image: linear-gradient(to right, #ff6a00, #dd4141);
-    height: 45%;
-    border-radius: 5px;
-    border-color: #ff6a00;
-
-
+    color: #ffffff;
+    border: 1px solid #ff6a00;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
   }
-  .botao-card-animal .p-button:hover{
-    background-image: linear-gradient(to right, #b65008, #dd4141);
-    border-color: #ff6a00;
+  .botao-card-detalhes{
+    color: #ffffff;
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 3px;
+    cursor: pointer;
   }
 
   .p-toolbar, .p-toolbar-group-left, .p-toolbar-group-right {
@@ -115,6 +126,12 @@
     margin-bottom: 5%;
     width: 320px;
 
+}
+
+.container-botoes{
+  display: flex;
+    width: 85%;
+    justify-content: space-between;
 }
 
 .p-dialog .p-dialog-content {

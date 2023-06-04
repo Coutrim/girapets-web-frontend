@@ -142,23 +142,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       if(this.arrayIndex !== 0){
         this.arrayIndex = this.arrayIndex - 1;
       }
-      // this.animaisService.excluirImagem(this.atributosModal.imagens[this.arrayIndex].id).subscribe(
-      //   (response: any) => {
-      //   },
-      //   (error: any) => {
-      //     if (error.status === 200) {
-      //       setTimeout(() => {
-      //         this.buscarDadosAnimal();
-      //       }, 2000);
-      //       this.messageService.add({
-      //         severity: 'success',
-      //       summary: 'Imagem excluída com sucesso'
-      //       });
-      //     } else {
-      //       error
-      //     }
-      //   }
-        // );
+
     }
   }
 

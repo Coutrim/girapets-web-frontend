@@ -1,4 +1,36 @@
 ::ng-deep {
+
+  .p-dialog{
+    border-radius: 5px;
+  }
+
+  .header-modal{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 25px;
+  }
+  .imagem-paginador{
+    width: 450px;
+    height: 450px;
+  }
+  .botao-paginador{
+    background: transparent;
+    border: none;
+  }
+
+  .container-componente{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .paginador{
+    height: 505px;
+    display: flex;
+    align-items: center;
+  }
+  .icone-paginador{
+    font-size: 40px;
+  }
   .p-dialog{
     width: 50%;
     min-width: 360px;

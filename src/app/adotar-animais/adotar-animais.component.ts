@@ -99,9 +99,10 @@ export class AdotarAnimaisComponent implements OnInit {
     setTimeout(() => {
 
       const ref = this.dialogService.open(DetalharAnimaisComponent, {
-        header: this.nomeAnimal,
-        width: '50%',
-        height: '70%',
+        // header: this.nomeAnimal,
+        showHeader: false,
+        width: '60%',
+        height: '80%',
       });
 
     }, 100); // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
