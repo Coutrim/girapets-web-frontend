@@ -13,6 +13,7 @@ import {
   MessageService
 } from 'primeng/api';
 import {
+  DynamicDialogConfig,
   DynamicDialogRef
 } from 'primeng/dynamicdialog';
 import {
@@ -31,11 +32,12 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     private messageService: MessageService,
     private animaisService: AnimaisService,
     private loadingService:LoadingService,
-    private ref: DynamicDialogRef
+    private ref: DynamicDialogRef,
+    private config:DynamicDialogConfig
   ) {
 
   }
-
+  idAnimal:number;
   atributosModal: any
   arrayImagens: any
   arrayIndex = 0;
@@ -43,16 +45,20 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
 
   ngOnInit() {
-
-    this.buscarDadosAnimal()
+    this.idAnimal = this.config.data.idAnimal;
+    this.buscarDadosAnimal(this.idAnimal);
   }
   uploadedFiles: any[] = [];
 
-
-  buscarDadosAnimal(){
-    this.animaisService.getAtributos().subscribe(valor => {
+  buscarDadosAnimal(id){
+    this.loadingService.ativarLoading();
+    this.animaisService.recuperarPorId(id).subscribe(valor => {
       this.atributosModal = valor;
-      console.log(this.atributosModal.imagens)
+      console.log(this.atributosModal);
+      this.loadingService.desativarLoading();
+    },err=>{
+      this.ref.close();
+      this.loadingService.desativarLoading();
     });
   }
 
