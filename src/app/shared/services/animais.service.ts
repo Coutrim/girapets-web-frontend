@@ -9,6 +9,9 @@ export class AnimaisService {
 
   constructor(public http: HttpClient) { }
 
+
+  private API_ANIMAL = 'http://localhost:8080/api/animais';
+
   atributosAnimal = new BehaviorSubject<any>(null);
 
 
@@ -53,15 +56,17 @@ export class AnimaisService {
   }
 
   listarAnimais() : Observable<AnimaisModel[]>{
-    return this.http.get<AnimaisModel[]>("http://localhost:8080/api/animais");
+    return this.http.get<AnimaisModel[]>(`${this.API_ANIMAL}`);
   }
 
   adicionarAnimal(formData: FormData) {
-    return this.http.post('http://localhost:8080/api/animais', formData);
+    return this.http.post(`${this.API_ANIMAL}`, formData);
   }
-
+  recuperarPorId(id:number){
+    return this.http.get(`${this.API_ANIMAL}/${id}`);
+  }
   removerAnimal(id: number) :Observable<any> {
-    return this.http.delete<any>( `http://localhost:8080/api/animais/${id}`)
+    return this.http.delete<any>( `${this.API_ANIMAL}/${id}`)
   }
 
   fazerUploadImagens(formData: FormData){
@@ -74,7 +79,7 @@ export class AnimaisService {
 
 
   editarAnimal(formData: FormData, id: number) {
-    return this.http.put(`http://localhost:8080/api/animais/${id}`, formData);
+    return this.http.put(`${this.API_ANIMAL}/${id}`, formData);
   }
 
   editarImagens(formData: FormData, id: number): Observable<any> {

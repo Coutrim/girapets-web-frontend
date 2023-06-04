@@ -60,10 +60,13 @@ export class GerenciarAnimaisComponent implements OnInit {
     this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel,imagensModel);
   }
 
-  abrirModalEditar() {
+  abrirModalEditar(id) {
     setTimeout(() => {
       const ref = this.dialogService.open(EditarAnimalComponent, {
         header: "Editar animal ",
+        data:{
+          idAnimal:id
+        },
         width: '50%',
         height: '70%',
       });

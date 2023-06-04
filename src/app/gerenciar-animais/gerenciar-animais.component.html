@@ -22,8 +22,7 @@
         <ng-template class="gerenciar-animais-footer" pTemplate="footer">
           <div style="display: flex; justify-content:flex-end;">
             <div class="botoes-card">
-              <button class="botao-card-editar" (click)="abrirModalEditar()"
-                (click)="buscarDadosAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto.cidade, objeto.imagens)">
+              <button class="botao-card-editar" (click)="abrirModalEditar(objeto.id)">
                 Editar
               </button>
               <button type="button" class="botao-card-excluir" (click)="excluirAnimal(objeto.id)">Excluir</button>
