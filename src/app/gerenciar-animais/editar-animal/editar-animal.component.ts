@@ -117,7 +117,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
         this.loadingService.desativarLoading();
-        this.ref.close()
+        this.ref.close(true);
         this.messageService.add({
           severity: 'success',
           summary: 'Animal salvo com sucesso.'

@@ -1,3 +1,4 @@
+import { LoadingService } from './../shared/components/loading-service.service';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
@@ -16,7 +17,8 @@ export class GerenciarAnimaisComponent implements OnInit {
   constructor(
     private animaisService: AnimaisService,
     public dialogService: DialogService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private loadingService:LoadingService
   ) {}
 
   isLoading: boolean = true;
@@ -25,7 +27,7 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0,0)
-    this.exibirAnimais()
+    this.exibirAnimais();
   }
 
   // Exibindo lista de animais do serviço
@@ -65,8 +67,13 @@ export class GerenciarAnimaisComponent implements OnInit {
         width: '50%',
         height: '70%',
       });
-      ref.onClose.subscribe(() => {
-        this.exibirAnimais()
+      ref.onClose.subscribe((res) => {
+        if(res){
+          this.isLoading = true;
+          this.animais = [];
+          this.exibirAnimais();
+        }
+        this.exibirAnimais();
       });
     }, 100);
     // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
@@ -78,8 +85,8 @@ export class GerenciarAnimaisComponent implements OnInit {
       width: '50%',
       height: '100%',
     });
-    ref.onClose.subscribe(() => {
-      this.exibirAnimais()
+    ref.onClose.subscribe((res) => {
+      this.exibirAnimais();
     });
   }
 
@@ -94,7 +101,6 @@ export class GerenciarAnimaisComponent implements OnInit {
       (error) => {
         console.log('Erro:', error);
         this.isLoading = false;
-
       }
     );
   }
