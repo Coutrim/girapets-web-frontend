@@ -1,3 +1,4 @@
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,6 +16,7 @@ import { GerenciarAnimaisComponent } from './gerenciar-animais/gerenciar-animais
 import { MessageService } from 'primeng/api';
 import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/adicionar-animal.component';
 import { EditarAnimalComponent } from './gerenciar-animais/editar-animal/editar-animal.component';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { EditarAnimalComponent } from './gerenciar-animais/editar-animal/editar-
     DetalharAnimaisComponent,
     GerenciarAnimaisComponent,
     AdicionarAnimalComponent,
-    EditarAnimalComponent
+    EditarAnimalComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

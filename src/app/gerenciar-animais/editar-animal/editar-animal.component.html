@@ -1,7 +1,4 @@
 <div class="p-grid">
-
-
-
   <div style="display: flex;
     width: 100%;
     align-items: center;
@@ -12,11 +9,8 @@
     <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
       <i class="pi pi-trash" style="font-size: 20px;"></i>
     </button>
-
-
-
-
-    <button style="margin-top: 30px; margin-left: 20px;" class="botao-card-editar"  type="button" (click)="fileInput.click()">
+    <button style="margin-top: 30px; margin-left: 20px;" class="botao-card-editar" type="button"
+      (click)="fileInput.click()">
       <i class="pi pi-upload"></i>
       Adicionar novas fotos
     </button>
@@ -26,8 +20,6 @@
       <img [src]="image?.url" [alt]="image.name">
     </div>
 
-
-
     <!-- Exibe as imagens do serviço de imagens -->
     <button (click)="decrementIndex()">Anterior</button>
     <img style="width: 300px;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url" alt="Imagem">
@@ -36,9 +28,7 @@
     <!-- Elemento input type="file" oculto -->
     <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple
       class="hidden-file-input">
-
   </div>
-
   <div class="p-col">
     <div class="p-col">
       <h3>Nome</h3>
@@ -102,8 +92,6 @@
       </div>
     </div>
   </div>
-
-
 </div>
 <div style="display: flex; justify-content: flex-end;">
   <p-button type="button" (click)="editarAnimal()">Salvar</p-button>

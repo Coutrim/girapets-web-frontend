@@ -1,7 +1,4 @@
 import {
-  HttpClient
-} from '@angular/common/http';
-import {
   AfterViewInit,
   Component,
   OnInit
@@ -9,12 +6,8 @@ import {
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormBuilder,
-  FormControl,
-  FormGroup,
   ValidationErrors,
-  Validator,
-  Validators
+  Validator
 } from '@angular/forms';
 import {
   MessageService
@@ -25,6 +18,7 @@ import {
 import {
   AnimaisService
 } from 'src/app/shared/services/animais.service';
+import { LoadingService } from './../../shared/components/loading-service.service';
 
 @Component({
   selector: 'app-editar-animal',
@@ -33,8 +27,12 @@ import {
 })
 export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Validator, AfterViewInit {
 
-  constructor(private formbuilder: FormBuilder, private messageService: MessageService, private http: HttpClient, private animaisService: AnimaisService,
-    private ref: DynamicDialogRef) {
+  constructor(
+    private messageService: MessageService,
+    private animaisService: AnimaisService,
+    private loadingService:LoadingService,
+    private ref: DynamicDialogRef
+  ) {
 
   }
 
@@ -64,9 +62,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     }
   }
 
-
-
-
   formData = new FormData();
 
   selectedImages: File[] = [];
@@ -74,7 +69,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     name: string,
     url: string
   } [] = [];
-
 
   onFileSelected(event: any) {
     this.selectedImages = event.target.files;
@@ -91,8 +85,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       reader.readAsDataURL(file);
     }
   }
-
-
 
   nomeAnimal: any;
 
@@ -111,39 +103,34 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel, imagensModel)
   }
 
-
-
-
   editarAnimal() {
 
+    this.loadingService.ativarLoading();
+    for (const image of this.selectedImages) {
+      this.formData.append('imagem', image);
+    }
+    console.log(this.atributosModal);
 
-      for (const image of this.selectedImages) {
-        this.formData.append('imagem', image);
-
+    this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
+      type: 'application/json'
+    }));
+    this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
+      (response: any) => {
+        this.loadingService.desativarLoading();
+        this.ref.close()
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Animal salvo com sucesso.'
+        });
+      },err=>{
+        console.error(err);
+        this.loadingService.desativarLoading();
       }
-
-
-
-      this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
-        type: 'application/json'
-      }));
-
-
-      this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
-        (response: any) => {
-          this.ref.close()
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Animal salvo com sucesso.'
-          });
-
-        }
-      );
+    );
   }
 
   excluirImagem(){
-
-    if(this.atributosModal.imagens.length === 0 )
+    if(this.atributosModal.imagens.length === 0 || this.atributosModal.imagens.length === 1)
     {
       this.messageService.add({
         severity: 'warn',
@@ -151,32 +138,29 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       });
     }
     else{
-
-      this.animaisService.excluirImagem(this.atributosModal.imagens[this.arrayIndex].id).subscribe(
-        (response: any) => {
-
-        },
-        (error: any) => {
-          if (error.status === 200) {
-
-            setTimeout(() => {
-              this.buscarDadosAnimal();
-            }, 2000);
-
-            this.messageService.add({
-              severity: 'success',
-            summary: 'Imagem excluída com sucesso'
-            });
-          } else {
-            error
-          }
-        }
-      );
-
-
-
+      this.atributosModal.imagens = this.atributosModal.imagens.filter((imagem,index)=>index != this.arrayIndex);
+      if(this.arrayIndex !== 0){
+        this.arrayIndex = this.arrayIndex - 1;
+      }
+      // this.animaisService.excluirImagem(this.atributosModal.imagens[this.arrayIndex].id).subscribe(
+      //   (response: any) => {
+      //   },
+      //   (error: any) => {
+      //     if (error.status === 200) {
+      //       setTimeout(() => {
+      //         this.buscarDadosAnimal();
+      //       }, 2000);
+      //       this.messageService.add({
+      //         severity: 'success',
+      //       summary: 'Imagem excluída com sucesso'
+      //       });
+      //     } else {
+      //       error
+      //     }
+      //   }
+        // );
+    }
   }
-}
 
   ExibirMensagemCamposNulos() {
     this.messageService.add({
@@ -199,8 +183,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     }
   }
 
-
-
   onTouched: any = () => {};
   onChange: any = () => {};
 
@@ -220,6 +202,5 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.onTouched = fn;
   }
   setDisabledState ? (isDisabled: boolean) : void {
-
   }
 }

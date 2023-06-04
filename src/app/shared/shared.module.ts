@@ -33,7 +33,7 @@ import {ToastModule} from 'primeng/toast';
     MessageModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
 
 
     // Adicione aqui outros módulos do PrimeNG que você importou
@@ -52,8 +52,7 @@ import {ToastModule} from 'primeng/toast';
     MessageModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastModule
-
+    ToastModule,
     // Adicione aqui outros módulos do PrimeNG que você deseja exportar
   ],
   providers:[DialogService, DynamicDialogRef]

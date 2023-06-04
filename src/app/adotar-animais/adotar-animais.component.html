@@ -30,10 +30,7 @@ padding-left: 3%;">
   <!-- container de cards -->
   <div *ngIf="!isLoading" class="container-animais p-grid" style="display: flex;
   justify-content: center;">
-
-
     <!-- cards de animais -->
-
     <div class="p-grid" style="display: flex; justify-content: space-evenly; padding-left: 3%;">
       <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
         class="p-card-shadow p-col p-md-4">
@@ -52,6 +49,4 @@ padding-left: 3%;">
       </p-card>
     </div>
   </div>
-
-
 </div>

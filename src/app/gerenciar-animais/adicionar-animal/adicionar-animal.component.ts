@@ -1,18 +1,13 @@
 import {
-  HttpClient,
-  HttpHeaders
-} from '@angular/common/http';
-import {
   AfterViewInit,
   Component,
-  forwardRef,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  forwardRef
 } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -23,9 +18,6 @@ import {
   Validators
 } from '@angular/forms';
 import {
-  Message
-} from 'primeng/api';
-import {
   MessageService
 } from 'primeng/api';
 import {
@@ -34,6 +26,7 @@ import {
 import {
   AnimaisService
 } from '../../shared/services/animais.service';
+import { LoadingService } from './../../shared/components/loading-service.service';
 
 
 @Component({
@@ -55,13 +48,14 @@ import {
 })
 export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, Validator, AfterViewInit {
 
-  constructor(private formbuilder: FormBuilder, private messageService: MessageService, private http: HttpClient, private animaisService: AnimaisService,
-    private ref: DynamicDialogRef) {
-
-  }
+  constructor(
+    private messageService: MessageService,
+    private animaisService: AnimaisService,
+    private loadingService:LoadingService,
+    private ref: DynamicDialogRef
+  ) {}
 
   ngOnInit() {
-
   }
 
   uploadedFiles: any[] = [];
@@ -71,7 +65,6 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     for (let file of event.files) {
       this.uploadedFiles.push(file);
     }
-
     this.messageService.add({
       severity: 'info',
       summary: 'File Uploaded',
@@ -119,7 +112,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
 
   addAnimal() {
-
+    this.loadingService.ativarLoading();
     const animalData = {
       nome: this.animaisFormGroup.get('nome').value,
       sexo: this.animaisFormGroup.get('sexo').value,
@@ -132,9 +125,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
 
     for (const image of this.selectedImages) {
-
       this.formDataAnimal.append('imagem', image, image.name);
-
     }
 
     this.formDataAnimal.append('animal', new Blob([JSON.stringify(animalData)], {
@@ -147,27 +138,24 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
         severity: 'warn',
         summary: 'Campos obrigatórios não informados.'
       });
-
+      this.loadingService.desativarLoading();
     } else {
       this.animaisService.adicionarAnimal(this.formDataAnimal).subscribe(
         (response: any) => {
-
           this.messageService.add({
             severity: 'success',
             summary: 'Animal salvo com sucesso.'
           });
           // this.animaisFormGroup.reset()
-
-          this.ref.close()
-          console.log(response)
-
+          this.loadingService.desativarLoading();
+          this.ref.close();
+          console.log(response);
         },
         (error: any) => {
-          error
+          error;
+          this.loadingService.desativarLoading();
         }
       );
-
-
     }
 
 
@@ -196,13 +184,6 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     //   ExibirMensagemCamposNulos(){
     //     this.messageService.add({severity:'warn', summary:'Campos obrigatórios não informados'});
   }
-
-
-
-
-
-
-
   onTouched: any = () => {};
   onChange: any = () => {};
 

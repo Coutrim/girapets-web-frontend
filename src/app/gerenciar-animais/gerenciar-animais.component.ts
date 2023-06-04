@@ -1,13 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { DetalharAnimaisComponent } from '../adotar-animais/detalhar-animais/detalhar-animais.component';
+import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 import { AnimaisModel } from '../shared/models/animais-model';
 import { AnimaisService } from '../shared/services/animais.service';
-import { AdotarAnimaisComponent } from '../adotar-animais/adotar-animais.component';
 import { AdicionarAnimalComponent } from './adicionar-animal/adicionar-animal.component';
-import { MessageService } from 'primeng/api';
 import { EditarAnimalComponent } from './editar-animal/editar-animal.component';
 
 @Component({
@@ -17,10 +13,11 @@ import { EditarAnimalComponent } from './editar-animal/editar-animal.component';
 })
 export class GerenciarAnimaisComponent implements OnInit {
 
-  constructor(private animaisService: AnimaisService, private http: HttpClient, private sanitizer: DomSanitizer,
-    public dialogService: DialogService, private ref: DynamicDialogRef, private messageService: MessageService) {
-
-  }
+  constructor(
+    private animaisService: AnimaisService,
+    public dialogService: DialogService,
+    private messageService: MessageService
+  ) {}
 
   isLoading: boolean = true;
   animais: AnimaisModel[] = [];
@@ -31,22 +28,18 @@ export class GerenciarAnimaisComponent implements OnInit {
     this.exibirAnimais()
   }
 
-
   // Exibindo lista de animais do serviço
   exibirAnimais() {
-
     this.animaisService.listarAnimais().subscribe(
       (objetos) => {
         this.animais = objetos;
         this.isLoading = false
-
       },
       (error) => {
         console.log('Erro:', error);
+        this.isLoading = false;
       }
     );
-
-
   }
 
   nomeAnimal: any;
@@ -62,14 +55,11 @@ export class GerenciarAnimaisComponent implements OnInit {
     let idadeModel = idadeAnimal;
     let cidadeModel = cidadeAnimal
     const imagensModel = imagens;
-
-
     this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel,imagensModel);
   }
 
   abrirModalEditar() {
     setTimeout(() => {
-
       const ref = this.dialogService.open(EditarAnimalComponent, {
         header: "Editar animal ",
         width: '50%',
@@ -77,7 +67,7 @@ export class GerenciarAnimaisComponent implements OnInit {
       });
       ref.onClose.subscribe(() => {
         this.exibirAnimais()
-    });
+      });
     }, 100);
     // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
   }
@@ -88,10 +78,9 @@ export class GerenciarAnimaisComponent implements OnInit {
       width: '50%',
       height: '100%',
     });
-
     ref.onClose.subscribe(() => {
       this.exibirAnimais()
-  });
+    });
   }
 
   excluirAnimal(id){
@@ -99,13 +88,13 @@ export class GerenciarAnimaisComponent implements OnInit {
     this.isLoading = true
     this.animaisService.removerAnimal(id).subscribe(
       (response) => {
-        this.exibirAnimais()
-        this.isLoading = false
+        this.exibirAnimais();
         this.messageService.add({severity:'success', summary:'Animal excluído com sucesso.'});
-
       },
       (error) => {
         console.log('Erro:', error);
+        this.isLoading = false;
+
       }
     );
   }
