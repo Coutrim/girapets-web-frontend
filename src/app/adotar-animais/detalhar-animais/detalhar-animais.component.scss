@@ -1,5 +1,15 @@
 ::ng-deep {
 
+  .primeira-lista-informacoes{
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  ul {
+    list-style-type: none;
+  }
   .p-dialog{
     border-radius: 5px;
   }
@@ -7,11 +17,12 @@
   .header-modal{
     display: flex;
     justify-content: flex-end;
-    padding-top: 25px;
+    padding-top: 12px;
   }
   .imagem-paginador{
     width: 450px;
     height: 450px;
+    border-radius: 5px;
   }
   .botao-paginador{
     background: transparent;
@@ -62,10 +73,9 @@
 
 
   .botoes-container {
-    margin-top: 40px;
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    width: 30%;
   }
 
 
