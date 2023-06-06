@@ -1,13 +1,21 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { AnimaisModel } from '../models/animais-model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AnimaisService {
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) {
+
+
+  }
+
+   apiUrl = environment.apiURL;
+
 
 
   private API_ANIMAL = 'http://localhost:8080/api/animais';
@@ -56,37 +64,37 @@ export class AnimaisService {
   }
 
   listarAnimais() : Observable<AnimaisModel[]>{
-    return this.http.get<AnimaisModel[]>(`${this.API_ANIMAL}`);
+    return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
   }
 
   adicionarAnimal(formData: FormData) {
-    return this.http.post(`${this.API_ANIMAL}`, formData);
+    return this.http.post(`${this.apiUrl}/animais`, formData);
   }
   recuperarPorId(id:number){
-    return this.http.get(`${this.API_ANIMAL}/${id}`);
+    return this.http.get(`${this.apiUrl}/animais/${id}`);
   }
   removerAnimal(id: number) :Observable<any> {
-    return this.http.delete<any>( `${this.API_ANIMAL}/${id}`)
+    return this.http.delete<any>( `${this.apiUrl}/animais/${id}`)
   }
 
   fazerUploadImagens(formData: FormData){
-    return this.http.post('http://localhost:8080/api/imagens', formData);
+    return this.http.post(`${this.apiUrl}/imagens`, formData);
   }
 
   listarImagens(id: number): Observable<any> {
-    return this.http.get<any>( `http://localhost:8080/api/imagens/${id}`)
+    return this.http.get<any>( `${this.apiUrl}/imagens/${id}`)
   }
 
 
   editarAnimal(formData: FormData, id: number) {
-    return this.http.put(`${this.API_ANIMAL}/${id}`, formData);
+    return this.http.put(`${this.apiUrl}/animais/${id}`, formData);
   }
 
   editarImagens(formData: FormData, id: number): Observable<any> {
-    return this.http.put(`http://localhost:8080/api/imagens/${id}`, formData);
+    return this.http.put(`${this.apiUrl}/imagens/${id}`, formData);
   }
 
   excluirImagem(id: number): Observable<any>{
-    return this.http.delete<any>( `http://localhost:8080/api/imagens/${id}`)
+    return this.http.delete<any>( `${this.apiUrl}/imagens/${id}`)
   }
 }

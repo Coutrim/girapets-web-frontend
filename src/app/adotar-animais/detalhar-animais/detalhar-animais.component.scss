@@ -1,53 +1,65 @@
 ::ng-deep {
 
-  .primeira-lista-informacoes{
-    width: 200px;
+  .primeira-lista-informacoes {
+    width: 190px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-right: 20px;
   }
-
+  .segunda-lista-informacoes{
+    width: 190px;
+    margin-right: 20px;
+    margin-top: -9px;
+  }
   ul {
     list-style-type: none;
   }
-  .p-dialog{
+
+  .p-dialog {
     border-radius: 5px;
   }
 
-  .header-modal{
+  .header-modal {
     display: flex;
     justify-content: flex-end;
     padding-top: 12px;
   }
-  .imagem-paginador{
-    width: 450px;
-    height: 450px;
+
+  .imagem-paginador {
+    width: 85%;
+    height: 85%;
     border-radius: 5px;
   }
-  .botao-paginador{
+
+  .botao-paginador {
     background: transparent;
     border: none;
   }
 
-  .container-componente{
+  .container-componente {
     display: flex;
     flex-direction: row;
   }
 
-  .paginador{
+  .paginador {
     height: 505px;
     display: flex;
     align-items: center;
   }
-  .icone-paginador{
+
+  .icone-paginador {
     font-size: 40px;
   }
-  .p-dialog{
-    width: 50%;
+
+  .p-dialog {
     min-width: 360px;
-    height: 70%;
-    z-index: 1001;
   }
+  .p-dialog .p-dialog-content {
+
+    border-radius: 5px;
+
+}
   img {
 
     width: 320px;
@@ -73,15 +85,75 @@
 
 
   .botoes-container {
+    padding-top: 60px;
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 230px;
   }
 
 
+  @media screen and (max-width: 1180px) {
+    .imagem-paginador {
+      width: 85%;
+      height: 75%;
+      border-radius: 5px;
+    }
+
+  }
+
+  @media screen and (max-width: 1079px) {
+    .imagem-paginador {
+      width: 85%;
+      height: 60%;
+      border-radius: 5px;
+    }
+
+  }
+
+  @media screen and (max-width: 975px) {
+    .imagem-paginador {
+      width: 290px;
+      height: 290px;
+      border-radius: 5px;
+    }
+
+    .container-componente {
+      display: flex;
+      flex-direction: column;
+    }
 
 
+    #icon-paginator-left{
+      font-size: 30px !important;
+      color: #636a72;
+    }
+    #icon-paginator-right{
+      font-size: 30px !important;
+      color: #636a72;
+    }
+    .fa .fa-chevron-left {
+      font-size: 25px;
+      color: #636a72;
+    }
+    .paginador {
+      height: 390px;
+      display: flex;
+      align-items: center;
+      margin-left: -20px;
+  }
 
+    .container-ul{
+      display: flex;
+      flex-direction: column;
+      margin-top: -25px;
+    }
+    .botoes-container {
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      width: 230px;
+  }
+  }
 
 
 

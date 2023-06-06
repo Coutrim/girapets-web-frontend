@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: "https://girapets-backend-rest.onrender.com/api"
 };
