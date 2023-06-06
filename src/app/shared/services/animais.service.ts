@@ -18,7 +18,7 @@ export class AnimaisService {
 
 
 
-  private API_ANIMAL = 'http://localhost:8080/api/animais';
+  // private API_ANIMAL = 'http://localhost:8080/api/animais';
 
   atributosAnimal = new BehaviorSubject<any>(null);
 
