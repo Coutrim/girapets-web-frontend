@@ -1,5 +1,11 @@
 <div class="header-modal">
-  <i class="fa fa-x" style="font-size:19px; cursor: pointer;" (click)="FecharModal()"></i>
+  <div style="display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;" (click)="FecharModal()">
+  <i class="fa fa-x" style="font-size:19px;" (click)="FecharModal()"></i>
+</div>
 </div>
 
 
@@ -7,16 +13,20 @@
   <div class="paginador">
     <button class="botao-paginador" (click)="decrementIndex()"><i class="fa fa-chevron-left " id="icon-paginator-left"
         style="font-size: 40px; color: #636a72"></i></button>
-    <img class="imagem-paginador" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
-      alt="Imagem">
-    <button class="botao-paginador" (click)="incrementIndex()"><i class="fa fa-chevron-right"  id="icon-paginator-right"
-        style="font-size: 40px; color: #636a72;"></i></button>
+    <div class="container-imagem">
+      <img class="imagem-paginador" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
+        alt="Imagem">
+      <span class="contador-imagens">Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}</span>
+    </div>
+    <button class="botao-paginador" (click)="incrementIndex()"><i class="fa fa-chevron-right" id="icon-paginator-right"
+        style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
+
   </div>
 
 
   <div class="container-modal">
 
-    <div  class="container-ul">
+    <div class="container-ul">
 
       <h1> {{ atributosModal.nome }} </h1>
 
@@ -53,11 +63,10 @@
         </div>
       </ul>
 
-     </div>
+    </div>
 
 
-   </div>
+  </div>
 
 
 </div>
-

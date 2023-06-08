@@ -25,7 +25,7 @@ export class DetalharAnimaisComponent implements OnInit {
 
     this.animaisService.getAtributos().subscribe(valor => {
       this.atributosModal = valor;
-      console.log(this.atributosModal)
+
     });
 
   }
@@ -36,6 +36,8 @@ export class DetalharAnimaisComponent implements OnInit {
     if (this.arrayIndex < this.atributosModal.imagens.length - 1) {
       this.arrayIndex++;
     }
+    console.log(this.atributosModal?.imagens.length)
+    console.log(this.arrayIndex)
   }
 
   decrementIndex() {
