@@ -18,6 +18,7 @@
 
   .p-dialog {
     border-radius: 5px;
+
   }
 
   .header-modal {
@@ -40,6 +41,7 @@
   .container-componente {
     display: flex;
     flex-direction: row;
+
   }
 
   .paginador {
@@ -54,10 +56,13 @@
 
   .p-dialog {
     min-width: 360px;
-  }
-  .p-dialog .p-dialog-content {
 
+  }
+
+  .p-dialog .p-dialog-content {
+    overflow: hidden;
     border-radius: 5px;
+    overflow-y: auto;
 
 }
   img {

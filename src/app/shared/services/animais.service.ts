@@ -63,38 +63,79 @@ export class AnimaisService {
     return this.atributosAnimal.asObservable();
   }
 
-  listarAnimais() : Observable<AnimaisModel[]>{
-    return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
-  }
+
+
+
+  // Voltar esse código quando fazer deploy pra produção
+
+  // listarAnimais() : Observable<AnimaisModel[]>{
+  //   return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
+  // }
+
+  // adicionarAnimal(formData: FormData) {
+  //   return this.http.post(`${this.apiUrl}/animais`, formData);
+  // }
+  // recuperarPorId(id:number){
+  //   return this.http.get(`${this.apiUrl}/animais/${id}`);
+  // }
+  // removerAnimal(id: number) :Observable<any> {
+  //   return this.http.delete<any>( `${this.apiUrl}/animais/${id}`)
+  // }
+
+  // fazerUploadImagens(formData: FormData){
+  //   return this.http.post(`${this.apiUrl}/imagens`, formData);
+  // }
+
+  // listarImagens(id: number): Observable<any> {
+  //   return this.http.get<any>( `${this.apiUrl}/imagens/${id}`)
+  // }
+
+
+  // editarAnimal(formData: FormData, id: number) {
+  //   return this.http.put(`${this.apiUrl}/animais/${id}`, formData);
+  // }
+
+  // editarImagens(formData: FormData, id: number): Observable<any> {
+  //   return this.http.put(`${this.apiUrl}/imagens/${id}`, formData);
+  // }
+
+  // excluirImagem(id: number): Observable<any>{
+  //   return this.http.delete<any>( `${this.apiUrl}/imagens/${id}`)
+  // }
 
   adicionarAnimal(formData: FormData) {
-    return this.http.post(`${this.apiUrl}/animais`, formData);
+    return this.http.post(`https://girapets-backend-rest.onrender.com/api/animais`, formData);
   }
   recuperarPorId(id:number){
-    return this.http.get(`${this.apiUrl}/animais/${id}`);
+    return this.http.get(`https://girapets-backend-rest.onrender.com/api/animais/${id}`);
   }
   removerAnimal(id: number) :Observable<any> {
-    return this.http.delete<any>( `${this.apiUrl}/animais/${id}`)
+    return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/animais/${id}`)
   }
 
   fazerUploadImagens(formData: FormData){
-    return this.http.post(`${this.apiUrl}/imagens`, formData);
+    return this.http.post(`https://girapets-backend-rest.onrender.com/api/imagens`, formData);
   }
 
   listarImagens(id: number): Observable<any> {
-    return this.http.get<any>( `${this.apiUrl}/imagens/${id}`)
+    return this.http.get<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
   }
 
 
   editarAnimal(formData: FormData, id: number) {
-    return this.http.put(`${this.apiUrl}/animais/${id}`, formData);
+    return this.http.put(`https://girapets-backend-rest.onrender.com/api/animais/${id}`, formData);
   }
 
   editarImagens(formData: FormData, id: number): Observable<any> {
-    return this.http.put(`${this.apiUrl}/imagens/${id}`, formData);
+    return this.http.put(`https://girapets-backend-rest.onrender.com/api/imagens/${id}`, formData);
   }
 
   excluirImagem(id: number): Observable<any>{
-    return this.http.delete<any>( `${this.apiUrl}/imagens/${id}`)
+    return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
   }
+
+  listarAnimais() : Observable<AnimaisModel[]>{
+    return this.http.get<AnimaisModel[]>(`https://girapets-backend-rest.onrender.com/api/animais`);
+  }
+
 }

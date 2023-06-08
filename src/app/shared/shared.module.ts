@@ -13,7 +13,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
-
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 
@@ -34,6 +35,8 @@ import {ToastModule} from 'primeng/toast';
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
+    SplitButtonModule,
+    SidebarModule
 
 
     // Adicione aqui outros módulos do PrimeNG que você importou
@@ -53,7 +56,9 @@ import {ToastModule} from 'primeng/toast';
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
-    // Adicione aqui outros módulos do PrimeNG que você deseja exportar
+    SplitButtonModule,
+    SidebarModule
+
   ],
   providers:[DialogService, DynamicDialogRef]
 })

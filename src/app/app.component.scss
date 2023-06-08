@@ -1,32 +1,40 @@
-header{
-  background-color: white;
-  box-shadow: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
-  transition: top 0.5s ease 0s;
-  height: 90px;
-  padding: 20px;
-  text-align: center;
-  margin-bottom: 20px;
-  // z-index: 9999;
-}
+::ng-deep {
 
-  h1{
+
+  header {
+    background-color: white;
+    box-shadow: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+    transition: top 0.5s ease 0s;
+    height: 90px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    // z-index: 9999;
+  }
+
+  h1 {
     display: flex;
     color: #4783b3;
     justify-content: space-between;
-    width: 13vw;
+    width: 135px;
   }
+
   /* Estilos para o corpo */
   body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Define a altura mínima do corpo como 100% da altura da viewport */
+    min-height: 100vh;
+    /* Define a altura mínima do corpo como 100% da altura da viewport */
     margin: 0;
+    overflow-x: hidden;
   }
 
   main {
-    flex: 1; /* Ocupa todo o espaço restante do corpo */
+    flex: 1;
+    /* Ocupa todo o espaço restante do corpo */
     padding: 20px;
+    overflow-x: hidden;
   }
 
   /* Estilos para o rodapé */
@@ -34,31 +42,188 @@ header{
     background-color: #1272c0;
     color: #fff;
     padding: 20px;
-
+    overflow-x: hidden;
   }
+
   a {
     text-decoration: none;
-    color: White; /* Defina a cor do link conforme desejado */
+    color: White;
+    /* Defina a cor do link conforme desejado */
   }
 
-  ::ng-deep{
-    .botaoEntrar .p-ripple{
-      background-color: white;
-      color: #1272c0;
-      border-radius: 5px;
-    }
 
-    .p-button .botaoHeader {
-      color: #ffffff;
-      background: red;
-      border: 1px solid #2196F3;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-      border-radius: 5px;
+
+  .p-sidebar .p-sidebar-close {
+    width: 2rem;
+    height: 2rem;
+    color: white !important;
+    border: 0 none;
+    background: transparent;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
-  .p-button{
+
+  .p-sidebar-left.p-sidebar-active {
+    background: #2196F3;
+  }
+
+  .p-splitbutton .p-splitbutton-defaultbutton {
+    -ms-flex: 1 1 auto;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    border-top-right-radius: 0;
+    flex: 1 1 auto;
+    // display: none;
+  }
+
+  .botaoEntrar .p-ripple {
+    background-color: white;
+    color: #1272c0;
+    border-radius: 5px;
+  }
+
+  .p-button .botaoHeader {
+    color: #ffffff;
+    background: red;
+    border: 1px solid #2196F3;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+  }
+
+  .p-button {
     position: inherit;
   }
 
+
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
   }
+
+  .header-novo {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+  }
+
+  .container-dos-botoes {
+    display: flex;
+    width: 38%;
+    min-width: 506px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #333;
+    padding: 10px 20px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: none;
+
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu li {
+    margin-right: 20px;
+  }
+
+  .menu li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .ul-sidebar {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-left: -30px;
+    margin-top: -20px;
+  }
+
+
+
+  @media only screen and (max-width: 1083px) {
+    .menu {
+      display: none;
+    }
+
+    .logo-botao-header-mobile {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 20px;
+    }
+
+    .menu-icon {
+      display: block;
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .menu-icon.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-icon.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-icon.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .menu-icon.active~.menu {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+
+
+
+
+
+
+
+}

@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { LoadingService } from './shared/components/loading-service.service';
 
 @Component({
@@ -12,11 +13,36 @@ export class AppComponent {
 
   constructor(private loadingService:LoadingService,private cdref: ChangeDetectorRef){
   }
+
+  items: MenuItem[];
   isActive:boolean = false;
+  displaySideBar: boolean;
+
+
+
+
   ngOnInit(){
+
+
+
     this.loadingService.active.subscribe(isActive=>{
       this.isActive = isActive;
       this.cdref.detectChanges();
     })
+
+
+    this.items = [
+      {label: 'Update', icon: 'pi pi-refresh', command: () => {
+
+      }},
+      {label: 'Delete', icon: 'pi pi-times', command: () => {
+
+      }},
+      {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
+      {separator: true},
+      {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
+  ];
   }
+
+
 }

@@ -1,7 +1,8 @@
 import {
   AfterViewInit,
   Component,
-  OnInit
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
 import {
   AbstractControl,
@@ -24,7 +25,8 @@ import { LoadingService } from './../../shared/components/loading-service.servic
 @Component({
   selector: 'app-editar-animal',
   templateUrl: './editar-animal.component.html',
-  styleUrls: ['./editar-animal.component.scss']
+  styleUrls: ['./editar-animal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Validator, AfterViewInit {
 

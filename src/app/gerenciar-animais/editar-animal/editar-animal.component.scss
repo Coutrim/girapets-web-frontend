@@ -3,4 +3,12 @@
   .botao-lixeira:hover{
     color: red;
   }
+
+  .p-dialog .p-dialog-content {
+    border-radius: 0px !important;
+    overflow: hidden;
+    overflow-y: auto;
+
+
+}
 }
