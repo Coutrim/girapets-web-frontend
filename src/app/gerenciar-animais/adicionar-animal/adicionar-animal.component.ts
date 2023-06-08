@@ -101,12 +101,12 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   animaisFormGroup: FormGroup = new FormGroup({
     nome: new FormControl(null, Validators.required),
-    especie: new FormControl(null),
-    sexo: new FormControl(null),
-    raça: new FormControl(null),
-    idade: new FormControl(null),
-    descricao: new FormControl(null),
-    cidade: new FormControl(null),
+    especie: new FormControl(null, Validators.required),
+    sexo: new FormControl(null, Validators.required),
+    raça: new FormControl(null, Validators.required),
+    idade: new FormControl(null, Validators.required),
+    descricao: new FormControl(null, Validators.required),
+    cidade: new FormControl(null, Validators.required),
 
   });
 
@@ -133,13 +133,26 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     }));
 
     if (this.animaisFormGroup.invalid || this.uploadedImages.length === 0) {
-      // this.ExibirMensagemCamposNulos()
-      this.messageService.add({
-        severity: 'warn',
-        summary: 'Campos obrigatórios não informados.'
-      });
-      this.loadingService.desativarLoading();
-    } else {
+      if(this.uploadedImages.length === 0){
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Pelo menos uma imagem deve ser adicionada.'
+        });
+        this.loadingService.desativarLoading();
+      }
+
+      if(this.animaisFormGroup.invalid){
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Campos obrigatórios não informados.'
+        });
+        this.loadingService.desativarLoading();
+      }
+
+    }
+
+
+    else {
       this.animaisService.adicionarAnimal(this.formDataAnimal).subscribe(
         (response: any) => {
           this.messageService.add({
