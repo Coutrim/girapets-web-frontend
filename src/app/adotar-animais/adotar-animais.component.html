@@ -6,29 +6,23 @@ align-items: center;
 padding-left: 3%;">
   <h2 class="titulo-adocao">Gatos e cachorros para adoção em Girassol-GO</h2>
 
-  <div style="padding-bottom: 3%; width: 50%; padding-top: 1.5%;">
+  <div class="toolbar-container">
     <p-toolbar>
       <div class="p-toolbar-group-left" style="width: 50%;">
         <div class="filtros">
-          <h2>Filtrar por:</h2>
+          <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
           <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
-          <h2>Cachorro</h2>
+          <h2 class="label-filtros" >Cachorro</h2>
           <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
-          <h2>Gato</h2>
+          <h2 class="label-filtros" >Gato</h2>
         </div>
       </div>
     </p-toolbar>
   </div>
 
-  <!-- Loading -->
-  <svg *ngIf="isLoading" class="spinner" width="65px" height="65px" viewBox="0 0 66 66"
-    xmlns="http://www.w3.org/2000/svg">
-    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-  </svg>
-
 
   <!-- container de cards -->
-  <div *ngIf="!isLoading" class="container-animais p-grid" style="display: flex;
+  <div class="container-animais p-grid" style="display: flex;
   justify-content: center;">
     <!-- cards de animais -->
     <div class="p-grid" style="display: flex; justify-content: space-evenly; width: 100%; padding-right: 20px;">

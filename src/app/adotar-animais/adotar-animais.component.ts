@@ -25,6 +25,8 @@ import {
 } from './detalhar-animais/detalhar-animais.component';
 import { concatMap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { LoadingComponent } from '../shared/components/loading/loading.component';
+import { LoadingService } from '../shared/components/loading-service.service';
 
 
 
@@ -39,7 +41,7 @@ export class AdotarAnimaisComponent implements OnInit {
   atributosModal: any;
 
   constructor(private animaisService: AnimaisService, private http: HttpClient, private sanitizer: DomSanitizer,
-    public dialogService: DialogService, private ref: DynamicDialogRef) {
+    public dialogService: DialogService, private ref: DynamicDialogRef, private loadingService : LoadingService) {
 
   }
 
@@ -81,14 +83,17 @@ export class AdotarAnimaisComponent implements OnInit {
 
   // Exibindo lista de animais do serviço
   exibirAnimais() {
+    this.loadingService.ativarLoading();
     this.animaisService.listarAnimais().subscribe(
       (objetos) => {
         this.animais = objetos;
         console.log(this.animais)
-        this.isLoading = false;
+
+        this.loadingService.desativarLoading()
       },
       (error) => {
         console.log('Erro:', error);
+        this.loadingService.desativarLoading()
       }
     );
 

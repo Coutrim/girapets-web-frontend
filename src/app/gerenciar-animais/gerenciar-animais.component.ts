@@ -32,14 +32,15 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   // Exibindo lista de animais do serviço
   exibirAnimais() {
+    this.loadingService.ativarLoading()
     this.animaisService.listarAnimais().subscribe(
       (objetos) => {
         this.animais = objetos;
-        this.isLoading = false
+        this.loadingService.desativarLoading()
       },
       (error) => {
         console.log('Erro:', error);
-        this.isLoading = false;
+        this.loadingService.desativarLoading()
       }
     );
   }
@@ -95,15 +96,17 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   excluirAnimal(id){
     window.scrollTo(0,0)
-    this.isLoading = true
+    this.loadingService.ativarLoading()
     this.animaisService.removerAnimal(id).subscribe(
       (response) => {
         this.exibirAnimais();
+        this.loadingService.desativarLoading()
         this.messageService.add({severity:'success', summary:'Animal excluído com sucesso.'});
       },
       (error) => {
+        this.loadingService.desativarLoading()
         console.log('Erro:', error);
-        this.isLoading = false;
+
       }
     );
   }
