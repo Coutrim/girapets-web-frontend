@@ -1,4 +1,4 @@
-<div class="header-modal">
+<!-- <div class="header-modal">
   <div style="display: flex;
   width: 25px;
   height: 25px;
@@ -6,7 +6,7 @@
   align-items: center;" (click)="FecharModal()">
   <i class="fa fa-x" style="font-size:19px;" (click)="FecharModal()"></i>
 </div>
-</div>
+</div> -->
 
 
 <div class="container-componente">
@@ -28,41 +28,48 @@
 
     <div class="container-ul">
 
-      <h1> {{ atributosModal.nome }} </h1>
-
+      <div class="titulo-card-detail">
+        <h1 style="display: flex;
+      justify-content: flex-end;"> {{ atributosModal.nome }} </h1>
+        <i style="font-size: 25px;" class="fa-regular fa-heart" (click)="exibirMsgNaoImplementado()" ></i>
+      </div>
+      <div style="display: flex; justify-content: center; width: 341px;">
+        <hr style=" width: 280px;
+      border-top: 2px solid #e9e0e0;">
+      </div>
       <ul class="primeira-lista-informacoes">
-        <li>
+        <li class="li-modal-detail">
           <h3>Espécie</h3>
           {{atributosModal.especie}}
         </li>
-        <li>
+        <li class="li-modal-detail">
           <h3>Raça</h3>
           {{atributosModal.raca}}
         </li>
-        <li>
+        <li class="li-modal-detail">
           <h3>Sexo</h3>
           {{atributosModal.sexo}}
         </li>
-        <li>
+        <li class="li-modal-detail">
           <h3>Idade</h3>
           {{atributosModal.idade + " anos"}}
         </li>
       </ul>
       <ul class="segunda-lista-informacoes">
-        <li>
+        <li >
           <h3>Cidade</h3>
           {{atributosModal.cidade}}
         </li>
-        <li>
-          <h3>Descrição</h3>
+        <li style="width: 340px;">
+          <h3 >Descrição</h3>
           {{atributosModal.descricao}}
         </li>
-        <div class="botoes-container">
-          <p-button label="Fechar" (click)="FecharModal()"></p-button>
-          <p-button class="botao-card-animal-detalhar" routerLink="/login" label="Quero adotar"></p-button>
-        </div>
-      </ul>
 
+      </ul>
+      <div class="botoes-container">
+        <p-button label="Fechar" (click)="FecharModal()"></p-button>
+        <p-button class="botao-card-animal-detalhar" routerLink="/login" label="Quero adotar"></p-button>
+      </div>
     </div>
 
 

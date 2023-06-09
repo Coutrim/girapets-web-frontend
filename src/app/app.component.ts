@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LoadingService } from './shared/components/loading-service.service';
 
@@ -44,5 +44,18 @@ export class AppComponent {
   ];
   }
 
+  exibirToastMenor = false;
+  exibirToastMaior = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    const larguraTela = window.innerWidth;
+    this.exibirToastMenor = larguraTela < 975;
+    // this.exibirToastMaior = larguraTela > 975 && larguraTela < 4000;
+  }
+
+
 
 }
+
+

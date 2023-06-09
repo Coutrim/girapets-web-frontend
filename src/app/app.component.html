@@ -1,11 +1,12 @@
 <body>
-  <p-toast></p-toast>
+  <p-toast ></p-toast>
+
   <p-sidebar [(visible)]="displaySideBar" dismissable="false">
     <a routerLink="/home">
       <h1 style="width: 180px !important; color: white;"><i style="color: white;" class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
     </a>
     <ul class="ul-sidebar">
-      <li class="li-sidebar" > <a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/home">Inicio</a></li>
+      <li class="li-sidebar"> <a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/home">Inicio</a></li>
       <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/login">Entrar</a></li>
       <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/quero-adotar">Quero adotar</a></li>
       <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="">Quem somos</a></li>
@@ -31,14 +32,14 @@
 
       <ul class="menu">
 
-        <li><a routerLink="/home">
+        <li class="li-header-app"><a routerLink="/home">
             <h1><i class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
           </a></li>
-        <li> <a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="/home">Home</a></li>
-        <li><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Quem somos</a></li>
-        <li><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Contato</a></li>
-        <li><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Ajude-nos</a></li>
-        <li><a style="color: rgb(117, 117, 117); font-size: 18px;" routerLink="">FAQ</a></li>
+        <li class="li-header-app"> <a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="/home">Home</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Quem somos</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Contato</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Ajude-nos</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 18px;" routerLink="">FAQ</a></li>
 
         <div class="container-dos-botoes">
           <p-button routerLink="/login" label="Quero doar"></p-button>

@@ -36,11 +36,11 @@ padding-left: 3%;">
         </p-title>
         <ng-template class="footer-adotar-animais" pTemplate="footer">
           <div style="display: flex !important;
-          justify-content: flex-end !important;">
+          justify-content: center !important;">
           <div class="container-botoes">
-          <button  class="botao-card-detalhes" label="Detalhes" (click)="show()"
+          <button  class="botao-card-detalhes" (click)="show()"
             (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto. cidade, objeto.imagens)">
-            Detalhes
+            Saiba mais
           </button>
           <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
         </div>

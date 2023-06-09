@@ -1,5 +1,21 @@
 ::ng-deep {
 
+  @media screen and (max-width:975px) {
+    .p-toast-top-right {
+      left: 4px !important;
+      top: 20px;
+  }
+
+  .p-toast {
+    position: fixed;
+    width: 390px !important;
+  }
+  }
+
+  app-detalhar-animais{
+    display: flex;
+    justify-content: center;
+  }
 
   header {
     background-color: white;
@@ -97,11 +113,16 @@
   }
 
 
-
-  .li-sidebar {
+  .li-header-app{
     display: flex;
     align-items: center;
+  }
+
+  .li-sidebar{
+    display: flex !important;
+    align-items: center !important;
     margin-right: 40px;
+    background: red;
   }
 
   .header-novo {

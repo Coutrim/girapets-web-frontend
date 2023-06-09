@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AnimaisModel } from 'src/app/shared/models/animais-model';
 import { AnimaisService } from 'src/app/shared/services/animais.service';
-import { LazyLoadEvent } from 'primeng/api';
+import { LazyLoadEvent, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-detalhar-animais',
@@ -11,7 +11,7 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class DetalharAnimaisComponent implements OnInit {
 
-  constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef) { }
+  constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef, private messageService: MessageService) { }
 
 
   arrayImagens: any
@@ -30,14 +30,15 @@ export class DetalharAnimaisComponent implements OnInit {
 
   }
 
-
+  exibirMsgNaoImplementado(){
+    this.messageService.add({severity:'warn', summary:'Funcionalidade não implementada'});
+  }
 
   incrementIndex() {
     if (this.arrayIndex < this.atributosModal.imagens.length - 1) {
       this.arrayIndex++;
     }
-    console.log(this.atributosModal?.imagens.length)
-    console.log(this.arrayIndex)
+
   }
 
   decrementIndex() {

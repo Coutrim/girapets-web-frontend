@@ -105,7 +105,7 @@ export class AdotarAnimaisComponent implements OnInit {
 
       const ref = this.dialogService.open(DetalharAnimaisComponent, {
         // header: this.nomeAnimal,
-        showHeader: false,
+        // showHeader: false,
         width: '70%',
         height: '83%',
       });
