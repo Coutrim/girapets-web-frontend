@@ -1,33 +1,39 @@
 <div class="p-grid" *ngIf="atributosModal">
-  <div style="display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;">
+  <div class="div-img">
 
     <!-- Botão upload -->
 
-    <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
-      <i class="pi pi-trash" style="font-size: 20px;"></i>
-    </button>
-    <button style="margin-top: 30px; margin-left: 20px;" class="botao-card-editar" type="button"
-      (click)="fileInput.click()">
+    <button style="margin-top: 20px;
+    margin-bottom: 20px; border-radius: 6px;" class="botao-card-editar" type="button" (click)="fileInput.click()">
       <i class="pi pi-upload"></i>
       Adicionar novas fotos
     </button>
     <!-- Exibe as imagens upadas -->
 
     <div *ngFor="let image of uploadedImages">
-      <img [src]="image?.url" [alt]="image.name">
+      <img style=" width: 280px;
+      height: 210px;
+      border-radius: 5px !important;"[src]="image?.url" [alt]="image.name">
     </div>
 
     <!-- Exibe as imagens do serviço de imagens -->
-    <button (click)="decrementIndex()">Anterior</button>
-    <img style="width: 300px;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url" alt="Imagem">
-    <button (click)="incrementIndex()">Próximo</button>
+    <img style=" width: 280px;
+    height: 210px;
+    border-radius: 5px !important;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
+      alt="Imagem">
+    <div class="botoes-paginador">
+      <button (click)="decrementIndex()"><i class="fa fa-chevron-left"
+          style="font-size: 30px; color: #636a72; cursor: pointer;"></i></button>
+      <button (click)="incrementIndex()"><i class="fa fa-chevron-right"
+          style="font-size: 30px; color: #636a72; cursor: pointer;"></i></button>
+    </div>
+    <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
+      <i class="pi pi-trash" style="font-size: 20px;"></i>
+    </button>
 
     <!-- Elemento input type="file" oculto -->
-    <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png" multiple
-      class="hidden-file-input">
+    <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png"
+      multiple class="hidden-file-input">
   </div>
   <div class="p-col">
     <div class="p-col">

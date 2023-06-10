@@ -115,10 +115,20 @@
     height: 100%;
   }
 
+  .p-grid{
+    overflow-x: hidden;
+  }
 
 
+.p-dialog{
+  overflow-x: hidden;
+  min-width: 320px;
+}
 
-
+.p-inputtext{
+  margin: 0;
+  border: 1px solid #8e8585 !important;
+}
 
 .p-dialog .p-dialog-content {
   background: #ffffff;
@@ -127,6 +137,7 @@
   height: 100%;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+
 }
 
 @media screen and (max-width: 928px){

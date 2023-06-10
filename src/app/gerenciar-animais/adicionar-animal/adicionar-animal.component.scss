@@ -1,7 +1,19 @@
 ::ng-deep{
-  .input-add-animal {
-    margin: 0;
-    border: 1px solid #8e8a8a !important;
+
+  .p-dialog {
+    -ms-flex-direction: column;
+    -ms-transform: scale(1);
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    max-height: 90%;
+    position: relative;
+    transform: scale(1);
+    overflow-x: hidden;
+}
+
+.p-grid{
+  overflow-x: hidden;
 }
 
 .hidden-file-input {

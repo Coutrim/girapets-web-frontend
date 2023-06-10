@@ -1,14 +1,39 @@
+::ng-deep {
 
-::ng-deep{
-  .botao-lixeira:hover{
-    color: red;
-  }
 
   .p-dialog .p-dialog-content {
     border-radius: 0px !important;
     overflow: hidden;
     overflow-y: auto;
+  }
 
 
 }
+
+.div-img{
+  display: flex;
+  width: 100% !important;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 300px !important;
+  margin-bottom: 40px;
+}
+
+.botoes-paginador{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 40%;
+}
+
+.botao-lixeira:hover {
+  color: red;
+}
+
+.botao-lixeira{
+  background-color: transparent;
+    border: none;
+    margin-left: 90%;
+    margin-top: -30px;
 }
