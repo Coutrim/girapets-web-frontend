@@ -80,7 +80,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
   onFileSelected(event: any) {
     this.selectedImages = event.target.files;
-    this.uploadedImages = []; // Limpar o array de imagens
+    // this.uploadedImages = []; // Limpar o array de imagens
     for (let i = 0; i < this.selectedImages.length; i++) {
       const file = this.selectedImages[i];
       const reader = new FileReader();

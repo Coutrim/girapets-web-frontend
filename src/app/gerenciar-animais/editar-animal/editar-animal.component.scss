@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  width: 40%;
+  width: 100px;
 }
 
 .botao-lixeira:hover {
@@ -36,4 +36,18 @@
     border: none;
     margin-left: 90%;
     margin-top: -30px;
+}
+
+.imagens-upadas{
+  margin-top: 30px;
+  display: flex;
+  min-width: 330px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.p-grid{
+  display: flex;
+  justify-content: center;
 }

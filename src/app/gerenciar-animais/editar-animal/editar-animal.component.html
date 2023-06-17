@@ -1,4 +1,12 @@
+<span *ngIf="uploadedImages.length > 0" >Imagens a serem adicionadas: </span>
 <div class="p-grid" *ngIf="atributosModal">
+  <div class="imagens-upadas" >
+    <img *ngFor="let image of uploadedImages"  style=" width: 160px;
+    height: 180px;
+    border-radius: 5px !important;
+    min-width: 160px;
+    min-height: 180px; margin-bottom: 10px;" [src]="image?.url" [alt]="image.name">
+  </div>
   <div class="div-img">
 
     <!-- Botão upload -->
@@ -10,11 +18,6 @@
     </button>
     <!-- Exibe as imagens upadas -->
 
-    <div *ngFor="let image of uploadedImages">
-      <img style=" width: 280px;
-      height: 210px;
-      border-radius: 5px !important;"[src]="image?.url" [alt]="image.name">
-    </div>
 
     <!-- Exibe as imagens do serviço de imagens -->
     <img style=" width: 280px;
