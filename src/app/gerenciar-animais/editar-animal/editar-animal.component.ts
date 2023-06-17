@@ -52,6 +52,10 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
   }
   uploadedFiles: any[] = [];
 
+  fecharModal(){
+    this.ref.close();
+  }
+
   buscarDadosAnimal(id){
     this.loadingService.ativarLoading();
     this.animaisService.recuperarPorId(id).subscribe(valor => {

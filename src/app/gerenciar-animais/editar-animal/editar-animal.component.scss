@@ -10,7 +10,7 @@
 
 }
 
-.div-img{
+.div-img {
   display: flex;
   width: 100% !important;
   align-items: center;
@@ -20,25 +20,25 @@
   margin-bottom: 40px;
 }
 
-.botoes-paginador{
+.botoes-paginador {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  width: 100px;
+  margin-top: 20px;
+  width: 130px;
 }
 
 .botao-lixeira:hover {
   color: red;
 }
 
-.botao-lixeira{
+.botao-lixeira {
   background-color: transparent;
-    border: none;
-    margin-left: 90%;
-    margin-top: -30px;
+  border: none;
+  margin-left: 260px;
+  margin-top: -25px;
 }
 
-.imagens-upadas{
+.imagens-upadas {
   margin-top: 30px;
   display: flex;
   min-width: 330px;
@@ -47,7 +47,60 @@
   flex-wrap: wrap;
 }
 
-.p-grid{
+.p-grid {
   display: flex;
   justify-content: center;
+}
+
+.manager-grid {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+
+}
+
+.botao-fechar {
+  border: 1px solid #2196F3;
+  border-radius: 5px;
+  height: 39.2px;
+  color: #2196F3;
+  background: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+
+}
+
+.container-inputs-form{
+  display: flex; justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.botao-salvar {
+  border: none;
+  border-radius: 5px;
+  height: 39.2px;
+  color: white;
+  background: #2196F3;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.caixa-botoes {
+  display: flex;
+  justify-content: space-between;
+  width: 187px;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 975px) {
+  .manager-grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+  }
 }
