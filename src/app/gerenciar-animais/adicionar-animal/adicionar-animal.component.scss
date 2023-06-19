@@ -1,4 +1,6 @@
-::ng-deep{
+::ng-deep {
+
+
 
   .p-dialog {
     -ms-flex-direction: column;
@@ -10,20 +12,95 @@
     position: relative;
     transform: scale(1);
     overflow-x: hidden;
+  }
+
+  .p-grid {
+    overflow-x: hidden;
+  }
+
+  .hidden-file-input {
+    display: none;
+  }
+
+  img {
+    height: 400px;
+    width: 200px !important;
+  }
+
+
 }
 
-.p-grid{
-  overflow-x: hidden;
+.div-imagens-upadas {
+  margin-top: 30px;
+  display: flex;
+  min-width: 330px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.hidden-file-input {
-  display: none;
+.container-corpo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-img{
-  height: 400px;
-  width: 200px !important;
+.imagem-upada {
+  width: 160px;
+  height: 180px;
+  border-radius: 5px !important;
+  min-width: 160px;
+  min-height: 180px;
+  margin-bottom: 10px;
 }
 
+.container-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
+.botao-fechar {
+  border: 1px solid #2196F3;
+  border-radius: 5px;
+  height: 39.2px;
+  color: #2196F3;
+  background: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+
+}
+
+.botao-salvar {
+  border: none;
+  border-radius: 5px;
+  height: 39.2px;
+  color: white;
+  background: #2196F3;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container-botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.caixinha-botoes {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 975px) {
+  .container-botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
 }

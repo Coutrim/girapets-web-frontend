@@ -56,7 +56,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  align-items: center;
 
 }
 
@@ -73,8 +73,11 @@
 }
 
 .container-inputs-form{
-  display: flex; justify-content: space-evenly;
+  display: flex;
+   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-bottom: 40px;
+  max-width: 500px;
 }
 
 .botao-salvar {
@@ -102,5 +105,25 @@
     justify-content: center;
     flex-direction: column;
 
+  }
+}
+
+.container-botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.caixinha-botoes {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 975px) {
+  .container-botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
   }
 }

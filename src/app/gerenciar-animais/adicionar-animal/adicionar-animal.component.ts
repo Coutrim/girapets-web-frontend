@@ -83,7 +83,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   onFileSelected(event: any) {
     this.selectedImages = event.target.files;
-    this.uploadedImages = []; // Limpar o array de imagens
+    // Limpar o array de imagens
     for (let i = 0; i < this.selectedImages.length; i++) {
       const file = this.selectedImages[i];
       const reader = new FileReader();

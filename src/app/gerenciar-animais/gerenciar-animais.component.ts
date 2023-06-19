@@ -68,8 +68,8 @@ export class GerenciarAnimaisComponent implements OnInit {
         data:{
           idAnimal:id
         },
-        width: '50%',
-        height: '70%',
+        width: '40%',
+        height: '90%',
       });
       ref.onClose.subscribe((res) => {
         if(res){

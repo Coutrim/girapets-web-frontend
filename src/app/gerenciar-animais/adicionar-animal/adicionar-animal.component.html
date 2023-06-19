@@ -1,93 +1,92 @@
 <form [formGroup]="animaisFormGroup" (ngSubmit)="addAnimal()">
-  <div class="p-grid">
+  <div class="add-animal-container">
 
 
-    <div style="display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;">
-
+    <div class="container-corpo">
+      <span *ngIf="uploadedImages.length > 0">Imagens a serem adicionadas: </span>
+      <div class="div-imagens-upadas">
+        <img class="imagem-upada" *ngFor="let image of uploadedImages" [src]="image?.url" [alt]="image.name">
+      </div>
       <!-- Botão personalizado -->
-      <button style="margin-top: 30px;" type="button" class="botao-card-editar"  (click)="fileInput.click()">
+      <button style="margin-top: 30px; margin-bottom: 40px;" type="button" class="botao-card-editar" (click)="fileInput.click()">
         <i class="pi pi-upload"></i>
         Selecionar foto
       </button>
-      <div *ngFor="let image of uploadedImages">
-        <img [src]="image.url" [alt]="image.name">
-      </div>
+
       <!-- Elemento input type="file" oculto -->
-      <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple formControlName="imagem"
-        class="hidden-file-input">
+      <input style="display: none;" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" multiple
+        formControlName="imagem" class="hidden-file-input">
 
     </div>
 
-    <div class="p-col">
-      <div class="p-col">
+    <div class="container-formulario">
+      <div class="campo-form">
         <h3>Nome</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="nome" />
+          <input type="text" class="input-add-animal" pInputText formControlName="nome" placeholder="Ex: Peludinho" />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+
+      <div class="campo-form">
         <h3>Especie</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="especie" />
+          <input type="text" class="input-add-animal" pInputText formControlName="especie" placeholder="Cachorro, gato, etc." />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+
+      <div class="campo-form">
         <h3>Raça</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="raça" />
+          <input type="text" class="input-add-animal" pInputText formControlName="raça" placeholder="Ex: Bulldog" />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+      <div class="campo-form">
         <h3>Sexo</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="sexo" />
+          <input type="text" class="input-add-animal" pInputText formControlName="sexo" placeholder="Macho ou Fêmea" />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+
+      <div class="campo-form">
         <h3>Idade</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="idade" />
+          <input type="text" class="input-add-animal" pInputText formControlName="idade" placeholder="Ex: 1 ano e seis meses" />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+
+      <div class="campo-form">
         <h3>Descrição</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="descricao" />
+          <input type="text" class="input-add-animal" pInputText formControlName="descricao" placeholder="Ex: Animal dócil e carinhoso"/>
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
-    </div>
-    <div class="p-col">
-      <div class="p-col">
+
+
+      <div class="campo-form">
         <h3>Cidade</h3>
         <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="cidade" />
+          <input type="text" class="input-add-animal" pInputText formControlName="cidade" placeholder="Ex: Girassol-GO" />
           <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
         </div>
       </div>
     </div>
-
-
   </div>
-  <div style="display: flex; justify-content: flex-end;">
-    <p-button type="submit">Salvar</p-button>
+
+  <div class="container-botoes">
+    <div class="caixinha-botoes">
+      <button class="botao-fechar" type="submit">Fechar</button>
+      <button class="botao-salvar" type="submit">Salvar</button>
+    </div>
   </div>
 </form>
