@@ -18,12 +18,13 @@
     </ul>
   </p-sidebar>
   <header class="header-novo">
-    <nav style="width: 100%;">
+    <nav style="width: 100%;display: flex;
+    justify-content: center;">
       <div class="menu-icon">
         <i class="fa fa-bars fa-2xl" (click)="displaySideBar = true"></i>
         <div class="logo-botao-header-mobile">
           <a routerLink="/home">
-            <h1><i class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
+            <h1 style="font-family: cursive;"><i class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
           </a>
           <p-button class="botaoAdotar" routerLink="/gerenciar-animais" label="Gestão animais"></p-button>
         </div>
@@ -33,13 +34,12 @@
       <ul class="menu">
 
         <li class="li-header-app"><a routerLink="/home">
-            <h1><i class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
+            <h1 style="font-family: cursive;"><i style="margin-top: 4.5px;" class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
           </a></li>
-        <li class="li-header-app"> <a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="/home">Home</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Quem somos</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Contato</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 20px;" routerLink="">Ajude-nos</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 18px;" routerLink="">FAQ</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">Quem somos</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">Contato</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">Ajude-nos</a></li>
+        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">FAQ</a></li>
 
         <div class="container-dos-botoes">
           <p-button routerLink="/login" label="Quero doar"></p-button>
@@ -65,24 +65,24 @@
     </div>
   </main>
 
-  <footer>
+  <footer class="footer-main">
     <div class="footer-content">
       <div class="footer-info">
         <h4 style=" display: flex;
         justify-content: space-between;
-        width: 12vw;
+        width: 200px;
         font-size: 20px;"><i class="fas fa-sharp fa-solid fa-paw" style="color: #ffffff;"></i>Sobre o Gira-Pets</h4>
-
+<p style="margin-top: -5.5px;">
+  Gira-Pets é um programa criado para estreitar laços entre pessoas que têm o sonho de adotar um pet e nossas
+  ONGs e protetores parceiros.
+  Vamos juntos incentivar a adoção, conscientizar sobre a posse responsável e fomentar a cultura de doação em
+  prol do bem-estar animal.
+</p>
       </div>
-      <p>
-        Gira-Pets é um programa criado para estreitar laços entre pessoas que têm o sonho de adotar um pet e nossas
-        ONGs e protetores parceiros.
-        Vamos juntos incentivar a adoção, conscientizar sobre a posse responsável e fomentar a cultura de doação em
-        prol do bem-estar animal.
-      </p>
+
       <div class="footer-links">
-        <h4>Institucional</h4>
-        <ul>
+        <h3>Institucional</h3>
+        <ul class="ul-footer">
           <li><a href="#">Sobre o Gira-Pets</a></li>
           <li><a href="#">Os pets nas lojas</a></li>
           <li><a href="#">Transparência com você</a></li>
@@ -93,10 +93,13 @@
         </ul>
       </div>
       <div class="footer-social-media">
-        <h4>Acesse nossas redes sociais</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/girapets">Facebook</a></li>
-          <li><a href="https://www.instagram.com/girapets">Instagram</a></li>
+        <h3> Nossas redes sociais</h3>
+        <ul class="ul-footer">
+          <li style="list-style: none;">
+            <a style="display: flex;
+            justify-content: space-between;
+            width: 92px;" href="https://www.instagram.com/girapets"><i style="margin-top: 2px;" class="fa-brands fa-instagram"></i>Instagram</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -11,15 +11,24 @@
 
 <div class="container-componente">
   <div class="paginador">
-    <button class="botao-paginador" (click)="decrementIndex()"><i class="fa fa-chevron-left " id="icon-paginator-left"
-        style="font-size: 40px; color: #636a72"></i></button>
+
     <div class="container-imagem">
       <img class="imagem-paginador" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
         alt="Imagem">
-      <span class="contador-imagens">Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}</span>
+
+      <span class="contador-imagens">
+        <div style="width: 130px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;">
+        <button class="botao-paginador" (click)="decrementIndex()"><i class="fa fa-chevron-left " id="icon-paginator-left"
+          style="font-size: 40px; color: #636a72"></i></button>
+          <button class="botao-paginador" (click)="incrementIndex()"><i class="fa fa-chevron-right" id="icon-paginator-right"
+            style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
+          </div>
+        Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}</span>
     </div>
-    <button class="botao-paginador" (click)="incrementIndex()"><i class="fa fa-chevron-right" id="icon-paginator-right"
-        style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
+
 
   </div>
 

@@ -36,9 +36,11 @@
   border: none;
   margin-left: 260px;
   margin-top: -25px;
+  margin-bottom: 50px;
 }
 
 .imagens-upadas {
+  width: 500px;
   margin-top: 30px;
   display: flex;
   min-width: 330px;
@@ -99,6 +101,23 @@
   margin-top: 30px;
 }
 
+.botao-paginador-edit {
+  width: 50px;
+  background: #ded3d3;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+}
+
+.contador-imagens-edit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 975px) {
   .manager-grid {
     display: flex;
@@ -108,20 +127,20 @@
   }
 }
 
-.container-botoes {
+.container-botoes-edit{
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
 }
 
-.caixinha-botoes {
+.caixinha-botoes-edit{
   display: flex;
   width: 200px;
   justify-content: space-between;
 }
 
 @media screen and (max-width: 975px) {
-  .container-botoes {
+  .container-botoes-edit {
     display: flex;
     justify-content: center;
     margin-top: 50px;

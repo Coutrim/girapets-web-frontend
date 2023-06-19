@@ -60,7 +60,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.loadingService.ativarLoading();
     this.animaisService.recuperarPorId(id).subscribe(valor => {
       this.atributosModal = valor;
-      console.log(this.atributosModal);
       this.loadingService.desativarLoading();
     },err=>{
       this.ref.close();
@@ -121,7 +120,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     for (const image of this.selectedImages) {
       this.formData.append('imagem', image);
     }
-    console.log(this.atributosModal);
+
 
     this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
       type: 'application/json'

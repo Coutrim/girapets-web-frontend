@@ -31,6 +31,7 @@
 }
 
 .div-imagens-upadas {
+  width: 500px;
   margin-top: 30px;
   display: flex;
   min-width: 330px;
@@ -85,20 +86,20 @@
   cursor: pointer;
 }
 
-.container-botoes {
+.container-botoes-add-animal {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
 }
 
-.caixinha-botoes {
+.caixinha-botoes-add-animal {
   display: flex;
   width: 200px;
   justify-content: space-between;
 }
 
 @media screen and (max-width: 975px) {
-  .container-botoes {
+  .container-botoes-add-animal {
     display: flex;
     justify-content: center;
     margin-top: 50px;

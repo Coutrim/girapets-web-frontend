@@ -30,7 +30,8 @@ app-detalhar-animais{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    flex-direction: column;
   }
 
   .fa-chevron-left:before {
@@ -89,8 +90,11 @@ app-detalhar-animais{
   }
 
   .botao-paginador {
-    background: transparent;
+    width: 50px;
+    background: #ded3d3;
     border: none;
+    border-radius: 50%;
+    height: 50px;
   }
 
   .container-componente {
@@ -233,6 +237,7 @@ app-detalhar-animais{
       display: flex;
       justify-content: space-between;
       margin-left: 0px !important;
+      margin-top: 20px;
     }
 
   }

@@ -162,7 +162,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
           // this.animaisFormGroup.reset()
           this.loadingService.desativarLoading();
           this.ref.close();
-          console.log(response);
+
         },
         (error: any) => {
           error;

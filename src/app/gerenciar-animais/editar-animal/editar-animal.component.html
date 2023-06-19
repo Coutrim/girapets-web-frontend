@@ -24,12 +24,17 @@
     height: 210px;
     border-radius: 5px !important;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
       alt="Imagem">
-    <div class="botoes-paginador">
-      <button (click)="decrementIndex()"><i class="fa fa-chevron-left"
-          style="font-size: 30px; color: #636a72; cursor: pointer;"></i></button>
-      <button (click)="incrementIndex()"><i class="fa fa-chevron-right"
-          style="font-size: 30px; color: #636a72; cursor: pointer;"></i></button>
-    </div>
+      <span class="contador-imagens-edit">
+        <div style="width: 130px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;">
+        <button class="botao-paginador-edit" (click)="decrementIndex()"><i class="fa fa-chevron-left " id="icon-paginator-left"
+          style="font-size: 40px; color: #636a72"></i></button>
+          <button class="botao-paginador-edit" (click)="incrementIndex()"><i class="fa fa-chevron-right" id="icon-paginator-right"
+            style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
+          </div>
+        Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}</span>
     <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
       <i class="pi pi-trash" style="font-size: 20px;"></i>
     </button>
@@ -103,9 +108,9 @@
   </div>
 </div>
 
-<div class="container-botoes">
-  <div class="caixinha-botoes">
-    <button class="botao-fechar" type="submit">Fechar</button>
-    <button class="botao-salvar" type="submit">Salvar</button>
+<div class="container-botoes-edit">
+  <div class="caixinha-botoes-edit">
+    <button class="botao-fechar"  type="submit">Fechar</button>
+    <button class="botao-salvar" (click)="editarAnimal()" type="submit">Salvar</button>
   </div>
 </div>
