@@ -3,18 +3,20 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { AnimaisModel } from '../models/animais-model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimaisService {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private authService : AuthService) {
 
 
   }
 
    apiUrl = environment.apiURL;
+   headers = this.authService.getAuthorizationHeader();
 
 
 
@@ -66,76 +68,88 @@ export class AnimaisService {
 
 
 
-  // Voltar esse código quando fazer deploy pra produção
+  // Código com a API de localhost e Token de autenticação
 
-  // listarAnimais() : Observable<AnimaisModel[]>{
-  //   return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
-  // }
-
-  // adicionarAnimal(formData: FormData) {
-  //   return this.http.post(`${this.apiUrl}/animais`, formData);
-  // }
-  // recuperarPorId(id:number){
-  //   return this.http.get(`${this.apiUrl}/animais/${id}`);
-  // }
-  // removerAnimal(id: number) :Observable<any> {
-  //   return this.http.delete<any>( `${this.apiUrl}/animais/${id}`)
-  // }
-
-  // fazerUploadImagens(formData: FormData){
-  //   return this.http.post(`${this.apiUrl}/imagens`, formData);
-  // }
-
-  // listarImagens(id: number): Observable<any> {
-  //   return this.http.get<any>( `${this.apiUrl}/imagens/${id}`)
-  // }
-
-
-  // editarAnimal(formData: FormData, id: number) {
-  //   return this.http.put(`${this.apiUrl}/animais/${id}`, formData);
-  // }
-
-  // editarImagens(formData: FormData, id: number): Observable<any> {
-  //   return this.http.put(`${this.apiUrl}/imagens/${id}`, formData);
-  // }
-
-  // excluirImagem(id: number): Observable<any>{
-  //   return this.http.delete<any>( `${this.apiUrl}/imagens/${id}`)
-  // }
+  listarAnimais() : Observable<AnimaisModel[]>{
+    return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
+  }
 
   adicionarAnimal(formData: FormData) {
-    return this.http.post(`https://girapets-backend-rest.onrender.com/api/animais`, formData);
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.post(`${this.apiUrl}/animais`, formData, { headers });
   }
   recuperarPorId(id:number){
-    return this.http.get(`https://girapets-backend-rest.onrender.com/api/animais/${id}`);
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.get(`${this.apiUrl}/animais/${id}`, { headers });
   }
   removerAnimal(id: number) :Observable<any> {
-    return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/animais/${id}`)
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.delete<any>( `${this.apiUrl}/animais/${id}`, { headers })
   }
 
   fazerUploadImagens(formData: FormData){
-    return this.http.post(`https://girapets-backend-rest.onrender.com/api/imagens`, formData);
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.post(`${this.apiUrl}/imagens`, formData, { headers });
   }
 
   listarImagens(id: number): Observable<any> {
-    return this.http.get<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
+    return this.http.get<any>( `${this.apiUrl}/imagens/${id}`)
   }
 
 
   editarAnimal(formData: FormData, id: number) {
-    return this.http.put(`https://girapets-backend-rest.onrender.com/api/animais/${id}`, formData);
+    const headers = this.authService.getAuthorizationHeader();
+
+    return this.http.put(`${this.apiUrl}/animais/${id}`, formData, { headers } );
   }
 
   editarImagens(formData: FormData, id: number): Observable<any> {
-    return this.http.put(`https://girapets-backend-rest.onrender.com/api/imagens/${id}`, formData);
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.put(`${this.apiUrl}/imagens/${id}`, formData, { headers });
   }
 
   excluirImagem(id: number): Observable<any>{
-    return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.delete<any>( `${this.apiUrl}/imagens/${id}`, { headers })
   }
 
-  listarAnimais() : Observable<AnimaisModel[]>{
-    return this.http.get<AnimaisModel[]>(`https://girapets-backend-rest.onrender.com/api/animais`);
-  }
+
+
+  // Código com a api de produção
+
+  // adicionarAnimal(formData: FormData) {
+  //   return this.http.post(`https://girapets-backend-rest.onrender.com/api/animais`, formData);
+  // }
+  // recuperarPorId(id:number){
+  //   return this.http.get(`https://girapets-backend-rest.onrender.com/api/animais/${id}`);
+  // }
+  // removerAnimal(id: number) :Observable<any> {
+  //   return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/animais/${id}`)
+  // }
+
+  // fazerUploadImagens(formData: FormData){
+  //   return this.http.post(`https://girapets-backend-rest.onrender.com/api/imagens`, formData);
+  // }
+
+  // listarImagens(id: number): Observable<any> {
+  //   return this.http.get<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
+  // }
+
+
+  // editarAnimal(formData: FormData, id: number) {
+  //   return this.http.put(`https://girapets-backend-rest.onrender.com/api/animais/${id}`, formData);
+  // }
+
+  // editarImagens(formData: FormData, id: number): Observable<any> {
+  //   return this.http.put(`https://girapets-backend-rest.onrender.com/api/imagens/${id}`, formData);
+  // }
+
+  // excluirImagem(id: number): Observable<any>{
+  //   return this.http.delete<any>( `https://girapets-backend-rest.onrender.com/api/imagens/${id}`)
+  // }
+
+  // listarAnimais() : Observable<AnimaisModel[]>{
+  //   return this.http.get<AnimaisModel[]>(`https://girapets-backend-rest.onrender.com/api/animais`);
+  // }
 
 }

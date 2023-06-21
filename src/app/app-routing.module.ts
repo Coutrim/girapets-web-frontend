@@ -15,7 +15,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'quero-adotar', component: AdotarAnimaisComponent},
   {path: 'adicionar-animal', component: AdicionarAnimalComponent},
-  {path: 'gerenciar-animais', component: GerenciarAnimaisComponent}
+  {path: 'gerenciar-animais', component: GerenciarAnimaisComponent, canActivate: [AuthGuard],},
+
+
 
 ];
 

@@ -17,6 +17,7 @@ import { MessageService } from 'primeng/api';
 import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/adicionar-animal.component';
 import { EditarAnimalComponent } from './gerenciar-animais/editar-animal/editar-animal.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,10 +33,12 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

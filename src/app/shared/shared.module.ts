@@ -28,7 +28,6 @@ import {SidebarModule} from 'primeng/sidebar';
     ToolbarModule,
     CardModule,
     DynamicDialogModule,
-    BrowserAnimationsModule,
     FileUploadModule,
     MessagesModule,
     MessageModule,
@@ -42,14 +41,12 @@ import {SidebarModule} from 'primeng/sidebar';
     // Adicione aqui outros módulos do PrimeNG que você importou
   ],
   exports: [
-    CommonModule,
     ButtonModule,
     InputTextModule,
     PaginatorModule,
     ToolbarModule,
     CardModule,
     DynamicDialogModule,
-    BrowserAnimationsModule,
     FileUploadModule,
     MessagesModule,
     MessageModule,

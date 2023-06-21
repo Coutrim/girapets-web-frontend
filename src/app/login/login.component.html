@@ -2,11 +2,11 @@
 justify-content: center; margin-bottom: 9vw; margin-top: 2vw;">
   <div class="containerBotaoLogin">
     <label>Acesse sua conta</label>
-    <input class="input-login" type="text" pInputText placeholder="Email, CPF ou CNPJ" />
-    <input class="input-login" type="text" pInputText placeholder="Digíte sua senha" />
+    <input class="input-login" type="text" pInputText placeholder="Email, CPF ou CNPJ" [(ngModel)]="loginData.login" />
+    <input class="input-login" type="text" pInputText placeholder="Digíte sua senha" [(ngModel)]="loginData.password"  (keyup.enter)="onSubmit()"/>
 
-    <p-button class="botao-login" label="Entrar"></p-button>
+    <p-button class="botao-login" label="Entrar" (keyup.enter)="onSubmit()" (onClick)="onSubmit()"></p-button>
     <span style="color: #454545;">Não possui uma conta?
-      <a routerLink="">cadastre-se</a></span>
+      <a style="color: #3f46a7 !important; text-decoration: underline;" routerLink="">cadastre-se</a></span>
   </div>
 </div>
