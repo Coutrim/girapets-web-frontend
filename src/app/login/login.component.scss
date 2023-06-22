@@ -28,10 +28,11 @@
 
 
   .containerBotaoLogin {
-    height: 20vw;
+    border: 1px solid #d6d3d3;
+    height: 320px;
     display: flex;
     flex-direction: column;
-    width: 25vw;
+    width: 360px;
     justify-content: space-between;
     background: white;
     padding: 16px;
@@ -40,10 +41,17 @@
     box-shadow: rgba(0, 0, 0, 0.1) 10px 10px 10px 12px;
     transition: top 0.5s ease 0s;
     align-items: center;
-  }
+}
 
 
+app-login{
+    width: 1456px;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 
 
 
