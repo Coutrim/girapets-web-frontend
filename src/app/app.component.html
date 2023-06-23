@@ -23,7 +23,7 @@
       <div class="menu-icon">
         <i class="fa fa-bars fa-2xl" (click)="displaySideBar = true"></i>
         <div class="logo-botao-header-mobile">
-          <a routerLink="/home">
+          <a *ngIf="!isLoggedIn()" routerLink="/home">
             <h1 style="margin-left: -4px;
             font-family: cursive;
             display: flex;
@@ -32,7 +32,8 @@
             width: 140px;
             align-items: center;"><i class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
           </a>
-          <p-button class="botaoAdotar" style="margin-right: -5px;" routerLink="/gerenciar-animais" label="Gestão animais"></p-button>
+          <p-button *ngIf="isLoggedIn()" class="botaoAdotar" style="margin-right: -5px;" routerLink="/gerenciar-animais" label="Gestão animais"></p-button>
+          <p-button *ngIf="!isLoggedIn()" class="botaoAdotar" style="margin-right: -5px;" routerLink="/quero-adotar" label="Quero adotar"></p-button>
         </div>
       </div>
 
@@ -50,14 +51,40 @@
         <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">Ajude-nos</a></li>
         <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;" routerLink="">FAQ</a></li>
 
-        <div class="container-dos-botoes">
+        <div *ngIf="isLoggedIn()" class="container-dos-botoes">
+
+
+          <p-button  class="botaoEntrar" routerLink="/gerenciar-animais" label="Gerenciar animais"></p-button>
+
+
+        </div>
+        <div *ngIf="!isLoggedIn()" class="container-dos-botoes-deslogado">
           <p-button routerLink="/login" label="Quero doar"></p-button>
           <p-button class="botaoAdotar" routerLink="/quero-adotar" label="Quero adotar"></p-button>
           <p-button class="botaoEntrar" routerLink="/login" label="Entrar"></p-button>
-          <p-button class="botaoEntrar" routerLink="/gerenciar-animais" label="Gerenciar animais"></p-button>
+
         </div>
+
+
+
       </ul>
     </nav>
+    <div *ngIf="isLoggedIn()">
+      <div class="dropdown" (click)="toggleDropdown()">
+        <button class="botao-perfil">
+          <div class="icone-perfil">
+          <i style="color: #346891;" class="fa-solid fa-user fa-2xl"></i>
+        </div>
+          <span>{{usuarioLogado}}</span>
+        </button>
+
+        <div class="dropdown-content" [ngClass]="{'show': isDropdownOpen}">
+          <a routerLink="/gerenciar-animais" href="#">Meu perfil</a>
+          <a (click)="logout()" href="#" routerLink="/login">Sair</a>
+        </div>
+      </div>
+
+    </div>
   </header>
 
 

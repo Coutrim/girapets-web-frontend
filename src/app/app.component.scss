@@ -135,8 +135,16 @@
 
   .container-dos-botoes {
     display: flex;
-    width: 38%;
-    min-width: 506px;
+    width: 25%;
+    min-width: 250px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+  .container-dos-botoes-deslogado {
+    display: flex;
+    width: 33%;
+    min-width: 333px;
     justify-content: space-between;
     align-items: center;
   }
@@ -176,7 +184,7 @@
   .menu {
     display: flex;
     list-style: none;
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
   }
@@ -269,29 +277,86 @@
   flex-direction: column;
 }
 
-.footer-content{
+.footer-content {
   display: flex;
-    justify-content: space-around;
-    width: 90%;
-    margin-bottom: 35px;
-    flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
 }
 
-.footer-main{
+.footer-main {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.ul-footer{
+.ul-footer {
   margin-top: -5px;
 }
 
-body{
+body {
   font-family: Mulish, sans-serif;
 }
 
-.ul-footer{
+.ul-footer {
   list-style: none;
+}
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.botao-perfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icone-perfil {
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.dropdown-content{
+  margin-left: -50px;
 }

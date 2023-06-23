@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoadingService } from '../shared/components/loading-service.service';
 import { AuthService } from '../shared/services/auth.service';
+import { EmitirCarregamentosService } from '../shared/services/emitirCarregamentos.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ import { AuthService } from '../shared/services/auth.service';
 export class LoginComponent implements OnInit {
   errorMessage: string;
 
-  constructor(private authService: AuthService, private loadingService:LoadingService, private router: Router, private messageService: MessageService,) { }
+  constructor(private authService: AuthService, private loadingService:LoadingService, private router: Router,
+     private messageService: MessageService, private emitirRecarregamentoService: EmitirCarregamentosService) { }
 
   loginData = {
     login: '',
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.authService.setToken(token);
         this.loadingService.desativarLoading();
         this.router.navigate(['/gerenciar-animais']);
+        this.emitirRecarregamentoService.emitirRecarregamentoNomeUsuario.next(true);
         // Redirecionar para a página inicial ou outra página desejada após o login
       },
       (error: any) => {
