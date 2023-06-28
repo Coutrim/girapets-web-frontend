@@ -81,21 +81,37 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   } [] = [];
 
 
-  onFileSelected(event: any) {
-    this.selectedImages = event.target.files;
-    // Limpar o array de imagens
-    for (let i = 0; i < this.selectedImages.length; i++) {
-      const file = this.selectedImages[i];
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.uploadedImages.push({
-          name: file.name,
-          url: e.target.result
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    const allowedExtensions = ['.jpg', '.jpeg', '.png'];
+
+    for (let i = 0; i < files.length; i++) {
+      const file: File = files[i];
+      const fileExtension: string = file.name.split('.').pop().toLowerCase();
+
+      if (!allowedExtensions.includes(`.${fileExtension}`)) {
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Arquivo não suportado: Utilize imagens .jpeg, .png ou .jpg'
         });
-      };
-      reader.readAsDataURL(file);
+      } else {
+        this.selectedImages = event.target.files;
+        // Limpar o array de imagens
+        for (let i = 0; i < this.selectedImages.length; i++) {
+          const file = this.selectedImages[i];
+          const reader = new FileReader();
+          reader.onload = (e: any) => {
+            this.uploadedImages.push({
+              name: file.name,
+              url: e.target.result
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      }
     }
   }
+
 
   formDataAnimal = new FormData();
 
@@ -110,6 +126,9 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   });
 
+  fecharModal(){
+    this.ref.close();
+  }
 
   addAnimal() {
     this.loadingService.ativarLoading();
@@ -131,6 +150,11 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     this.formDataAnimal.append('animal', new Blob([JSON.stringify(animalData)], {
       type: 'application/json'
     }));
+
+    console.log(animalData);
+    console.log(this.formDataAnimal);
+
+
 
     if (this.animaisFormGroup.invalid || this.uploadedImages.length === 0) {
       if(this.uploadedImages.length === 0){
@@ -170,6 +194,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
         }
       );
     }
+
 
 
     // for (const image of this.selectedImages) {

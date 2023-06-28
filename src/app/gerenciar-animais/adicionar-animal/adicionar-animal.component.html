@@ -22,62 +22,75 @@
     <div class="container-formulario">
       <div class="campo-form">
         <h3>Nome</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="nome" placeholder="Ex: Peludinho" />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div>
+          <input type="text" class="input-add-animal" pInputText formControlName="nome" placeholder="Ex: Peludinho" maxlength="40"/>
+          <!-- <p>Caracteres restantes: {{ 40 - animaisFormGroup.get('nome').value.length }}</p> -->
         </div>
       </div>
 
 
       <div class="campo-form">
         <h3>Especie</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="especie" placeholder="Cachorro, gato, etc." />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div >
+          <input type="text" class="input-add-animal" pInputText formControlName="especie" placeholder="Cachorro, gato, etc." maxlength="50"/>
+          <!-- <p>Caracteres restantes: {{ 50 - animaisFormGroup.get('especie').value.length }}</p> -->
         </div>
       </div>
 
 
       <div class="campo-form">
         <h3>Raça</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="raça" placeholder="Ex: Bulldog" />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div >
+          <input type="text" class="input-add-animal" pInputText formControlName="raça" placeholder="Ex: Bulldog" maxlength="50"/>
+          <!-- <p>Caracteres restantes: {{ 50 - animaisFormGroup.get('raça').value.length }}</p> -->
         </div>
       </div>
-
-      <div class="campo-form">
-        <h3>Sexo</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="sexo" placeholder="Macho ou Fêmea" />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
-        </div>
-      </div>
-
 
       <div class="campo-form">
         <h3>Idade</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="idade" placeholder="Ex: 1 ano e seis meses" />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div >
+          <input type="text" class="input-add-animal" pInputText formControlName="idade" placeholder="Ex: 1 ano e seis meses" maxlength="50"/>
+          <!-- <p>Caracteres restantes: {{ 50 - animaisFormGroup.get('idade').value.length }}</p> -->
         </div>
+      </div>
+
+
+      <div style="width: 198px;">
+        <h3>Sexo</h3>
+        <div class="container-radio-button" >
+        <div class="caixinha-radio-button" >
+          <label style="display: flex;
+          align-items: center;">
+            <input style=" height: 18px;
+            width: 18px;" type="radio" name="gender" value="Macho" formControlName="sexo">Macho
+          </label>
+        </div>
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
+          align-items: center;">
+            <input style=" height: 18px;
+            width: 18px;" type="radio" name="gender" value="Fêmea" formControlName="sexo">Fêmea
+          </label>
+        </div>
+
+      </div>
       </div>
 
 
       <div class="campo-form">
         <h3>Descrição</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="descricao" placeholder="Ex: Animal dócil e comportado"/>
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div >
+          <input type="text" class="input-add-animal" pInputText formControlName="descricao" placeholder="Ex: Animal dócil e comportado" maxlength="100"/>
+          <!-- <p>Caracteres restantes: {{ 100 - animaisFormGroup.get('descricao').value.length }}</p> -->
         </div>
       </div>
 
 
       <div class="campo-form">
         <h3>Cidade</h3>
-        <div class="p-field">
-          <input type="text" class="input-add-animal" pInputText formControlName="cidade" placeholder="Ex: Girassol-GO" />
-          <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <div >
+          <input type="text" class="input-add-animal" pInputText formControlName="cidade" placeholder="Ex: Girassol-GO" maxlength="100"/>
+          <!-- <p>Caracteres restantes: {{ 100 - animaisFormGroup.get('cidade').value.length }}</p> -->
         </div>
       </div>
     </div>
@@ -85,7 +98,7 @@
 
   <div class="container-botoes-add-animal">
     <div class="caixinha-botoes-add-animal">
-      <button class="botao-fechar" type="submit">Fechar</button>
+      <button class="botao-fechar" (click)="fecharModal()">Fechar</button>
       <button class="botao-salvar" type="submit">Salvar</button>
     </div>
   </div>

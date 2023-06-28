@@ -15,7 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {SidebarModule} from 'primeng/sidebar';
-
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import {SidebarModule} from 'primeng/sidebar';
     ReactiveFormsModule,
     ToastModule,
     SplitButtonModule,
-    SidebarModule
+    SidebarModule,
+    ConfirmDialogModule,
+    RadioButtonModule
 
 
     // Adicione aqui outros módulos do PrimeNG que você importou
@@ -54,9 +58,11 @@ import {SidebarModule} from 'primeng/sidebar';
     ReactiveFormsModule,
     ToastModule,
     SplitButtonModule,
-    SidebarModule
+    SidebarModule,
+    ConfirmDialogModule,
+    RadioButtonModule
 
   ],
-  providers:[DialogService, DynamicDialogRef]
+  providers:[DialogService, DynamicDialogRef, ConfirmationService]
 })
 export class SharedModule { }

@@ -140,7 +140,12 @@
 
 }
 
+
+
 @media screen and (max-width: 928px){
+  .p-confirm-dialog  {
+    width: 300px !important;
+   }
   .container-tela-manager{
     display: flex;
     flex-direction: column;

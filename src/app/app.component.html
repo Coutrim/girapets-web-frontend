@@ -7,7 +7,7 @@
     </a>
     <ul class="ul-sidebar">
       <li class="li-sidebar"> <a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/home">Inicio</a></li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/login">Entrar</a></li>
+      <li *ngIf="!isLoggedIn()" class="li-sidebar"><a  (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/login">Entrar</a></li>
       <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="/quero-adotar">Quero adotar</a></li>
       <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="">Quem somos</a></li>
       <li class="li-sidebar"> <a (click)="displaySideBar = false" style="color: white; font-size: 20px;" routerLink="">Contato</a></li>

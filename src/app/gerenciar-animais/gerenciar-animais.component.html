@@ -5,6 +5,14 @@
   <div class="container-animais" style="width: 83%; min-width: 380px;">
 
     <!-- cards de animais -->
+    <p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
+      <p-footer>
+          <button type="button" pButton icon="pi pi-times" label="Voltar" (click)="cd.reject()"></button>
+          <button style="background: white;
+    color: #0d89ec;
+    border-color: #0d89ec;" type="button" pButton icon="pi pi-check" label="Excluir" (click)="cd.accept()"></button>
+      </p-footer>
+  </p-confirmDialog>
 
     <div class="cards p-grid" style="justify-content: space-evenly; padding-top: 7%;">
       <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"

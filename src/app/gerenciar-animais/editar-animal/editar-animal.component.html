@@ -24,17 +24,18 @@
     height: 210px;
     border-radius: 5px !important;" [src]="'data:image/gif;base64,' + atributosModal?.imagens[arrayIndex]?.url"
       alt="Imagem">
-      <span class="contador-imagens-edit">
-        <div style="width: 130px;
+    <span class="contador-imagens-edit">
+      <div style="width: 130px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;">
-        <button class="botao-paginador-edit" (click)="decrementIndex()"><i class="fa fa-chevron-left " id="icon-paginator-left"
-          style="font-size: 40px; color: #636a72"></i></button>
-          <button class="botao-paginador-edit" (click)="incrementIndex()"><i class="fa fa-chevron-right" id="icon-paginator-right"
-            style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
-          </div>
-        Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}</span>
+        <button class="botao-paginador-edit" (click)="decrementIndex()"><i class="fa fa-chevron-left "
+            id="icon-paginator-left" style="font-size: 40px; color: #636a72"></i></button>
+        <button class="botao-paginador-edit" (click)="incrementIndex()"><i class="fa fa-chevron-right"
+            id="icon-paginator-right" style="font-size: 40px; color: #636a72; cursor: pointer;"></i></button>
+      </div>
+      Imagem {{arrayIndex + 1}} de {{atributosModal?.imagens.length}}
+    </span>
     <button style="background-color: transparent; border: none;" class="botao-lixeira" (click)="excluirImagem()">
       <i class="pi pi-trash" style="font-size: 20px;"></i>
     </button>
@@ -48,61 +49,106 @@
     <div>
       <h3>Nome</h3>
       <div>
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.nome" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.nome" maxlength="25" />
+        <div>
+          <small *ngIf="!atributosModal?.nome" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{25 - atributosModal?.nome.length}}</small>
+        </div>
       </div>
     </div>
 
     <div>
       <h3>Especie</h3>
       <div>
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.especie" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.especie" maxlength="50" />
+        <div>
+          <small *ngIf="!atributosModal?.especie" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{50 - atributosModal?.especie.length}}</small>
+        </div>
       </div>
     </div>
 
 
     <div>
       <h3>Raça</h3>
-      <div class="p-field">
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.raca" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.raca" maxlength="50" />
+        <div>
+          <small *ngIf="!atributosModal?.raca" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{50 - atributosModal?.raca.length}}</small>
+        </div>
       </div>
     </div>
 
 
-    <div>
+    <div style="width: 198px;">
       <h3>Sexo</h3>
-      <div class="p-field">
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.sexo" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      <div class="container-radio-button" >
+      <div class="caixinha-radio-button" >
+        <label style="display: flex;
+        align-items: center;">
+          <input style=" height: 18px;
+          width: 18px;" type="radio" name="gender" value="Macho" [(ngModel)]="atributosModal.sexo">Macho
+        </label>
       </div>
+      <div class="caixinha-radio-button">
+        <label style="display: flex;
+        align-items: center;">
+          <input style=" height: 18px;
+          width: 18px;" type="radio" name="gender" value="Fêmea" [(ngModel)]="atributosModal.sexo">Fêmea
+        </label>
+      </div>
+      <div>
+        <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
+      </div>
+    </div>
     </div>
 
 
     <div>
       <h3>Idade</h3>
-      <div class="p-field">
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.idade" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.idade" maxlength="50" />
+        <div>
+          <small *ngIf="!atributosModal.idade" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{50 - atributosModal?.idade.length}}</small>
+        </div>
       </div>
     </div>
 
 
     <div>
       <h3>Descrição</h3>
-      <div class="p-field">
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.descricao" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.descricao" maxlength="100" />
+        <div>
+          <small *ngIf="!atributosModal.descricao" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{100 - atributosModal?.descricao.length}}</small>
+        </div>
       </div>
     </div>
 
 
     <div>
       <h3>Cidade</h3>
-      <div class="p-field">
-        <input type="text" class="input-add-animal" pInputText [(ngModel)]="atributosModal.cidade" />
-        <small *ngIf="1 < 0" class="p-invalid">Campo obrigatório.</small>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.cidade" maxlength="100" />
+        <div>
+          <small *ngIf="!atributosModal.cidade" class="p-invalid">Campo obrigatório.</small>
+        </div>
+        <div>
+          <small>Caracteres restantes: {{100 - atributosModal?.cidade.length}}</small>
+        </div>
       </div>
     </div>
   </div>
@@ -110,7 +156,7 @@
 
 <div class="container-botoes-edit">
   <div class="caixinha-botoes-edit">
-    <button class="botao-fechar"  type="submit">Fechar</button>
-    <button class="botao-salvar" (click)="editarAnimal()" type="submit">Salvar</button>
+    <button class="botao-fechar" (click)="fecharModal()">Fechar</button>
+    <button class="botao-salvar" (click)="editarAnimal()">Salvar</button>
   </div>
 </div>

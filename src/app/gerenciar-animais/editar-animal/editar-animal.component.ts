@@ -81,21 +81,38 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     url: string
   } [] = [];
 
-  onFileSelected(event: any) {
-    this.selectedImages = event.target.files;
-    // this.uploadedImages = []; // Limpar o array de imagens
-    for (let i = 0; i < this.selectedImages.length; i++) {
-      const file = this.selectedImages[i];
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.uploadedImages.push({
-          name: file.name,
-          url: e.target.result
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    const allowedExtensions = ['.jpg', '.jpeg', '.png'];
+
+    for (let i = 0; i < files.length; i++) {
+      const file: File = files[i];
+      const fileExtension: string = file.name.split('.').pop().toLowerCase();
+
+      if (!allowedExtensions.includes(`.${fileExtension}`)) {
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Arquivo não suportado: Utilize imagens .jpeg, .png ou .jpg'
         });
-      };
-      reader.readAsDataURL(file);
+      } else {
+        this.selectedImages = event.target.files;
+        // Limpar o array de imagens
+        for (let i = 0; i < this.selectedImages.length; i++) {
+          const file = this.selectedImages[i];
+          const reader = new FileReader();
+          reader.onload = (e: any) => {
+            this.uploadedImages.push({
+              name: file.name,
+              url: e.target.result
+            });
+          };
+          reader.readAsDataURL(file);
+        }
+      }
     }
   }
+
+
 
   nomeAnimal: any;
 
@@ -116,7 +133,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
   editarAnimal() {
 
-    this.loadingService.ativarLoading();
+
     for (const image of this.selectedImages) {
       this.formData.append('imagem', image);
     }
@@ -125,6 +142,20 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
       type: 'application/json'
     }));
+
+
+    if (this.atributosModal.nome.trim() === '' || this.atributosModal.especie.trim() === ''
+    || this.atributosModal.raca.trim() === '' || this.atributosModal.sexo.trim() === ''
+    || this.atributosModal.idade.trim() === '' || this.atributosModal.descricao.trim() === ''
+    || this.atributosModal.cidade.trim() === ''
+    ) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Campos obrigatórios não informados.'
+      });
+    } else{
+
+      this.loadingService.ativarLoading();
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
         this.loadingService.desativarLoading();
@@ -139,6 +170,10 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       }
     );
   }
+}
+
+
+
 
   excluirImagem(){
     if(this.atributosModal.imagens.length === 0 || this.atributosModal.imagens.length === 1)

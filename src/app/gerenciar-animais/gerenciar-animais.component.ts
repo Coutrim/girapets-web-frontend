@@ -6,6 +6,7 @@ import { AnimaisModel } from '../shared/models/animais-model';
 import { AnimaisService } from '../shared/services/animais.service';
 import { AdicionarAnimalComponent } from './adicionar-animal/adicionar-animal.component';
 import { EditarAnimalComponent } from './editar-animal/editar-animal.component';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-gerenciar-animais',
@@ -18,7 +19,9 @@ export class GerenciarAnimaisComponent implements OnInit {
     private animaisService: AnimaisService,
     public dialogService: DialogService,
     private messageService: MessageService,
-    private loadingService:LoadingService
+    private loadingService:LoadingService,
+    private confirmationService: ConfirmationService
+
   ) {}
 
   isLoading: boolean = true;
@@ -96,18 +99,25 @@ export class GerenciarAnimaisComponent implements OnInit {
 
   excluirAnimal(id){
     window.scrollTo(0,0)
-    this.loadingService.ativarLoading()
-    this.animaisService.removerAnimal(id).subscribe(
-      (response) => {
-        this.exibirAnimais();
-        this.loadingService.desativarLoading()
-        this.messageService.add({severity:'success', summary:'Animal excluído com sucesso.'});
-      },
-      (error) => {
-        this.loadingService.desativarLoading()
-        console.log('Erro:', error);
+    this.confirmationService.confirm({
+      message: 'Tem certeza de que deseja excluir este animal?',
+      accept: () => {
+        this.loadingService.ativarLoading()
+        this.animaisService.removerAnimal(id).subscribe(
+          (response) => {
+            this.exibirAnimais();
+            this.loadingService.desativarLoading()
+            this.messageService.add({severity:'success', summary:'Animal excluído com sucesso.'});
+          },
+          (error) => {
+            this.loadingService.desativarLoading()
+            console.log('Erro:', error);
 
+          }
+        );
       }
-    );
+  });
+
+
   }
 }
