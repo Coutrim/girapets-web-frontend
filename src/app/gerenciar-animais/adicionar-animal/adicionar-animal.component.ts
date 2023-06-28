@@ -60,6 +60,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   uploadedFiles: any[] = [];
   atributosAnimal: any
+  animalData:any;
 
   onUpload(event) {
     for (let file of event.files) {
@@ -132,7 +133,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   addAnimal() {
     this.loadingService.ativarLoading();
-    const animalData = {
+    this.animalData = {
       nome: this.animaisFormGroup.get('nome').value,
       sexo: this.animaisFormGroup.get('sexo').value,
       raca: this.animaisFormGroup.get('raça').value,
@@ -147,12 +148,11 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
       this.formDataAnimal.append('imagem', image, image.name);
     }
 
-    this.formDataAnimal.append('animal', new Blob([JSON.stringify(animalData)], {
+    this.formDataAnimal.append('animal', new Blob([JSON.stringify(this.animalData)], {
       type: 'application/json'
     }));
 
-    console.log(animalData);
-    console.log(this.formDataAnimal);
+
 
 
 
@@ -196,31 +196,6 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     }
 
 
-
-    // for (const image of this.selectedImages) {
-    //   const formDataImagem = new FormData();
-    //   formDataImagem.append('imagens', image, image.name);
-    //   formDataImagem.append('id', animalData.nome)
-
-
-    //       setTimeout(() => {
-    //       this.animaisService.fazerUploadImagens(formDataImagem).subscribe(
-    //         (response: any) => {
-    //           // Lida com a resposta da requisição
-    //              this.animaisFormGroup.reset()
-    //           console.log('Imagem enviada com sucesso:', response);
-    //         },
-    //         (error: any) => {
-    //           // Lida com o erro da requisição
-    //           console.error('Erro ao enviar imagem:', error);
-    //         }
-    //       );
-    //     }, 3000);
-    //     }
-    //   }
-
-    //   ExibirMensagemCamposNulos(){
-    //     this.messageService.add({severity:'warn', summary:'Campos obrigatórios não informados'});
   }
   onTouched: any = () => {};
   onChange: any = () => {};

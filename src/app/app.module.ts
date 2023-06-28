@@ -18,6 +18,7 @@ import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/a
 import { EditarAnimalComponent } from './gerenciar-animais/editar-animal/editar-animal.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { CommonModule } from '@angular/common';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
 
   ],
-  providers: [MessageService],
+  providers: [MessageService, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

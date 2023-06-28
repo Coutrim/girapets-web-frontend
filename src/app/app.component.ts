@@ -1,8 +1,10 @@
 import { ChangeDetectorRef, Component, ElementRef, HostListener } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { LoadingService } from './shared/components/loading-service.service';
 import { AuthService } from './shared/services/auth.service';
 import { EmitirCarregamentosService } from './shared/services/emitirCarregamentos.service';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,8 @@ export class AppComponent {
 
 
   constructor(private loadingService:LoadingService,private cdref: ChangeDetectorRef, private authService: AuthService,
-    private elementRef: ElementRef, private emitirRecarregamentoService: EmitirCarregamentosService){
+    private elementRef: ElementRef, private emitirRecarregamentoService: EmitirCarregamentosService,
+    private router: Router, private messageService: MessageService){
   }
 
   items: MenuItem[];
@@ -50,7 +53,36 @@ export class AppComponent {
       {separator: true},
       {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
   ];
+
+  this.checkTokenExpiration(localStorage.getItem('token'))
+
+  setInterval(() => {
+    this.checkTokenExpiration(localStorage.getItem('token'))
+  }, 2.5 * 60 * 1000);
+
   }
+
+  checkTokenExpiration(token: string){
+
+    setInterval(() => {
+      const decodedToken: any = jwt_decode(token);
+      const expirationDate = new Date(decodedToken.exp * 1000); // Converter para milissegundos
+      const currentDate = new Date();
+
+      if(expirationDate < currentDate){
+
+        this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
+        this.logout();
+        this.router.navigate(['/login']);
+
+      } else{
+
+      }
+      return expirationDate < currentDate;
+    }, 2.5 * 60 * 1000);
+
+  }
+
 
   isLoggedIn() {
 
@@ -63,6 +95,7 @@ export class AppComponent {
 
   logout(){
     this.isDropdownOpen = false;
+    this.router.navigate(['/login']);
     return this.authService.logout();
   }
 

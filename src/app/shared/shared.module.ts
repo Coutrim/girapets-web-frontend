@@ -18,6 +18,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -63,6 +64,6 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     RadioButtonModule
 
   ],
-  providers:[DialogService, DynamicDialogRef, ConfirmationService]
+  providers:[DialogService, DynamicDialogRef, ConfirmationService, JwtHelperService]
 })
 export class SharedModule { }
