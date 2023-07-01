@@ -129,14 +129,14 @@ button {
   margin-top: 20px;
 }
 
-.fotos-3-animais{
+.fotos-3-animais {
   display: flex;
-    justify-content: space-between;
-    width: 800px;
-    margin-top: -30px;
+  justify-content: space-between;
+  width: 800px;
+  margin-top: -30px;
 }
 
-.container-sobre-o-girapets{
+.container-sobre-o-girapets {
   background-image: url('../../assets/fundo-sobre-pets.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -146,35 +146,170 @@ button {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-   margin-top: 30px;
+  margin-top: 30px;
 
 }
 
-.container-conheça-girapets{
+.container-conheça-girapets {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container-como-funciona{
-  background: #FEF7ED; width: 100vw;
+.container-como-funciona {
+  background: #FEF7ED;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.caixinha-passos-adocao{
+.caixinha-passos-adocao {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 230px;
 }
 
-.container-da-caixinha-passos-adocao{
+.container-da-caixinha-passos-adocao {
   display: flex;
-  width: 900px;
+  width: 75%;
   margin-top: 50px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.span-pets {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 1.4em;
+  font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+  color: #3A54B4;
+}
+
+.texto-sobre-animais{
+  margin-top: 40px;
+
+}
+
+.nome-logo-span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 1.4em;
+  font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+  color: #3A54B4;
+}
+
+.span-titulos{
+  font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: rgb(69, 69, 69);
+}
+.conheca-o-girapets-paragrafo{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 1.4em;
+  font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+  color: #3A54B4;
+}
+
+@media screen and (max-width: 868px) {
+
+  .nome-logo{
+    margin-top: 130px;
+  }
+
+  .caixinha-nome-logo-span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nome-logo-span{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 1.4em;
+    font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+    color: #3A54B4;
+  }
+  .logo {
+    display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+  }
+  .img-logo-principal{
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 664px) {
+
+  .conheca-o-girapets-paragrafo{
+    font-style: normal;
+  font-weight: bold;
+  font-size: 40px !important;
+  line-height: 1.4em;
+  font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+  color: #3A54B4;
+    width: 220px;
+  }
+  .img-animal1 {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+  }
+
+  .fotos-3-animais {
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+    margin-top: -30px;
+  }
+
+  .container-da-caixinha-passos-adocao {
+    display: flex;
+    width: 75%;
+    margin-top: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 1250px;
+  }
+
+  .span-pets {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px  !important;
+    width: 300px;
+    line-height: 1.4em;
+    font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+    color: white;
+  }
+
+
+}
+
+@media screen and (max-width: 829px) and (min-width: 664px) {
+  .img-animal1 {
+    width: 170px !important;
+    height: 170px !important;
+    border-radius: 50%;
+  }
+  .fotos-3-animais {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: -30px;
+  }
 }
