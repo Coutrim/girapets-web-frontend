@@ -1,7 +1,180 @@
-::ng-deep{
-  img{
-    box-shadow: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 10px 10px 10px 12px;
-    transition: top 0.5s ease 0s;
-  }
+.carousel {
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 100%;
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  margin: 0 5px;
+}
+
+
+.header-pagina-home {
+  width: 100vw;
+  height: 700px !important;
+  margin-top: -53px;
+  background: #FEF7ED !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 33.3%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 60px;
+}
+
+.prev-button,
+.next-button {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.prev-button {
+  margin-right: 10px;
+}
+
+.next-button {
+  margin-left: 10px;
+}
+
+.container-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 850px;
+}
+
+.span-pets {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 1.4em;
+  font-family: 'worksans-semibold', 'work sans', sans-serif !important;
+  color: #3A54B4;
+}
+
+.botao-saiba-mais-home {
+  background-color: #3A54B4;
+  border: none;
+  color: white;
+  height: 45px;
+  width: 110px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.fotos-3-animais{
+  display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin-top: -30px;
+}
+
+.container-sobre-o-girapets{
+  background-image: url('../../assets/fundo-sobre-pets.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 570px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+   margin-top: 30px;
+
+}
+
+.container-conheça-girapets{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-como-funciona{
+  background: #FEF7ED; width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.caixinha-passos-adocao{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-da-caixinha-passos-adocao{
+  display: flex;
+  width: 900px;
+  margin-top: 50px;
+    justify-content: space-between;
 }

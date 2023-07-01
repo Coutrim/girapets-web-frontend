@@ -44,6 +44,7 @@
     /* Define a altura mínima do corpo como 100% da altura da viewport */
     margin: 0;
     overflow-x: hidden;
+
   }
 
   main {
@@ -131,6 +132,7 @@
     position: fixed;
     display: flex;
     align-items: center;
+    z-index: 9999;
   }
 
   .container-dos-botoes {
@@ -304,6 +306,9 @@ body {
   list-style: none;
 }
 
+.li-footer{
+  margin-bottom: 4px;
+}
 
 
 

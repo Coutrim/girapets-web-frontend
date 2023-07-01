@@ -38,7 +38,21 @@ export class GerenciarAnimaisComponent implements OnInit {
     window.scrollTo(0,0)
     this.exibirAnimais();
 
-    this.checkTokenExpiration(localStorage.getItem('token'))
+    const decodedToken: any = jwt_decode(localStorage.getItem('token'));
+    const expirationDate = new Date(decodedToken.exp * 1000); // Converter para milissegundos
+    const currentDate = new Date();
+
+    if(expirationDate < currentDate){
+      console.log('expirou');
+
+      this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
+      this.router.navigate(['/login']);
+      this.authService.logout();
+
+    } else{
+      console.log('teste');
+
+    }
 
     setInterval(() => {
       this.checkTokenExpiration(localStorage.getItem('token'))
@@ -54,12 +68,14 @@ export class GerenciarAnimaisComponent implements OnInit {
       const currentDate = new Date();
 
       if(expirationDate < currentDate){
+        console.log('expirou');
 
         this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
         this.router.navigate(['/login']);
         this.authService.logout();
 
       } else{
+        console.log('teste');
 
       }
       return expirationDate < currentDate;
