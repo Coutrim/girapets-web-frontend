@@ -164,6 +164,8 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: -15px;
+    min-height: 550px;
 }
 
 .caixinha-passos-adocao {
@@ -315,6 +317,7 @@ button {
     flex-wrap: wrap;
     align-content: space-between;
     height: 1250px;
+    margin-bottom: 60px;
   }
 
   .span-pets {
