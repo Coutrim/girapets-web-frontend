@@ -25,11 +25,41 @@ export class AppComponent {
   items: MenuItem[];
   isActive:boolean = false;
   displaySideBar: boolean;
+  links: any[];
+  institucional: any[];
+  contato: any[];
 
   usuarioLogado : any;
 
+  abrirLink(url: string) {
+    this.router.navigateByUrl(url);
+  }
 
   ngOnInit(){
+
+    this.contato = [
+      { label: 'Email', routerLink: '/login', icon:'fas fa-envelope' },
+      { label: 'Instagram', url: 'https://instagram.com/protetoresdogirassol_go?igshid=YmM0MjE2YWMzOA==',
+       icon:'fa-brands fa-square-instagram' },
+      { label: 'WhatsApp', url: 'https://api.whatsapp.com/send?phone=556196983324',icon:'fa-brands fa-square-whatsapp'  }
+
+    ];
+
+
+  this.institucional = [
+    { label: 'Sobre o Gira-Pets', routerLink: '/login' },
+    { label: 'Quem somos', routerLink: '/login' },
+    { label: 'Como ajudar', routerLink: '/login' },
+    { label: 'Como funciona', routerLink: '/login' },
+
+
+    ];
+
+    this.links = [
+      { label: 'Como ajudar?', routerLink: '/login' }
+
+    ];
+
 
     this.recuperarUsuario()
     this.emitirRecarregamentoService.emitirRecarregamentoNomeUsuario.subscribe(res=>{

@@ -1,6 +1,51 @@
 ::ng-deep {
 
-  @media screen and (max-width:975px) {
+  .botao-faq .p-splitbutton .p-splitbutton-defaultbutton {
+    -ms-flex: 1 1 auto;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    border-top-right-radius: 0;
+    flex: 1 1 auto;
+    background: transparent;
+    border: none;
+    color: black;
+    color: rgb(117, 117, 117);
+    font-size: 17px;
+    font-family: cursive;
+    cursor: default;
+  }
+
+  .botao-faq .p-button.p-button-icon-only {
+    width: 2.357rem;
+    padding: 0.5rem 0;
+    background: transparent;
+    color: rgb(117, 117, 117);
+    border: none;
+    margin-left: -20px;
+  }
+
+  .botao-faq .p-button.p-button-icon-only:hover {
+    width: 2.357rem;
+    padding: 0.5rem 0;
+    background: transparent;
+    color: black;
+  }
+
+  .botao-faq .p-button:enabled:hover {
+    background: transparent;
+    color: rgb(117, 117, 117);
+    border: none;
+    border-color: transparent;
+  }
+
+
+  .botao-faq .p-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none;
+  }
+
+  @media screen and (max-width:1153px) {
     .p-toast-top-right {
       left: 4px !important;
       top: 20px;
@@ -141,7 +186,7 @@
     min-width: 250px;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
   .container-dos-botoes-deslogado {
     display: flex;
@@ -210,9 +255,32 @@
     margin-top: -20px;
   }
 
+  .p-menu .p-menuitem-link .p-menuitem-text {
+    color: #495057;
+    font-family: cursive;
+    font-size: 17px;
+  }
 
+  .fa-square-whatsapp:before,
+  .fa-whatsapp-square:before {
+    content: "\f40c";
+    color: green;
+  }
 
-  @media only screen and (max-width: 1083px) {
+  .fa-envelope:before {
+    content: "\f0e0";
+    color: #1e27a9;
+  }
+
+  .fa-instagram-square:before,
+  .fa-square-instagram:before {
+    content: "\e055";
+    background: linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media only screen and (max-width: 1153px) {
     .menu {
       display: none;
     }
@@ -306,7 +374,7 @@ body {
   list-style: none;
 }
 
-.li-footer{
+.li-footer {
   margin-bottom: 4px;
 }
 
@@ -362,6 +430,6 @@ body {
   justify-content: center;
 }
 
-.dropdown-content{
+.dropdown-content {
   margin-left: -50px;
 }

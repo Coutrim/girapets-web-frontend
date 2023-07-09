@@ -58,21 +58,26 @@
             justify-content: space-between;
             width: 240px;"><i style="margin-top: 4.5px;" class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
           </a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;"
-            routerLink="">Quem somos</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;"
-            routerLink="">Contato</a></li>
+          <li class="li-header-app">
+            <p-splitButton label="Institucional" class="botao-faq" [model]="institucional"></p-splitButton>
+          </li>
+          <li class="li-header-app">
+            <p-splitButton label="Contato" class="botao-faq" [model]="contato">
+
+            </p-splitButton>
+          </li>
         <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;"
             routerLink="">Ajude-nos</a></li>
-        <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;"
-            routerLink="">FAQ</a></li>
+        <!-- <li class="li-header-app"><a style="color: rgb(117, 117, 117); font-size: 17px; font-family: cursive;"
+            routerLink="">FAQ</a></li> -->
+
+            <li class="li-header-app">
+              <p-splitButton label="FAQ" class="botao-faq" [model]="links"></p-splitButton>
+            </li>
+
 
         <div *ngIf="isLoggedIn()" class="container-dos-botoes">
-
-
           <p-button class="botaoEntrar" routerLink="/gerenciar-animais" label="Gerenciar animais"></p-button>
-
-
         </div>
         <div *ngIf="!isLoggedIn()" class="container-dos-botoes-deslogado">
           <p-button routerLink="/login" label="Quero doar"></p-button>
@@ -148,11 +153,16 @@
         <h3> Nossas redes sociais</h3>
         <ul class="ul-footer">
           <li style="list-style: none;">
-            <a style="display: flex;
+            <a target="_blank" style="display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100px;" href="https://www.instagram.com/girapets"> <img style="width: 27px;"
+            width: 101px;" href="https://www.instagram.com/protetoresdogirassol_go/?igshid=YmM0MjE2YWMzOA%3D%3D"> <img style="width: 27px;"
                 src="../assets/instagram-icon.svg" alt=""> Instagram</a>
+                <a target="_blank" style="display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 107px; margin-top:5px" href="https://api.whatsapp.com/send?phone=556196983324"> <img style="width: 27px;"
+                src="../assets/whatsapp-icon.png" alt=""> WhatsApp</a>
           </li>
         </ul>
       </div>
