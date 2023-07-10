@@ -108,6 +108,13 @@ export class AdotarAnimaisComponent implements OnInit {
         // showHeader: false,
         width: '70%',
         height: '83%',
+        styleClass: 'modal-detail-animal',
+        style: {
+          // Estilos em linha aqui
+          'min-width': '360px',
+          'margin-top':'100px',
+          'border-radius':'8px'
+        }
       });
 
     }, 100); // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal

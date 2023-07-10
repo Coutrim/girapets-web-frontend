@@ -1,10 +1,32 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
-import { LoadingService } from './shared/components/loading-service.service';
-import { AuthService } from './shared/services/auth.service';
-import { EmitirCarregamentosService } from './shared/services/emitirCarregamentos.service';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener
+} from '@angular/core';
+import {
+  MenuItem,
+  MessageService
+} from 'primeng/api';
+import {
+  LoadingService
+} from './shared/components/loading-service.service';
+import {
+  AuthService
+} from './shared/services/auth.service';
+import {
+  EmitirCarregamentosService
+} from './shared/services/emitirCarregamentos.service';
 import jwt_decode from 'jwt-decode';
-import { Router } from '@angular/router';
+import {
+  Router
+} from '@angular/router';
+import {
+  DialogService
+} from 'primeng/dynamicdialog';
+import {
+  AdotarAnimaisComponent
+} from './adotar-animais/adotar-animais.component';
 
 @Component({
   selector: 'app-root',
@@ -17,95 +39,179 @@ export class AppComponent {
 
 
 
-  constructor(private loadingService:LoadingService,private cdref: ChangeDetectorRef, private authService: AuthService,
+  constructor(private loadingService: LoadingService, private cdref: ChangeDetectorRef, private authService: AuthService,
     private elementRef: ElementRef, private emitirRecarregamentoService: EmitirCarregamentosService,
-    private router: Router, private messageService: MessageService){
-  }
+    private router: Router, private messageService: MessageService, private dialogService: DialogService) {}
 
   items: MenuItem[];
-  isActive:boolean = false;
+  isActive: boolean = false;
   displaySideBar: boolean;
   links: any[];
   institucional: any[];
   contato: any[];
 
-  usuarioLogado : any;
+  usuarioLogado: any;
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
 
   abrirLink(url: string) {
     this.router.navigateByUrl(url);
   }
 
-  ngOnInit(){
 
-    this.contato = [
-      { label: 'Email', routerLink: '/login', icon:'fas fa-envelope' },
-      { label: 'Instagram', url: 'https://instagram.com/protetoresdogirassol_go?igshid=YmM0MjE2YWMzOA==',
-       icon:'fa-brands fa-square-instagram' },
-      { label: 'WhatsApp', url: 'https://api.whatsapp.com/send?phone=556196983324',icon:'fa-brands fa-square-whatsapp'  }
+
+  sobreOGiraPets() {
+    this.router.navigate(['/home']);
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+      window.scrollBy({
+        top: 560,
+        behavior: 'smooth'
+      });
+    }, 1000);
+
+  }
+
+  rolarProTopo() {
+    this.router.navigate(['/home']);
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 1000);
+
+  }
+
+  comoFuncionaScroll() {
+    this.router.navigate(['/home']);
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+      window.scrollBy({
+        top: 1560,
+        behavior: 'smooth'
+      });
+    }, 1000);
+
+  }
+
+
+  ngOnInit() {
+
+    this.contato = [{
+        label: 'Email',
+        routerLink: '/login',
+        icon: 'fas fa-envelope'
+      },
+      {
+        label: 'Instagram',
+        url: 'https://instagram.com/protetoresdogirassol_go?igshid=YmM0MjE2YWMzOA==',
+        icon: 'fa-brands fa-square-instagram'
+      },
+      {
+        label: 'WhatsApp',
+        url: 'https://api.whatsapp.com/send?phone=556196983324',
+        icon: 'fa-brands fa-square-whatsapp'
+      }
 
     ];
 
 
-  this.institucional = [
-    { label: 'Sobre o Gira-Pets', routerLink: '/login' },
-    { label: 'Quem somos', routerLink: '/login' },
-    { label: 'Como ajudar', routerLink: '/login' },
-    { label: 'Como funciona', routerLink: '/login' },
-
-
+    this.institucional = [{
+        label: 'Sobre o Gira-Pets',
+        command: () => this.sobreOGiraPets()
+      },
+      {
+        label: 'Quero adotar',
+        routerLink: '/quero-adotar'
+      },
+      {
+        label: 'Quem somos',
+        routerLink: '/login'
+      },
+      {
+        label: 'Como ajudar',
+        routerLink: '/login'
+      },
+      {
+        label: 'Como funciona',
+        command: () => this.comoFuncionaScroll()
+      },
     ];
 
-    this.links = [
-      { label: 'Como ajudar?', routerLink: '/login' }
+    this.links = [{
+        label: 'Como ajudar?',
+        routerLink: '/login'
+      }
 
     ];
 
 
     this.recuperarUsuario()
-    this.emitirRecarregamentoService.emitirRecarregamentoNomeUsuario.subscribe(res=>{
+    this.emitirRecarregamentoService.emitirRecarregamentoNomeUsuario.subscribe(res => {
       this.recuperarUsuario()
     })
 
-    this.loadingService.active.subscribe(isActive=>{
+    this.loadingService.active.subscribe(isActive => {
       this.isActive = isActive;
       this.cdref.detectChanges();
     })
 
 
-    this.items = [
-      {label: 'Update', icon: 'pi pi-refresh', command: () => {
+    this.items = [{
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
 
-      }},
-      {label: 'Delete', icon: 'pi pi-times', command: () => {
+        }
+      },
+      {
+        label: 'Delete',
+        icon: 'pi pi-times',
+        command: () => {
 
-      }},
-      {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
-      {separator: true},
-      {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
-  ];
+        }
+      },
+      {
+        label: 'Angular.io',
+        icon: 'pi pi-info',
+        url: 'http://angular.io'
+      },
+      {
+        separator: true
+      },
+      {
+        label: 'Setup',
+        icon: 'pi pi-cog',
+        routerLink: ['/setup']
+      }
+    ];
 
-  this.checkTokenExpiration(localStorage.getItem('token'))
-
-  setInterval(() => {
     this.checkTokenExpiration(localStorage.getItem('token'))
-  }, 2.5 * 60 * 1000);
+
+    setInterval(() => {
+      this.checkTokenExpiration(localStorage.getItem('token'))
+    }, 2.5 * 60 * 1000);
 
   }
 
-  checkTokenExpiration(token: string){
+  checkTokenExpiration(token: string) {
 
     setInterval(() => {
       const decodedToken: any = jwt_decode(token);
       const expirationDate = new Date(decodedToken.exp * 1000); // Converter para milissegundos
       const currentDate = new Date();
 
-      if(expirationDate < currentDate){
+      if (expirationDate < currentDate) {
 
-        this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Sessão expirada. Faça login novamente!'
+        });
         this.logout();
         this.router.navigate(['/login']);
 
-      } else{
+      } else {
 
       }
       return expirationDate < currentDate;
@@ -119,11 +225,11 @@ export class AppComponent {
     return this.authService.isLoggedIn();
   }
 
-  recuperarUsuario(){
+  recuperarUsuario() {
     this.usuarioLogado = this.authService.getUsuario();
   }
 
-  logout(){
+  logout() {
     this.isDropdownOpen = false;
     this.router.navigate(['/login']);
     return this.authService.logout();
@@ -156,5 +262,3 @@ export class AppComponent {
     }
   }
 }
-
-

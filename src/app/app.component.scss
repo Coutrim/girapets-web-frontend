@@ -1,5 +1,30 @@
 ::ng-deep {
 
+  .modal-contatos .p-dialog {
+    -ms-flex-direction: column;
+    -ms-transform: scale(1);
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    max-height: 90%;
+    position: relative;
+    transform: scale(1);
+    width: 250px;
+    height: 210px;
+}
+.modal-contatos .p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #495057;
+  padding: 0 1.5rem 2rem 1.5rem;
+  height: 100%;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
   .botao-faq .p-splitbutton .p-splitbutton-defaultbutton {
     -ms-flex: 1 1 auto;
     border-bottom-right-radius: 0;
@@ -38,6 +63,9 @@
     border-color: transparent;
   }
 
+  .botaoAdotar .p-button{
+    background: #3A54B4;
+  }
 
   .botao-faq .p-button:focus {
     outline: 0 none;
@@ -101,7 +129,7 @@
 
   /* Estilos para o rodapé */
   footer {
-    background-color: #1272c0;
+    background: #3A54B4;
     color: #fff;
     padding: 20px;
     overflow-x: hidden;
@@ -244,6 +272,8 @@
     color: #fff;
     text-decoration: none;
   }
+
+
 
   .ul-sidebar {
     height: 70vh;

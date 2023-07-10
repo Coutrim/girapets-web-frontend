@@ -3,8 +3,9 @@ justify-content: center; margin-bottom: 9vw; margin-top: 2vw;">
   <div class="containerBotaoLogin">
     <label style="color: rgb(69, 69, 69);
     font-size: 1.9rem;
-    margin-bottom: 30px;">Acesse sua conta</label>
-    <input class="input-login" type="text" pInputText placeholder="Email, CPF ou CNPJ" [(ngModel)]="loginData.login" />
+    margin-bottom: 30px; ">Acesse sua conta <br> <small style="font-size: 13px; font-family: Roboto, Helvetica Neue, sans-serif;">Obs: apenas tutores da ONG tem acesso ao login. </small></label>
+
+    <input class="input-login" type="text" pInputText placeholder="Nome de usuário" [(ngModel)]="loginData.login" />
     <input class="input-login" type="password" pInputText placeholder="Digíte sua senha" [(ngModel)]="loginData.password"  (keyup.enter)="onSubmit()"/>
 
     <p-button class="botao-login" label="Entrar" (keyup.enter)="onSubmit()" (onClick)="onSubmit()"></p-button>

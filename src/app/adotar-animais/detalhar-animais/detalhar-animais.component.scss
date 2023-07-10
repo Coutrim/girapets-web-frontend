@@ -1,5 +1,16 @@
 ::ng-deep {
 
+  .modal-detail-animal .p-dialog {
+    min-width: 360px !important;
+
+  }
+
+  .modal-detail-animal .p-dialog .p-dialog-header {
+    border: none;
+    height: 30px !important;
+  }
+
+
 app-detalhar-animais{
   margin-right: -40px;
     margin-left: -40px;
@@ -59,12 +70,12 @@ app-detalhar-animais{
     list-style-type: none;
   }
 
-  .p-dialog {
+  .modal-detail-animal .p-dialog {
     border-radius: 5px;
 
   }
 
-  .p-dialog .p-dialog-header {
+  .modal-detail-animal .p-dialog .p-dialog-header {
     border-bottom: 0 none;
     background: #ffffff;
     color: #495057;
@@ -73,7 +84,7 @@ app-detalhar-animais{
     border-top-left-radius: 5px !important;
   }
 
-  .p-dialog .p-dialog-content {
+  .modal-detail-animal .p-dialog .p-dialog-content {
     overflow: hidden;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -115,22 +126,17 @@ app-detalhar-animais{
     font-size: 40px;
   }
 
-  .p-dialog {
+  .modal-detail-animal .p-dialog {
     min-width: 360px;
 
   }
 
-  .p-dialog .p-dialog-header {
+  .modal-detail-animal .p-dialog .p-dialog-header {
     border: none;
     height: 30px !important;
   }
 
 
-  img {
-
-    width: 320px;
-    height: 320px;
-  }
 
   .container-modal {
     display: flex;

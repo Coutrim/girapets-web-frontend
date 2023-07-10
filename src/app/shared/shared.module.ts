@@ -19,6 +19,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     SplitButtonModule,
     SidebarModule,
     ConfirmDialogModule,
-    RadioButtonModule
+    RadioButtonModule,
+    DialogModule
 
 
     // Adicione aqui outros módulos do PrimeNG que você importou
@@ -61,7 +63,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     SplitButtonModule,
     SidebarModule,
     ConfirmDialogModule,
-    RadioButtonModule
+    RadioButtonModule,
+    DialogModule
 
   ],
   providers:[DialogService, DynamicDialogRef, ConfirmationService, JwtHelperService]

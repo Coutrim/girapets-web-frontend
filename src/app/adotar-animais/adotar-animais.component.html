@@ -32,7 +32,9 @@ padding-left: 3%;">
           <img [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
         </p-header>
         <p-title>
-          <i class="fa-solid fa-heart"></i>
+         <span style="font-weight: 400;
+         margin-bottom: 0.5rem;
+         color: #6c757d;">{{objeto.cidade | uppercase}}</span>
         </p-title>
         <ng-template class="footer-adotar-animais" pTemplate="footer">
           <div style="display: flex !important;
