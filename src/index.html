@@ -14,10 +14,23 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="assetlinks" href="./assetlinks.json">
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
+
   <meta name="theme-color" content="#1976d2">
 </head>
 <body style="margin: 0;
 padding: 0;">
+
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
+
 
 <p-toast></p-toast>
 
