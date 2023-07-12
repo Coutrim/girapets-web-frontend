@@ -5,7 +5,7 @@
   "background_color": "#fafafa",
   "package_name": "gira-pets.netlify.app",
   "display": "standalone",
-  "scope": "./",
+  "scope": "/https://gira-pets.netlify.app/home",
   "start_url": "./",
   "icons": [
     {
