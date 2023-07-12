@@ -1,6 +1,6 @@
 {
-  "name": "girapets-web",
-  "short_name": "girapets-web",
+  "name": "Gira-Pets",
+  "short_name": "Gira-Pets",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -55,5 +55,10 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
+  ],
+  "description": "Um projeto de adoção de animais. Ajudando você a encontrar o seu melhor amigo!",
+  "categories": [
+    "social",
+    "utilities"
   ]
 }
