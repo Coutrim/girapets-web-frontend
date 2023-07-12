@@ -32,7 +32,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/assetlinks.json"
+              "src/assetlinks.json",
+              "src/.well-known/assetlinks.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
@@ -119,7 +120,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/assetlinks.json"
+              "src/assetlinks.json",
+              "src/.well-known/assetlinks.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
