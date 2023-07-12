@@ -16,7 +16,7 @@ import {ToastModule} from 'primeng/toast';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {SidebarModule} from 'primeng/sidebar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {DialogModule} from 'primeng/dialog';
@@ -67,6 +67,6 @@ import {DialogModule} from 'primeng/dialog';
     DialogModule
 
   ],
-  providers:[DialogService, DynamicDialogRef, ConfirmationService, JwtHelperService]
+  providers:[DialogService, DynamicDialogRef, ConfirmationService, JwtHelperService, MessageService]
 })
 export class SharedModule { }
