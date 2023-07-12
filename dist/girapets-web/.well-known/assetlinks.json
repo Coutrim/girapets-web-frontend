@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "https://gira-pets.netlify.app/",
+        "sha256_cert_fingerprints": ["BD:6C:CA:E8:42:6A:D4:A1:F1:93:52:7C:74:62:98:C5:E6:5F:D5:3C:BB:D8:12:1B:05:31:4F:EC:87:6B:F0:CE"]
+      }
+    }]

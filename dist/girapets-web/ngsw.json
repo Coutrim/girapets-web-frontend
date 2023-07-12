@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1689200231288,
+  "timestamp": 1689202110067,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -58,6 +58,7 @@
         "/assets/icons/icon-72x72.png",
         "/assets/icons/icon-96x96.png",
         "/assets/instagram-icon.svg",
+        "/assets/pwabuilder-sw.js",
         "/assets/whatsapp-icon.png",
         "/color.png",
         "/fa-brands-400.ttf",
@@ -109,6 +110,7 @@
     "/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
     "/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
     "/assets/instagram-icon.svg": "09d7cdbbbc4b6c42138218e594859ab8c03f0952",
+    "/assets/pwabuilder-sw.js": "c0d85b6b539e189760445e2d0b086b6c733af271",
     "/assets/whatsapp-icon.png": "47e76be0a31f9228eac7826319b468d43f9bd032",
     "/color.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
     "/fa-brands-400.ttf": "f0982a77285d53653845b0a78170b4688db972f1",
@@ -122,7 +124,7 @@
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "/fundo-sobre-pets.jpg": "7c229c147d7458fd39cb85f78b2cff440668c1af",
     "/hue.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/index.html": "c21bb4858b0c669f2e324d4c6faa8d51110fc47a",
+    "/index.html": "6fcae1445b41b433b0eb8d933ceb0a27bd2c361a",
     "/main.js": "e7f0251ca3041e83a53d0918f4295ca201cce455",
     "/manifest.webmanifest": "16acbeaea480e8e0b60a5bf97368ec035ad317bf",
     "/polyfills.js": "ec91afc08e24bf64a2d99d3cf8fbe8173a3b9a29",
