@@ -24,6 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/.well-known",
+                "output": ".well-known/"
+              },
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
@@ -106,6 +111,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/.well-known",
+                "output": ".well-known/"
+              },
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
