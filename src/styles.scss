@@ -7,3 +7,14 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Esconda a barra de endereço no navegador embutido */
+body {
+  --viewport-fit: cover;
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-right: env(safe-area-inset-right);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
+  padding-top: constant(safe-area-inset-top); /* Para o IE Mobile */
+  padding-top: env(safe-area-inset-top);
+}
