@@ -1,8 +1,22 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "https://gira-pets.netlify.app/",
-    "sha256_cert_fingerprints": ["96:C2:CB:03:A9:64:16:E1:A0:5F:22:18:63:AE:21:EB:52:A9:0A:12:6C:F0:51:95:76:BB:E7:E1:3A:7B:80:F7"]
+
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "https://gira-pets.netlify.app/",
+      "sha256_cert_fingerprints": ["96:C2:CB:03:A9:64:16:E1:A0:5F:22:18:63:AE:21:EB:52:A9:0A:12:6C:F0:51:95:76:BB:E7:E1:3A:7B:80:F7"]
+    }
+  },
+  {
+    "relation": [
+      "check_validation"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "https://gira-pets.netlify.app/"
+    }
   }
-}]
+]
