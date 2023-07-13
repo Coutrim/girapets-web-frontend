@@ -3,10 +3,10 @@
   "short_name": "Gira-Pets",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "package_name": "gira-pets.netlify.app",
+  "package_name": "app.netlify.gira_pets.twa",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "https://gira-pets.netlify.app/",
+  "start_url": "https://gira-pets.netlify.app/",
   "icons": [
     {
       "src": "assets/icons/android-launchericon-72-72.png",

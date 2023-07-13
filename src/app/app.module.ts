@@ -41,8 +41,8 @@ import { environment } from '../environments/environment.prod';
     ButtonModule,
     SharedModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
+    ServiceWorkerModule.register('/src/service-worker.js', {
+      //enabled: environment.production
     }),
 
   ],
