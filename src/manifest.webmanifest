@@ -3,7 +3,7 @@
   "short_name": "Gira-Pets",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
-  "package_name": "gira-pets.netlify.app",
+  "package_name": "app.netlify.gira_pets.twa",
   "display": "standalone",
   "scope": "/https://gira-pets.netlify.app/home",
   "start_url": "./",
