@@ -1,4 +1,3 @@
-
 <div class="container-tela" style="display: flex;
 flex-direction: column;
 justify-content: center;
@@ -6,19 +5,28 @@ align-items: center;
 padding-left: 3%;">
   <h2 class="titulo-adocao">Gatos e cachorros para adoção em Girassol-GO</h2>
 
-  <div class="toolbar-container">
-    <p-toolbar>
-      <div class="p-toolbar-group-left" style="width: 50%;">
-        <div class="filtros">
-          <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
-          <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
-          <h2 class="label-filtros" >Cachorro</h2>
-          <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
-          <h2 class="label-filtros" >Gato</h2>
-        </div>
-      </div>
-    </p-toolbar>
+  <div class="filtrar-por">
+    <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
+    <span (click)="buscarTodosAnimais()" class="span-limpar-todos">Limpar todos</span>
   </div>
+    <div class="container-toolbar">
+
+        <div class="filtros">
+
+        <div class="caixinha-filtros">
+          <div class="filtro-dog">
+            <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
+            <h2 class="label-filtros" (click)="buscarDogs()">Cachorros</h2>
+          </div>
+          <div class="filtro-cat">
+            <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
+            <h2 class="label-filtros" (click)="buscarGatos()">Gatos</h2>
+          </div>
+        </div>
+        </div>
+
+    </div>
+
 
 
   <!-- container de cards -->
@@ -32,21 +40,21 @@ padding-left: 3%;">
           <img [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
         </p-header>
         <p-title>
-         <span style="font-weight: 400;
+          <span style="font-weight: 400;
          margin-bottom: 0.5rem;
          color: #6c757d;">{{objeto.cidade | uppercase}}</span>
         </p-title>
         <ng-template class="footer-adotar-animais" pTemplate="footer">
           <div style="display: flex !important;
           justify-content: center !important;">
-          <div class="container-botoes">
-          <button  class="botao-card-detalhes" (click)="show()"
-            (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto. cidade, objeto.imagens)">
-            Saiba mais
-          </button>
-          <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
-        </div>
-      </div>
+            <div class="container-botoes">
+              <button class="botao-card-detalhes" (click)="show()"
+                (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto. cidade, objeto.imagens)">
+                Saiba mais
+              </button>
+              <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
+            </div>
+          </div>
         </ng-template>
       </p-card>
     </div>

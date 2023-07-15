@@ -9,6 +9,7 @@ export class AnimaisModel {
   cidade: string;
   idade: number;
   imagem: Uint8Array;
+  raça: string;
 
 
   public constructor(init ? : Partial < AnimaisModel > ) {
