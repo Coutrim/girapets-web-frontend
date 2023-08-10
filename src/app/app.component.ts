@@ -5,9 +5,16 @@ import {
   HostListener
 } from '@angular/core';
 import {
+  Router
+} from '@angular/router';
+import jwt_decode from 'jwt-decode';
+import {
   MenuItem,
   MessageService
 } from 'primeng/api';
+import {
+  DialogService
+} from 'primeng/dynamicdialog';
 import {
   LoadingService
 } from './shared/components/loading-service.service';
@@ -17,16 +24,6 @@ import {
 import {
   EmitirCarregamentosService
 } from './shared/services/emitirCarregamentos.service';
-import jwt_decode from 'jwt-decode';
-import {
-  Router
-} from '@angular/router';
-import {
-  DialogService
-} from 'primeng/dynamicdialog';
-import {
-  AdotarAnimaisComponent
-} from './adotar-animais/adotar-animais.component';
 
 @Component({
   selector: 'app-root',
@@ -37,15 +34,13 @@ import {
 export class AppComponent {
   title = 'girapets-web';
 
-
-
   constructor(private loadingService: LoadingService, private cdref: ChangeDetectorRef, private authService: AuthService,
     private elementRef: ElementRef, private emitirRecarregamentoService: EmitirCarregamentosService,
     private router: Router, private messageService: MessageService, private dialogService: DialogService) {}
 
   items: MenuItem[];
   isActive: boolean = false;
-  displaySideBar: boolean;
+  displaySideBar: boolean = false;
   links: any[];
   institucional: any[];
   contato: any[];
@@ -95,9 +90,10 @@ export class AppComponent {
 
   }
 
-
+  abrirSideBar(){
+    this.displaySideBar = true;
+  }
   ngOnInit() {
-
     this.contato = [{
         label: 'Email',
         routerLink: '/login',
@@ -260,5 +256,9 @@ export class AppComponent {
     if (dropdownElement && !dropdownElement.contains(clickedElement) && !toggleButtonElement.contains(clickedElement)) {
       this.isDropdownOpen = false;
     }
+  }
+
+  fecharSideBar(evento){
+    this.displaySideBar = evento;
   }
 }

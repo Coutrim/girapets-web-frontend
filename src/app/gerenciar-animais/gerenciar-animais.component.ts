@@ -43,14 +43,12 @@ export class GerenciarAnimaisComponent implements OnInit {
     const currentDate = new Date();
 
     if(expirationDate < currentDate){
-      console.log('expirou');
 
       this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
       this.router.navigate(['/login']);
       this.authService.logout();
 
     } else{
-      console.log('teste');
 
     }
 
@@ -68,14 +66,12 @@ export class GerenciarAnimaisComponent implements OnInit {
       const currentDate = new Date();
 
       if(expirationDate < currentDate){
-        console.log('expirou');
 
         this.messageService.add({severity:'error', summary:'Sessão expirada. Faça login novamente!'});
         this.router.navigate(['/login']);
         this.authService.logout();
 
       } else{
-        console.log('teste');
 
       }
       return expirationDate < currentDate;
@@ -92,7 +88,7 @@ export class GerenciarAnimaisComponent implements OnInit {
         this.loadingService.desativarLoading()
       },
       (error) => {
-        console.log('Erro:', error);
+        console.error('Erro:', error);
         this.loadingService.desativarLoading()
       }
     );
@@ -162,7 +158,7 @@ export class GerenciarAnimaisComponent implements OnInit {
           },
           (error) => {
             this.loadingService.desativarLoading()
-            console.log('Erro:', error);
+            console.error('Erro:', error);
 
           }
         );

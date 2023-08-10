@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment.prod';
+import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { environment } from '../environments/environment.prod';
     GerenciarAnimaisComponent,
     AdicionarAnimalComponent,
     EditarAnimalComponent,
-    LoadingComponent
+    LoadingComponent,
+    MenuSidebarComponent
   ],
   imports: [
     BrowserModule,

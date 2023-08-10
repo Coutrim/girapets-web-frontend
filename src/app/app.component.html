@@ -1,50 +1,12 @@
 <body>
   <p-toast></p-toast>
+  <menu-sidebar [displaySideBar]="displaySideBar" (onClose)="fecharSideBar($event)"></menu-sidebar>
 
-  <p-sidebar [(visible)]="displaySideBar" dismissable="false">
-    <a routerLink="/home">
-      <h1 style="width: 180px !important; color: white;"><i style="color: white;"
-          class="fas fa-solid fa-paw"></i>Gira-Pets</h1>
-    </a>
-    <ul class="ul-sidebar">
-      <li class="li-sidebar"> <a (click)="displaySideBar = false" (click)="rolarProTopo()"
-          style="color: white; font-size: 20px;" routerLink="/home">Inicio</a></li>
-      <li *ngIf="!isLoggedIn()" class="li-sidebar"><a (click)="displaySideBar = false"
-          style="color: white; font-size: 20px;" routerLink="/login">Entrar</a></li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;"
-          routerLink="/quero-adotar">Quero adotar</a></li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" (click)="sobreOGiraPets()"
-          style="color: white; font-size: 20px;" routerLink="">Sobre o Gira-Pets</a></li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" (click)="comoFuncionaScroll()"
-          style="color: white; font-size: 20px;" routerLink="">Como funciona</a></li>
-      <li class="li-sidebar"> <a (click)="displaySideBar = false" style="color: white; font-size: 20px;"
-          routerLink=""></a>
-
-          <p-dialog  class="modal-contatos" header="Contatos" [(visible)]="display">
-            <div *ngFor="let contato of contato">
-              <a target="_blank" style="color: #292525;" [href]="contato.url">
-                <i [class]="contato.icon"></i>
-                {{ contato.label }}
-              </a>
-            </div>
-        </p-dialog>
-
-        <button style="color: white;
-        font-size: 20px; background: transparent; border: none; margin-left: -6.8px;" type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show">Contato</button>
-        </li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;"
-          routerLink="">Ajude-nos</a></li>
-      <li class="li-sidebar"><a (click)="displaySideBar = false" style="color: white; font-size: 20px;"
-          routerLink="">Doação</a></li>
-
-
-    </ul>
-  </p-sidebar>
   <header class="header-novo">
     <nav style="width: 100%;display: flex;
     justify-content: center;">
       <div class="menu-icon">
-        <i class="fa fa-bars fa-2xl" (click)="displaySideBar = true"></i>
+        <i class="fa fa-bars fa-2xl" (click)="abrirSideBar()"></i>
         <div class="logo-botao-header-mobile">
           <a *ngIf="!isLoggedIn()" routerLink="/home">
             <h1 style="margin-left: -4px;

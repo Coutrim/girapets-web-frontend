@@ -92,7 +92,7 @@ export class AdotarAnimaisComponent implements OnInit {
         this.loadingService.desativarLoading()
       },
       (error) => {
-        console.log('Erro:', error);
+        console.error('Erro:', error);
         this.loadingService.desativarLoading()
       }
     );

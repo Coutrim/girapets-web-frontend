@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 
         this.messageService.add({severity:'error', summary:this.errorMessage});
 
-        console.log(this.errorMessage)
+        console.error(this.errorMessage)
       }
     );
   }

@@ -58,7 +58,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
 
               "namedChunks": false,
               "extractLicenses": true,
@@ -158,7 +158,6 @@
       }
     }
   },
-  "defaultProject": "girapets-web",
   "cli": {
     "analytics": false
   }

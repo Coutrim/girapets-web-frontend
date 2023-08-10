@@ -25,7 +25,6 @@ export class AuthService {
   }
 
   getObjToken(){
-    console.log(this.tokenObj)
     return this.tokenObj;
   }
 
