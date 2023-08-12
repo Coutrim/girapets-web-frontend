@@ -43,9 +43,9 @@ import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
     ButtonModule,
     SharedModule,
     HttpClientModule,
-    ServiceWorkerModule.register('../../ngsw-config.json', {
-      enabled: environment.production
-    }),
+    // ServiceWorkerModule.register('../../ngsw-config.json', {
+    //   enabled: environment.production
+    // }),
 
   ],
   providers: [MessageService, JwtHelperService],
