@@ -49,8 +49,9 @@ export class AdotarAnimaisComponent implements OnInit {
   imagemUrl: string;
   isLoading: boolean = true;
   animaisId:any
-
-
+  gatos:any;
+  dogs:any;
+  todosAnimais:any;
 
   nomeAnimal: any;
 
@@ -87,16 +88,31 @@ export class AdotarAnimaisComponent implements OnInit {
     this.animaisService.listarAnimais().subscribe(
       (objetos) => {
         this.animais = objetos;
-        console.log(this.animais)
+        this.todosAnimais = objetos;
 
         this.loadingService.desativarLoading()
       },
       (error) => {
-        console.error('Erro:', error);
+        console.log('Erro:', error);
         this.loadingService.desativarLoading()
       }
     );
 
+  }
+
+
+  buscarGatos(){
+    this.animais = this.todosAnimais;
+    this.animais = this.animais.filter(animal => animal.especie.toLowerCase() === 'gato');
+  }
+
+  buscarDogs(){
+    this.animais = this.todosAnimais;
+    this.animais = this.animais.filter(animal => animal.especie.toLowerCase() === 'cachorro');
+  }
+
+  buscarTodosAnimais(){
+    this.animais = this.todosAnimais;
   }
 
   // Abre a modal de detalhar animal
