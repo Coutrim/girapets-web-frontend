@@ -4,22 +4,29 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding-left: 3%;">
-  <h2 class="titulo-adocao">Gatos e cachorros para adoção em Girassol-GO</h2>
+<h2 class="titulo-adocao">Gatos e cachorros para adoção em Girassol-GO</h2>
 
-  <div class="toolbar-container">
-    <p-toolbar>
-      <div class="p-toolbar-group-left" style="width: 50%;">
-        <div class="filtros">
-          <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
+<div class="filtrar-por">
+  <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
+  <span (click)="buscarTodosAnimais()" class="span-limpar-todos">Limpar todos</span>
+</div>
+  <div class="container-toolbar">
+
+      <div class="filtros">
+
+      <div class="caixinha-filtros">
+        <div class="filtro-dog">
           <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
-          <h2 class="label-filtros" >Cachorro</h2>
+          <h2 class="label-filtros" (click)="buscarDogs()">Cachorros</h2>
+        </div>
+        <div class="filtro-cat">
           <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
-          <h2 class="label-filtros" >Gato</h2>
+          <h2 class="label-filtros" (click)="buscarGatos()">Gatos</h2>
         </div>
       </div>
-    </p-toolbar>
-  </div>
+      </div>
 
+  </div>
 
 
   <!-- container de cards -->
