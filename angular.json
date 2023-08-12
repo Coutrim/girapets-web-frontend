@@ -78,6 +78,12 @@
               ]
             },
             "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -95,8 +101,12 @@
           "configurations": {
             "production": {
               "browserTarget": "girapets-web:build:production"
+            },
+            "development": {
+              "browserTarget": "girapets-web:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
