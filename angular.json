@@ -31,7 +31,6 @@
               },
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
               "src/assetlinks.json",
               "src/.well-known/assetlinks.json"
             ],
@@ -129,7 +128,6 @@
               },
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
               "src/assetlinks.json",
               "src/.well-known/assetlinks.json"
             ],

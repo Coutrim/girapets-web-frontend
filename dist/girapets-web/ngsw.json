@@ -14,7 +14,6 @@
         "/favicon.ico",
         "/index.html",
         "/main.js",
-        "/manifest.webmanifest",
         "/polyfills.js",
         "/runtime.js",
         "/styles.css"
@@ -126,7 +125,6 @@
     "/hue.png": "f81ae627637a684614aa726e206c73ce099a01fd",
     "/index.html": "fab4c4387935e1e02649ac5b0e8c35fcc8459b02",
     "/main.js": "a5ef94363cc16bd22443083bc205963079500f49",
-    "/manifest.webmanifest": "8655db50ea0df7ba762fdf1224e8c4d66a77af5e",
     "/polyfills.js": "ec91afc08e24bf64a2d99d3cf8fbe8173a3b9a29",
     "/primeicons.svg": "d3332a45242b8f6edbf3f3c7176a280e7edcd961",
     "/primeicons.ttf": "ceeb46d594fde5cc507cdf8b70e38e78fe47653c",
