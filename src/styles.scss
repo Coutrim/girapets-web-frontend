@@ -20,3 +20,18 @@ body {
 }
 
 
+.dark{
+  --gira-bg-color: #000000;
+  --gira-card-bg-color:rgb(19, 19, 19);
+  --gira-main-color: rgb(254, 254, 254);
+  --gira-card-main-color: rgb(254, 254, 254);
+  --gira-header-color:rgb(254, 254, 254);
+}
+
+.light{
+  --gira-bg-color: #f6f6f6;
+  --gira-card-bg-color:#ffffff;
+  --gira-main-color: #000000;
+  --gira-card-main-color: #495057;
+  --gira-header-color:rgb(117, 117, 117);
+}

@@ -88,7 +88,7 @@
   }
 
   .p-toolbar {
-    background: white;
+    background: var(----gira-card-bg-color);
     border-radius: 5px;
     margin-left: -4px;
   }
@@ -138,8 +138,8 @@
 
 
   .p-card {
-    background: #ffffff;
-    color: #495057;
+    background: var(--gira-card-bg-color);
+    color: var(--gira-card-main-color);
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.1) 10px 10px 10px 12px;
     transition: top 0.5s ease 0s;

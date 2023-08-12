@@ -12,7 +12,6 @@
     width: 250px;
     height: 210px;
   }
-
   .modal-contatos .p-dialog .p-dialog-content {
     background: #ffffff;
     color: #495057;
@@ -24,8 +23,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-  }
 
+  }
+  .link-ajude{
+    color: var(--gira-main-color);
+    font-size: 17px; font-family: cursive;
+  }
   .botao-faq .p-splitbutton .p-splitbutton-defaultbutton {
     -ms-flex: 1 1 auto;
     border-bottom-right-radius: 0;
@@ -34,8 +37,7 @@
     flex: 1 1 auto;
     background: transparent;
     border: none;
-    color: black;
-    color: rgb(117, 117, 117);
+    color: var(--gira-header-color);
     font-size: 17px;
     font-family: cursive;
     cursor: default;
@@ -45,7 +47,7 @@
     width: 2.357rem;
     padding: 0.5rem 0;
     background: transparent;
-    color: rgb(117, 117, 117);
+    color: var(--gira-header-color);
     border: none;
     margin-left: -20px;
   }
@@ -125,7 +127,9 @@
     /* Define a altura mínima do corpo como 100% da altura da viewport */
     margin: 0;
     overflow-x: hidden;
-
+    background: var(--gira-bg-color);
+    color: var(--gira-main-color);
+    transition: all 0.2s ease;
   }
 
   main {
@@ -187,11 +191,12 @@
 
   .header-novo {
     width: 100%;
-    background-color: white;
+    background-color: var(--gira-card-bg-color);
     position: fixed;
     display: flex;
     align-items: center;
     z-index: 1000;
+
   }
 
   .container-dos-botoes {
@@ -245,7 +250,6 @@
   .menu {
     display: flex;
     list-style: none;
-    width: 90%;
     display: flex;
     justify-content: space-between;
   }
@@ -325,14 +329,6 @@
       flex-direction: column;
     }
   }
-
-
-
-
-
-
-
-
 }
 
 .footer-info {
