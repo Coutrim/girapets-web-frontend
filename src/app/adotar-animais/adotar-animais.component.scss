@@ -1,10 +1,60 @@
 ::ng-deep {
 
-  .toolbar-container {
-    padding-bottom: 3%;
-    width: 50%;
-    padding-top: 1.5%;
-    min-width: 372px;
+  .span-limpar-todos{
+    text-decoration: underline;
+  }
+  .filtro-dog{
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 162px;
+      cursor: pointer;
+  }
+
+  .filtro-cat{
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 109px;
+      cursor: pointer;
+  }
+
+  .caixinha-filtros{
+    display: flex;
+    width: 293px;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  .container-toolbar{
+    display: flex;
+      background: white;
+      border-radius: 7px;
+      border: 1px solid #c5c0c0;
+      justify-content: center;
+      padding-left: 14px;
+      padding-right: 14px;
+      height: 64px;
+      margin-top: 15px;
+      margin-bottom: 80px;
+  }
+
+  .titulo-adocao {
+    display: flex;
+    color: #ff6a00;
+    align-items: center;
+    justify-content: center;
+    font-family: cursive;
+    text-transform: uppercase;
+  }
+
+  .filtrar-por{
+    margin-top: 19px;
+    width: 351px;
+    display: flex;
+    height: 42px;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .p-grid>.p-col,
@@ -162,6 +212,40 @@
     height: 100%;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+  }
+
+  @media screen and (max-width:613px) {
+
+    .filtro-cat{
+      display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 99px  !important;
+        cursor: pointer;
+    }
+
+    .filtro-dog{
+      display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 143px  !important;
+        cursor: pointer;
+    }
+
+
+    .caixinha-filtros {
+      display: flex;
+      justify-content: space-between;
+      width: 273px;
+      margin-top: 12px;
+  }
+    .container-tela{
+      margin-top: 15%;
+    }
+
+    .label-filtros{
+      font-size: 20px;
+    }
   }
 
   @media screen and (min-width: 445px) {
