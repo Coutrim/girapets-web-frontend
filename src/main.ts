@@ -15,12 +15,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     enableProdMode();
   }
 
-  platformBrowserDynamic().bootstrapModule(AppModule)
-    .then(() => {
-      if ('serviceWorker' in navigator && environment.production) {
-        navigator.serviceWorker.register('/ngsw-worker.js');
-        console.log('Service worker registrar no main.ts');
 
-      }
-    })
-    .catch((err) => console.error(err));
