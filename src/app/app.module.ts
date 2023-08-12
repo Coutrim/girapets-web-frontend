@@ -44,7 +44,7 @@ import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
     SharedModule,
     HttpClientModule,
     ServiceWorkerModule.register('../../ngsw-config.json', {
-      //enabled: environment.production
+      enabled: environment.production
     }),
 
   ],
