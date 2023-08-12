@@ -191,8 +191,10 @@ export class AppComponent {
 
   }
 
+
   checkTokenExpiration(token: string) {
 
+    if(this.usuarioLogado){
     setInterval(() => {
       const decodedToken: any = jwt_decode(token);
       const expirationDate = new Date(decodedToken.exp * 1000); // Converter para milissegundos
@@ -212,7 +214,7 @@ export class AppComponent {
       }
       return expirationDate < currentDate;
     }, 2.5 * 60 * 1000);
-
+    }
   }
 
 
@@ -223,6 +225,7 @@ export class AppComponent {
 
   recuperarUsuario() {
     this.usuarioLogado = this.authService.getUsuario();
+    return this.usuarioLogado
   }
 
   logout() {
