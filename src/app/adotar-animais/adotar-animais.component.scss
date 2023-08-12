@@ -148,7 +148,9 @@
     height: 450px;
 
   }
-
+  .p-card:hover{
+    background: var(--gira-hover-bg-card);
+  }
   .container-botoes {
     display: flex;
     width: 100%;
