@@ -29,7 +29,8 @@ export class AnimaisService {
   nomeAnimal: any
 
   // Pega como parâmetro dados vindo do objeto no HTML e passa pra variavel criando um novo objeto apenas do animal selecionado.
-  setAtributos(id, nome: any, sexo, descricao, especie, raca, idade, cidade,imagens) {
+  setAtributos(id, nome: any, sexo, descricao, especie, raca, idade, cidade,
+     castrado, vacinado, vermifugado, porte,imagens) {
 
     this.nomeAnimal = nome;
 
@@ -42,11 +43,15 @@ export class AnimaisService {
       raca: raca,
       idade: idade,
       cidade: cidade,
+      castrado: castrado,
+      vacinado: vacinado,
+      vermifugado: vermifugado,
+      porte: porte,
       imagens: imagens
     };
 
-
     this.atributosAnimal.next(animalObj);
+
     return animalObj;
   }
 
@@ -58,14 +63,10 @@ export class AnimaisService {
     return this.nomeAnimal;
   }
 
-
   // Retorna os dados do animal selecionado na modal
   getAtributos(): Observable<any> {
-
     return this.atributosAnimal.asObservable();
   }
-
-
 
 
   // Código com a API de localhost e Token de autenticação

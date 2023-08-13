@@ -56,7 +56,8 @@ export class AdotarAnimaisComponent implements OnInit {
   nomeAnimal: any;
 
   // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  detalharAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal, imagens) {
+  detalharAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal,
+    castradoAnimal,vacinadoAnimal,vermifugadoAnimal,porteAnimal, imagens) {
     let idModel = id;
     this.nomeAnimal = nomeAnimal;
     let sexoModel = sexoAnimal;
@@ -65,9 +66,14 @@ export class AdotarAnimaisComponent implements OnInit {
     let racaModel = racaAnimal;
     let idadeModel = idadeAnimal;
     let cidadeModel = cidadeAnimal
+    let castradoModel = castradoAnimal;
+    let vacinadoModel = vacinadoAnimal;
+    let vermifugadoModel = vermifugadoAnimal;
+    let porteModel = porteAnimal;
     let imagensModel = imagens
 
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel, imagensModel)
+    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
+      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, imagensModel);
   }
 
 
@@ -89,6 +95,7 @@ export class AdotarAnimaisComponent implements OnInit {
       (objetos) => {
         this.animais = objetos;
         this.todosAnimais = objetos;
+        console.log( this.animais);
 
         this.loadingService.desativarLoading()
       },

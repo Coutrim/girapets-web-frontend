@@ -11,7 +11,8 @@ import { LazyLoadEvent, MessageService } from 'primeng/api';
 })
 export class DetalharAnimaisComponent implements OnInit {
 
-  constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef, private messageService: MessageService) { }
+  constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef,
+     private messageService: MessageService) { }
 
 
   arrayImagens: any
@@ -20,11 +21,10 @@ export class DetalharAnimaisComponent implements OnInit {
 
 
 
-
   ngOnInit() {
-
     this.animaisService.getAtributos().subscribe(valor => {
       this.atributosModal = valor;
+      console.log(this.atributosModal);
 
     });
 

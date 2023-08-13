@@ -97,7 +97,8 @@ export class GerenciarAnimaisComponent implements OnInit {
   nomeAnimal: any;
 
   // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  buscarDadosAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal,imagens) {
+  buscarDadosAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal,
+     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal, imagens) {
     let idModel = id;
     this.nomeAnimal = nomeAnimal;
     let sexoModel = sexoAnimal;
@@ -106,8 +107,13 @@ export class GerenciarAnimaisComponent implements OnInit {
     let racaModel = racaAnimal;
     let idadeModel = idadeAnimal;
     let cidadeModel = cidadeAnimal
+    let castradoModel = castradoAnimal;
+    let vacinadoModel = vacinadoAnimal;
+    let vermifugadoModel = vermifugadoAnimal;
+    let porteModel = porteAnimal;
     const imagensModel = imagens;
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel,imagensModel);
+    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
+       idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, imagensModel);
   }
 
   abrirModalEditar(id) {

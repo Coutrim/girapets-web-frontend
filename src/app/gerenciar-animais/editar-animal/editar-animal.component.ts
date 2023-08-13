@@ -117,7 +117,8 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
   nomeAnimal: any;
 
   // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  botaoEditar(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal, imagens) {
+  botaoEditar(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal,
+     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal, imagens) {
     let idModel = id;
     this.nomeAnimal = nomeAnimal;
     let sexoModel = sexoAnimal;
@@ -126,9 +127,14 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     let racaModel = racaAnimal;
     let idadeModel = idadeAnimal;
     let cidadeModel = cidadeAnimal
+    let castradoModel = castradoAnimal;
+    let vacinadoModel = vacinadoAnimal;
+    let vermifugadoModel = vermifugadoAnimal;
+    let porteModel = porteAnimal;
     let imagensModel = imagens
 
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel, idadeModel, cidadeModel, imagensModel)
+    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
+      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, imagensModel)
   }
 
   editarAnimal() {
@@ -147,7 +153,9 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     if (this.atributosModal.nome.trim() === '' || this.atributosModal.especie.trim() === ''
     || this.atributosModal.raca.trim() === '' || this.atributosModal.sexo.trim() === ''
     || this.atributosModal.idade.trim() === '' || this.atributosModal.descricao.trim() === ''
-    || this.atributosModal.cidade.trim() === ''
+    || this.atributosModal.cidade.trim() === '' || this.atributosModal.castrado.trim() === ''
+    || this.atributosModal.vacinado.trim() === '' || this.atributosModal.vermifugado.trim() === ''
+    || this.atributosModal.porte.trim() === ''
     ) {
       this.messageService.add({
         severity: 'warn',

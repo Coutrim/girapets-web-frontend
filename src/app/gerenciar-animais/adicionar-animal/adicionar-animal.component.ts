@@ -124,7 +124,10 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     idade: new FormControl(null, Validators.required),
     descricao: new FormControl(null, Validators.required),
     cidade: new FormControl(null, Validators.required),
-
+    castrado: new FormControl(null, Validators.required),
+    vacinado: new FormControl(null, Validators.required),
+    vermifugado: new FormControl(null, Validators.required),
+    porte: new FormControl(null, Validators.required),
   });
 
   fecharModal(){
@@ -141,6 +144,10 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
       idade: this.animaisFormGroup.get('idade').value,
       descricao: this.animaisFormGroup.get('descricao').value,
       especie: this.animaisFormGroup.get('especie').value,
+      castrado: this.animaisFormGroup.get('castrado').value,
+      vacinado: this.animaisFormGroup.get('vacinado').value,
+      vermifugado: this.animaisFormGroup.get('vermifugado').value,
+      porte: this.animaisFormGroup.get('porte').value,
     }
 
 
