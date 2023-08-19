@@ -37,7 +37,8 @@ padding-left: 3%;">
       <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
         class="p-card-shadow p-col p-md-4">
         <p-header>
-          <img [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
+          <img style="width:320.5px;
+          height: 246px;" [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
         </p-header>
         <p-title>
          <span style="font-weight: 400;

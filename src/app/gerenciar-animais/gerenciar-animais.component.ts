@@ -167,7 +167,6 @@ export class GerenciarAnimaisComponent implements OnInit {
         style: {
           // Estilos em linha aqui
           'min-width': '360px',
-          'margin-top':'100px',
           'border-radius':'8px'
         }
       });
