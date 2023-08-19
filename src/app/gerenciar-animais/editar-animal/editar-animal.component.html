@@ -142,6 +142,25 @@
       </div>
     </div>
 
+    <div>
+      <h3>Nome do dono</h3>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.nome_dono" maxlength="100" />
+        <div>
+          <small >Caracteres restantes: {{100 - atributosModal?.nome_dono?.length}}</small>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Telefone do dono</h3>
+      <div>
+        <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.telefone_dono" maxlength="100" />
+        <div>
+          <small >Caracteres restantes: {{100 - atributosModal?.telefone_dono?.length}}</small>
+        </div>
+      </div>
+    </div>
+
     <div style="width: 198px;">
       <h3>Sexo</h3>
       <div class="container-radio-button" >

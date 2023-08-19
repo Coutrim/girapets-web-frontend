@@ -128,6 +128,8 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     vacinado: new FormControl(null, Validators.required),
     vermifugado: new FormControl(null, Validators.required),
     porte: new FormControl(null, Validators.required),
+    nome_dono:new FormControl(null),
+    telefone_dono: new FormControl(null)
   });
 
   fecharModal(){
@@ -148,6 +150,8 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
       vacinado: this.animaisFormGroup.get('vacinado').value,
       vermifugado: this.animaisFormGroup.get('vermifugado').value,
       porte: this.animaisFormGroup.get('porte').value,
+      nome_dono: this.animaisFormGroup.get('nome_dono').value,
+      telefone_dono: this.animaisFormGroup.get('telefone_dono').value
     }
 
 
@@ -191,6 +195,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
             summary: 'Animal salvo com sucesso.'
           });
           // this.animaisFormGroup.reset()
+
           this.loadingService.desativarLoading();
           this.ref.close();
 

@@ -30,7 +30,7 @@ export class AnimaisService {
 
   // Pega como parâmetro dados vindo do objeto no HTML e passa pra variavel criando um novo objeto apenas do animal selecionado.
   setAtributos(id, nome: any, sexo, descricao, especie, raca, idade, cidade,
-     castrado, vacinado, vermifugado, porte,imagens) {
+     castrado, vacinado, vermifugado, porte, nomeDono, telefoneDono, imagens) {
 
     this.nomeAnimal = nome;
 
@@ -47,6 +47,8 @@ export class AnimaisService {
       vacinado: vacinado,
       vermifugado: vermifugado,
       porte: porte,
+      nome_dono : nomeDono,
+      telefone_dono: telefoneDono,
       imagens: imagens
     };
 

@@ -26,10 +26,17 @@
         <ng-template class="gerenciar-animais-footer" pTemplate="footer">
           <div style="display: flex; justify-content:flex-end; margin-top: -14px;">
             <div class="botoes-card">
+              <button type="button" class="botao-card-excluir" (click)="excluirAnimal(objeto.id)">Excluir</button>
+
               <button class="botao-card-editar" (click)="abrirModalEditar(objeto.id)">
                 Editar
               </button>
-              <button type="button" class="botao-card-excluir" (click)="excluirAnimal(objeto.id)">Excluir</button>
+              <button  class="botao-detalhar-animal" (click)="show()"
+            (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie, objeto.raca, objeto.idade, objeto. cidade,
+            objeto.castrado,objeto.vacinado,objeto.vermifugado,objeto.porte, objeto.nome_dono, objeto.telefone_dono,
+             objeto.imagens)">
+           Detalhar animal
+          </button>
             </div>
           </div>
         </ng-template>

@@ -24,9 +24,19 @@ export class DetalharAnimaisComponent implements OnInit {
   ngOnInit() {
     this.animaisService.getAtributos().subscribe(valor => {
       this.atributosModal = valor;
-      console.log(this.atributosModal);
 
     });
+
+    this.isLogged()
+  }
+
+  isLogged(){
+    if(localStorage.getItem('token') === null || localStorage.getItem('token') === ''
+     || localStorage.getItem('token') === undefined){
+      return false;
+     } else{
+      return true;
+     }
 
   }
 

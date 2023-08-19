@@ -1,7 +1,7 @@
 ::ng-deep{
 
   .botao-card-excluir:hover{
-    background-image: linear-gradient(to right, #b65008, #dd4141);
+    background-image: linear-gradient(to right, red, #881111);
     border-color: #ff6a00;
   }
   .botao-card-editar:hover{
@@ -9,16 +9,17 @@
 
   }
 
-  .botao-card-excluir{
+  .botao-card-excluir {
     background-image: linear-gradient(to right, #ff6a00, #b42a2a);
     color: #ffffff;
-    background: #ff6a00;
-    border: 1px solid #ff6a00;
+    background: #f10101;
+    border: 1px solid #ef0909;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 3px;
     cursor: pointer;
-  }
+}
+
   .botao-card-editar{
     color: #ffffff;
     background: #2196F3;
@@ -33,7 +34,7 @@
   .botoes-card{
     display: flex !important;
     justify-content: space-between !important;
-    width: 60% !important;
+    width: 98% !important;
   }
 
 
@@ -215,4 +216,15 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
  }
+}
+
+.botao-detalhar-animal{
+  color: #2196F3;
+    background: white;
+    border: 1px solid #2196F3;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 3px;
+    cursor: pointer;
 }

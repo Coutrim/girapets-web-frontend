@@ -63,6 +63,14 @@
           <h3>Porte</h3>
           {{atributosModal.porte}}
         </li>
+        <li *ngIf="isLogged()" class="li-modal-detail">
+          <h3>Nome do dono</h3>
+          {{atributosModal.nome_dono}}
+        </li>
+        <li *ngIf="isLogged()" class="li-modal-detail">
+          <h3>Telefone do dono</h3>
+          {{atributosModal.telefone_dono}}
+        </li>
         <li class="li-modal-detail">
           <h3>Sexo</h3>
           {{atributosModal.sexo}}

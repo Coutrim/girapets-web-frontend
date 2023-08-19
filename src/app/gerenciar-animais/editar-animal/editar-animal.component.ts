@@ -60,6 +60,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.loadingService.ativarLoading();
     this.animaisService.recuperarPorId(id).subscribe(valor => {
       this.atributosModal = valor;
+
       this.loadingService.desativarLoading();
     },err=>{
       this.ref.close();
@@ -118,7 +119,8 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
   // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
   botaoEditar(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal,
-     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal, imagens) {
+     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal,
+     donoAnimal, telefoneDonoAnimal, imagens) {
     let idModel = id;
     this.nomeAnimal = nomeAnimal;
     let sexoModel = sexoAnimal;
@@ -131,10 +133,13 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     let vacinadoModel = vacinadoAnimal;
     let vermifugadoModel = vermifugadoAnimal;
     let porteModel = porteAnimal;
+    let donoModel = donoAnimal;
+    let telefoneDonoModel = telefoneDonoAnimal;
     let imagensModel = imagens
 
     this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
-      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, imagensModel)
+      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, donoModel,
+      telefoneDonoModel, imagensModel)
   }
 
   editarAnimal() {
@@ -166,6 +171,9 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       this.loadingService.ativarLoading();
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
+
+        console.log(this.atributosModal);
+
         this.loadingService.desativarLoading();
         this.ref.close(true);
         this.messageService.add({
