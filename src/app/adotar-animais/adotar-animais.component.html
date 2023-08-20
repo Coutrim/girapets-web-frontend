@@ -14,13 +14,13 @@ padding-left: 3%;">
         <div class="filtros">
 
         <div class="caixinha-filtros">
-          <div class="filtro-dog">
+          <div class="filtro-dog" (click)="buscarDogs()">
             <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
-            <h2 class="label-filtros" (click)="buscarDogs()">Cachorros</h2>
+            <h2 class="label-filtros" >Cachorros</h2>
           </div>
-          <div class="filtro-cat">
+          <div class="filtro-cat" (click)="buscarGatos()">
             <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
-            <h2 class="label-filtros" (click)="buscarGatos()">Gatos</h2>
+            <h2 class="label-filtros" >Gatos</h2>
           </div>
         </div>
         </div>
@@ -41,9 +41,7 @@ padding-left: 3%;">
           <img [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
         </p-header>
         <p-title>
-          <span style="font-weight: 400;
-         margin-bottom: 0.5rem;
-         color: #6c757d;">{{objeto.cidade | uppercase}}</span>
+          <span class="cidade-card">{{objeto.cidade | uppercase}}</span>
         </p-title>
         <ng-template class="footer-adotar-animais" pTemplate="footer">
           <div style="display: flex !important;

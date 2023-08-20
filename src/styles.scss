@@ -21,10 +21,11 @@ body {
 
 
 .dark{
-  --gira-bg-color: #000000;
-  --gira-card-bg-color:rgb(19, 19, 19);
+  --gira-bg-color:#0D0F10;
+  --gira-card-bg-color:#1A1D21;
   --gira-main-color: rgb(254, 254, 254);
   --gira-card-main-color: rgb(254, 254, 254);
+  --gira-card-content-color:#CDCECF;
   --gira-header-color:rgb(254, 254, 254);
   --gira-hover-bg-card: rgb(35, 35, 35);
 }
@@ -34,7 +35,8 @@ body {
   --gira-card-bg-color:#ffffff;
   --gira-main-color: #000000;
   --gira-card-main-color: #495057;
+  --gira-card-content-color:#6c757d;
   --gira-header-color:rgb(117, 117, 117);
-  --gira-hover-bg-card: rgb(35, 35, 35);
+  --gira-hover-bg-card: #EAEAEA;
 
 }

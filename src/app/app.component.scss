@@ -26,8 +26,9 @@
 
   }
   .link-ajude{
-    color: var(--gira-main-color);
-    font-size: 17px; font-family: cursive;
+    color: var(--gira-header-color) !important;
+    font-size: 17px;
+    font-family: cursive;
   }
   .botao-faq .p-splitbutton .p-splitbutton-defaultbutton {
     -ms-flex: 1 1 auto;

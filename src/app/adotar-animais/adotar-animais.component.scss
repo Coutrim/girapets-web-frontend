@@ -36,9 +36,13 @@
   .p-card .p-card-subtitle {
     font-weight: 400;
     margin-bottom: -4px;
-    color: #6c757d;
+    color: var(--gira-card-content-color) !important;
   }
-
+  .cidade-card{
+    color: var(--gira-card-content-color) !important;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
   .p-card-header img {
     width: 320.5px;
     height: 246px;
@@ -178,7 +182,7 @@
     font-family: Mulish;
     font-weight: bold;
     font-size: 18px;
-    color: #535151;
+    color: var(--gira-card-main-color);
     text-decoration: underline;
     cursor: pointer;
   }
@@ -351,7 +355,7 @@
 
 .container-toolbar{
   display: flex;
-    background: white;
+    background: var(----gira-card-bg-color);
     border-radius: 7px;
     border: 1px solid #c5c0c0;
     justify-content: center;
