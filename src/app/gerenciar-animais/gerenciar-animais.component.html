@@ -7,38 +7,38 @@
     <!-- cards de animais -->
     <p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
       <p-footer>
-          <button type="button" pButton icon="pi pi-times" label="Voltar" (click)="cd.reject()"></button>
-          <button style="background: white;
+        <button type="button" pButton icon="pi pi-times" label="Voltar" (click)="cd.reject()"></button>
+        <button style="background: white;
     color: #0d89ec;
     border-color: #0d89ec;" type="button" pButton icon="pi pi-check" label="Excluir" (click)="cd.accept()"></button>
       </p-footer>
-  </p-confirmDialog>
+    </p-confirmDialog>
 
     <div class="cards-caixa" style="justify-content: space-evenly; padding-top: 6%;">
-        <div *ngFor="let objeto of animais" class="custom-card">
-          <div class="custom-card-header">
-            <img class="custom-card-image" [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" alt="Imagem do Animal">
-          </div>
-          <div class="custom-card-content">
-            <h2 class="custom-card-title">{{ objeto.nome }}</h2>
-            <p class="custom-card-subtitle">{{ objeto.sexo }}</p>
-            <p class="custom-card-description">{{ objeto.descricao }}</p>
-          </div>
-          <div class="botoes-card">
-            <button type="button" class="botao-card-excluir" (click)="excluirAnimal(objeto.id)">Excluir</button>
+      <div *ngFor="let objeto of animais" class="custom-card">
+        <div class="custom-card-header">
+          <img class="custom-card-image" [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url"
+            alt="Imagem do Animal">
+        </div>
+        <div class="custom-card-content">
+          <h2 class="custom-card-title">{{ objeto.nome }}</h2>
+          <p class="custom-card-subtitle">{{ objeto.sexo }}</p>
+          <p class="custom-card-description">{{ objeto.descricao }}</p>
+        </div>
+        <div class="botoes-card">
+          <button type="button" class="botao-card-excluir" (click)="excluirAnimal(objeto.id)">Excluir</button>
 
-            <button class="botao-card-editar" (click)="abrirModalEditar(objeto.id)">
-              Editar
-            </button>
-            <button  class="botao-detalhar-animal" (click)="show()"
-          (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie,
+          <button class="botao-card-editar" (click)="abrirModalEditar(objeto.id)">
+            Editar
+          </button>
+          <button class="botao-detalhar-animal" (click)="show()" (click)="detalharAnimal(objeto.id, objeto.nome, objeto.sexo, objeto.descricao, objeto.especie,
            objeto.raca, objeto.idade, objeto. cidade,
           objeto.castrado,objeto.vacinado,objeto.vermifugado,objeto.porte, objeto.nome_dono, objeto.telefone_dono,
            objeto.imagens)">
-         Detalhar animal
-        </button>
-          </div>
+            Detalhar animal
+          </button>
         </div>
+      </div>
     </div>
   </div>
 </div>

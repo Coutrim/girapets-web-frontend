@@ -121,26 +121,21 @@ export class GerenciarAnimaisComponent implements OnInit {
   }
 
   abrirModalEditar(id) {
-    this.loadingService.ativarLoading()
-    setTimeout(() => {
-      const ref = this.dialogService.open(EditarAnimalComponent, {
-        header: "Editar animal ",
-        data:{
-          idAnimal:id
-        },
-        width: '40%',
-        height: '90%',
-      });
-      ref.onClose.subscribe((res) => {
-        if(res){
-          this.isLoading = true;
-          this.animais = [];
-          this.exibirAnimais();
-        }
+    const ref = this.dialogService.open(EditarAnimalComponent, {
+      header: "Editar animal ",
+      data:{
+        idAnimal:id
+      },
+      width: '40%',
+      height: '90%',
+    });
+    ref.onClose.subscribe((res) => {
+      if(res){
+        this.isLoading = true;
+        this.animais = [];
         this.exibirAnimais();
-      });
-      this.loadingService.desativarLoading()
-    }, 100);
+      }
+    });
     // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
   }
 
@@ -151,7 +146,9 @@ export class GerenciarAnimaisComponent implements OnInit {
       height: '100%',
     });
     ref.onClose.subscribe((res) => {
-      this.exibirAnimais();
+      if(res){
+        this.exibirAnimais();
+      }
     });
   }
 
