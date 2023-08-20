@@ -54,7 +54,7 @@
           <small style="color: red;" *ngIf="!atributosModal?.nome" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{25 - atributosModal?.nome.length}}</small>
+          <small>Caracteres restantes: {{25 - atributosModal?.nome.length}}</small>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
           <small style="color: red;" *ngIf="!atributosModal?.especie" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{50 - atributosModal?.especie.length}}</small>
+          <small>Caracteres restantes: {{50 - atributosModal?.especie.length}}</small>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@
           <small style="color: red;" *ngIf="!atributosModal?.raca" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{50 - atributosModal?.raca.length}}</small>
+          <small>Caracteres restantes: {{50 - atributosModal?.raca.length}}</small>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@
           <small style="color: red;" *ngIf="!atributosModal.idade" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{50 - atributosModal?.idade.length}}</small>
+          <small>Caracteres restantes: {{50 - atributosModal?.idade.length}}</small>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@
           <small style="color: red;" *ngIf="!atributosModal.descricao" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{100 - atributosModal?.descricao.length}}</small>
+          <small>Caracteres restantes: {{100 - atributosModal?.descricao.length}}</small>
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
           <small style="color: red;" *ngIf="!atributosModal.cidade" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{100 - atributosModal?.cidade.length}}</small>
+          <small>Caracteres restantes: {{100 - atributosModal?.cidade.length}}</small>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@
           <small style="color: red;" *ngIf="!atributosModal.porte" class="p-invalid">Campo obrigatório.</small>
         </div>
         <div>
-          <small >Caracteres restantes: {{100 - atributosModal?.porte.length}}</small>
+          <small>Caracteres restantes: {{100 - atributosModal?.porte.length}}</small>
         </div>
       </div>
     </div>
@@ -147,7 +147,7 @@
       <div>
         <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.nome_dono" maxlength="100" />
         <div>
-          <small >Caracteres restantes: {{100 - atributosModal?.nome_dono?.length}}</small>
+          <small>Caracteres restantes: {{100 - atributosModal?.nome_dono?.length}}</small>
         </div>
       </div>
     </div>
@@ -156,102 +156,102 @@
       <div>
         <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.telefone_dono" maxlength="100" />
         <div>
-          <small >Caracteres restantes: {{100 - atributosModal?.telefone_dono?.length}}</small>
+          <small>Caracteres restantes: {{100 - atributosModal?.telefone_dono?.length}}</small>
         </div>
       </div>
     </div>
 
     <div style="width: 198px;">
       <h3>Sexo</h3>
-      <div class="container-radio-button" >
-      <div class="caixinha-radio-button" >
-        <label style="display: flex;
+      <div class="container-radio-button">
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="gender" value="Macho" [(ngModel)]="atributosModal.sexo">Macho
-        </label>
-      </div>
-      <div class="caixinha-radio-button">
-        <label style="display: flex;
+          </label>
+        </div>
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="gender" value="Fêmea" [(ngModel)]="atributosModal.sexo">Fêmea
-        </label>
+          </label>
+        </div>
+        <div>
+          <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
+        </div>
       </div>
-      <div>
-        <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
-      </div>
-    </div>
     </div>
 
     <div style="width: 198px;">
       <h3>Castrado?</h3>
-      <div class="container-radio-button" >
-      <div class="caixinha-radio-button" >
-        <label style="display: flex;
+      <div class="container-radio-button">
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="castrado" value="Sim" [(ngModel)]="atributosModal.castrado">Sim
-        </label>
-      </div>
-      <div class="caixinha-radio-button">
-        <label style="display: flex;
+          </label>
+        </div>
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="castrado" value="Não" [(ngModel)]="atributosModal.castrado">Não
-        </label>
+          </label>
+        </div>
+        <div>
+          <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
+        </div>
       </div>
-      <div>
-        <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
-      </div>
-    </div>
     </div>
 
 
     <div style="width: 198px;">
       <h3>Vermifugado?</h3>
-      <div class="container-radio-button" >
-      <div class="caixinha-radio-button" >
-        <label style="display: flex;
+      <div class="container-radio-button">
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="vermifugado" value="Sim" [(ngModel)]="atributosModal.vermifugado">Sim
-        </label>
-      </div>
-      <div class="caixinha-radio-button">
-        <label style="display: flex;
+          </label>
+        </div>
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="vermifugado" value="Não" [(ngModel)]="atributosModal.vermifugado">Não
-        </label>
+          </label>
+        </div>
+        <div>
+          <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
+        </div>
       </div>
-      <div>
-        <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
-      </div>
-    </div>
     </div>
 
     <div style="width: 198px;">
       <h3>Vacinado?</h3>
-      <div class="container-radio-button" >
-      <div class="caixinha-radio-button" >
-        <label style="display: flex;
+      <div class="container-radio-button">
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="vacinado" value="Sim" [(ngModel)]="atributosModal.vacinado">Sim
-        </label>
-      </div>
-      <div class="caixinha-radio-button">
-        <label style="display: flex;
+          </label>
+        </div>
+        <div class="caixinha-radio-button">
+          <label style="display: flex;
         align-items: center;">
-          <input style=" height: 18px;
+            <input style=" height: 18px;
           width: 18px;" type="radio" name="vacinado" value="Não" [(ngModel)]="atributosModal.vacinado">Não
-        </label>
+          </label>
+        </div>
+        <div>
+          <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
+        </div>
       </div>
-      <div>
-        <small *ngIf="!atributosModal.sexo" class="p-invalid">Campo obrigatório.</small>
-      </div>
-    </div>
     </div>
 
 

@@ -60,7 +60,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.loadingService.ativarLoading();
     this.animaisService.recuperarPorId(id).subscribe(valor => {
       this.atributosModal = valor;
-
       this.loadingService.desativarLoading();
     },err=>{
       this.ref.close();
@@ -95,21 +94,17 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
           severity: 'warn',
           summary: 'Arquivo não suportado: Utilize imagens .jpeg, .png ou .jpg'
         });
-      } else {
-        this.selectedImages = event.target.files;
-        // Limpar o array de imagens
-        for (let i = 0; i < this.selectedImages.length; i++) {
-          const file = this.selectedImages[i];
-          const reader = new FileReader();
-          reader.onload = (e: any) => {
-            this.uploadedImages.push({
-              name: file.name,
-              url: e.target.result
-            });
-          };
-          reader.readAsDataURL(file);
-        }
+        return;
       }
+      this.selectedImages.push(file);
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.uploadedImages.push({
+          name: file.name,
+          url: e.target.result
+        });
+      };
+      reader.readAsDataURL(file);
     }
   }
 
@@ -143,17 +138,20 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
   }
 
   editarAnimal() {
-
-
+    if(this.selectedImages && this.selectedImages.length > 4){
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'É permitido até 4 fotos por animal.'
+      });
+      return;
+    }
     for (const image of this.selectedImages) {
       this.formData.append('imagem', image);
     }
 
-
     this.formData.append('animal', new Blob([JSON.stringify(this.atributosModal)], {
       type: 'application/json'
     }));
-
 
     if (this.atributosModal.nome.trim() === '' || this.atributosModal.especie.trim() === ''
     || this.atributosModal.raca.trim() === '' || this.atributosModal.sexo.trim() === ''
@@ -167,8 +165,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
         summary: 'Campos obrigatórios não informados.'
       });
     } else{
-
-      this.loadingService.ativarLoading();
+    this.loadingService.ativarLoading();
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
 
