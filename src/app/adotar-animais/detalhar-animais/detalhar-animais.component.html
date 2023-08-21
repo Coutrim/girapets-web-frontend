@@ -39,7 +39,7 @@
 
       <div class="titulo-card-detail">
         <h1 style="display: flex;
-      justify-content: flex-end;"> {{ atributosModal.nome }} </h1>
+      justify-content: flex-end;"> {{ atributosModal?.nome }} </h1>
         <i style="font-size: 25px;" class="fa-regular fa-heart" (click)="exibirMsgNaoImplementado()" ></i>
       </div>
       <div style="display: flex; justify-content: center; width: 341px;">
@@ -49,53 +49,53 @@
       <ul class="primeira-lista-informacoes">
         <li class="li-modal-detail">
           <h3>Espécie</h3>
-          {{atributosModal.especie}}
+          {{atributosModal?.especie}}
         </li>
         <li class="li-modal-detail">
           <h3>Raça</h3>
-          {{atributosModal.raca}}
+          {{atributosModal?.raca}}
         </li>
         <li class="li-modal-detail">
           <h3>Idade</h3>
-          {{atributosModal.idade}}
+          {{atributosModal?.idade}}
         </li>
         <li class="li-modal-detail">
           <h3>Porte</h3>
-          {{atributosModal.porte}}
+          {{atributosModal?.porte}}
         </li>
         <li *ngIf="isLogged()" class="li-modal-detail">
           <h3>Nome do dono</h3>
-          {{atributosModal.nome_dono}}
+          {{atributosModal?.nome_dono}}
         </li>
         <li *ngIf="isLogged()" class="li-modal-detail">
           <h3>Telefone do dono</h3>
-          {{atributosModal.telefone_dono}}
+          {{atributosModal?.telefone_dono}}
         </li>
         <li class="li-modal-detail">
           <h3>Sexo</h3>
-          {{atributosModal.sexo}}
+          {{atributosModal?.sexo}}
         </li>
         <li class="li-modal-detail">
           <h3>Castrado?</h3>
-          {{atributosModal.castrado}}
+          {{atributosModal?.castrado}}
         </li>
         <li class="li-modal-detail">
           <h3>Vacinado?</h3>
-          {{atributosModal.vacinado}}
+          {{atributosModal?.vacinado}}
         </li>
         <li class="li-modal-detail">
           <h3>Vermifugado?</h3>
-          {{atributosModal.vermifugado}}
+          {{atributosModal?.vermifugado}}
         </li>
       </ul>
       <ul class="segunda-lista-informacoes">
         <li >
           <h3>Cidade</h3>
-          {{atributosModal.cidade}}
+          {{atributosModal?.cidade}}
         </li>
         <li style="width: 340px;">
           <h3 >Descrição</h3>
-          {{atributosModal.descricao}}
+          {{atributosModal?.descricao}}
         </li>
 
       </ul>

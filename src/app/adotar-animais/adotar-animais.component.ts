@@ -52,33 +52,9 @@ export class AdotarAnimaisComponent implements OnInit {
   gatos:any;
   dogs:any;
   todosAnimais:any;
-
+  cities:any;
+  selectedCity2:any;
   nomeAnimal: any;
-
-  // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  detalharAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal,
-    castradoAnimal,vacinadoAnimal,vermifugadoAnimal,porteAnimal, nomeDono, telefoneDono, imagens) {
-    let idModel = id;
-    this.nomeAnimal = nomeAnimal;
-    let sexoModel = sexoAnimal;
-    let descricaoModel = descricaoAnimal;
-    let especieModel = especieAnimal;
-    let racaModel = racaAnimal;
-    let idadeModel = idadeAnimal;
-    let cidadeModel = cidadeAnimal
-    let castradoModel = castradoAnimal;
-    let vacinadoModel = vacinadoAnimal;
-    let vermifugadoModel = vermifugadoAnimal;
-    let porteModel = porteAnimal;
-    let nomeDonoModel = nomeDono;
-    let telefoneDonoModel = telefoneDono;
-    let imagensModel = imagens
-
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
-      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, nomeDonoModel,
-      telefoneDonoModel, imagensModel);
-  }
-
 
 
 
@@ -86,10 +62,30 @@ export class AdotarAnimaisComponent implements OnInit {
     this.exibirAnimais()
     window.scrollTo(0,0)
 
-
   }
 
 
+
+  detalharAnimal(id) {
+    setTimeout(() => {
+      const ref = this.dialogService.open(DetalharAnimaisComponent, {
+        // header: this.nomeAnimal,
+        // showHeader: false,
+        width: '70%',
+        data:{
+          idAnimal:id
+        },
+        height: '83%',
+        styleClass: 'modal-detail-animal',
+        style: {
+          // Estilos em linha aqui
+          'min-width': '360px',
+          'border-radius':'8px'
+        }
+      });
+
+    }, 100);
+  }
 
   // Exibindo lista de animais do serviço
   exibirAnimais() {
@@ -98,7 +94,6 @@ export class AdotarAnimaisComponent implements OnInit {
       (objetos) => {
         this.animais = objetos;
         this.todosAnimais = objetos;
-        console.log( this.animais);
 
         this.loadingService.desativarLoading()
       },

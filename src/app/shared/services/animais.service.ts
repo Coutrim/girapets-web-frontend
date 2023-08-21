@@ -17,51 +17,16 @@ export class AnimaisService {
 
    apiUrl = environment.apiURL;
    headers = this.authService.getAuthorizationHeader();
-
-
+   atributosAnimal = new BehaviorSubject<any>(null);
+   nomeAnimal: any
 
   // private API_ANIMAL = 'http://localhost:8080/api/animais';
 
-  atributosAnimal = new BehaviorSubject<any>(null);
 
 
 
-  nomeAnimal: any
 
-  // Pega como parâmetro dados vindo do objeto no HTML e passa pra variavel criando um novo objeto apenas do animal selecionado.
-  setAtributos(id, nome: any, sexo, descricao, especie, raca, idade, cidade,
-     castrado, vacinado, vermifugado, porte, nomeDono, telefoneDono, imagens) {
-
-    this.nomeAnimal = nome;
-
-    const animalObj = {
-      id: id,
-      nome: this.nomeAnimal,
-      sexo: sexo,
-      descricao: descricao,
-      especie: especie,
-      raca: raca,
-      idade: idade,
-      cidade: cidade,
-      castrado: castrado,
-      vacinado: vacinado,
-      vermifugado: vermifugado,
-      porte: porte,
-      nome_dono : nomeDono,
-      telefone_dono: telefoneDono,
-      imagens: imagens
-    };
-
-    this.atributosAnimal.next(animalObj);
-
-    return animalObj;
-  }
-
-
-
-  // Retorna o nome do animal
    getNomeAnimal(){
-
     return this.nomeAnimal;
   }
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AnimaisModel } from 'src/app/shared/models/animais-model';
 import { AnimaisService } from 'src/app/shared/services/animais.service';
 import { LazyLoadEvent, MessageService } from 'primeng/api';
+import { LoadingService } from 'src/app/shared/components/loading-service.service';
 
 @Component({
   selector: 'app-detalhar-animais',
@@ -12,22 +13,33 @@ import { LazyLoadEvent, MessageService } from 'primeng/api';
 export class DetalharAnimaisComponent implements OnInit {
 
   constructor(private animaisService: AnimaisService, private ref: DynamicDialogRef,
+    private loadingService:LoadingService,
+    private config:DynamicDialogConfig,
      private messageService: MessageService) { }
 
 
   arrayImagens: any
   arrayIndex = 0; // Índice inicial do array
   atributosModal: any;
-
+  idAnimal:any;
 
 
   ngOnInit() {
-    this.animaisService.getAtributos().subscribe(valor => {
-      this.atributosModal = valor;
+    this.idAnimal = this.config.data?.idAnimal;
+    this.buscarDadosAnimal(this.idAnimal);
+    this.isLogged()
+  }
 
+  buscarDadosAnimal(id){
+    this.loadingService.ativarLoading();
+    this.animaisService.recuperarPorId(id).subscribe(valor => {
+      this.atributosModal = valor;
+      this.loadingService.desativarLoading();
+    },err=>{
+      this.ref.close();
+      this.loadingService.desativarLoading();
     });
 
-    this.isLogged()
   }
 
   isLogged(){

@@ -1,4 +1,8 @@
-::ng-deep {
+:host ::ng-deep {
+
+  .p-dialog .p-dialog-content {
+    overflow-x: hidden !important;
+  }
 
   .modal-detail-animal .p-dialog {
     min-width: 360px !important;
@@ -333,3 +337,5 @@ app-detalhar-animais{
 
 
 }
+
+

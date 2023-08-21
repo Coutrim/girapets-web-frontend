@@ -35,6 +35,8 @@ export class GerenciarAnimaisComponent implements OnInit {
   animais: AnimaisModel[] = [];
   imageUrls: string[] = [];
 
+  nomeAnimal: any;
+
   ngOnInit() {
     window.scrollTo(0,0)
     this.exibirAnimais();
@@ -95,32 +97,23 @@ export class GerenciarAnimaisComponent implements OnInit {
     );
   }
 
-  nomeAnimal: any;
-
-  // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  buscarDadosAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal,
-     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal, nomeDono, telefoneDono, imagens) {
-    let idModel = id;
-    this.nomeAnimal = nomeAnimal;
-    let sexoModel = sexoAnimal;
-    let descricaoModel = descricaoAnimal;
-    let especieModel = especieAnimal;
-    let racaModel = racaAnimal;
-    let idadeModel = idadeAnimal;
-    let cidadeModel = cidadeAnimal
-    let castradoModel = castradoAnimal;
-    let vacinadoModel = vacinadoAnimal;
-    let vermifugadoModel = vermifugadoAnimal;
-    let porteModel = porteAnimal;
-    let nomeDonoModel = nomeDono;
-    let telefoneDonoModel = telefoneDono;
-    const imagensModel = imagens;
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
-       idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, nomeDonoModel,
-       telefoneDonoModel, imagensModel);
+  addAnimal(){
+    const ref = this.dialogService.open(AdicionarAnimalComponent, {
+      header: "Adicionar novos animais",
+      width: '50%',
+      height: '100%',
+    });
+    ref.onClose.subscribe((res) => {
+      if(res){
+        this.exibirAnimais();
+      }
+    });
   }
 
+
   abrirModalEditar(id) {
+    console.log(id);
+
     const ref = this.dialogService.open(EditarAnimalComponent, {
       header: "Editar animal ",
       data:{
@@ -136,29 +129,18 @@ export class GerenciarAnimaisComponent implements OnInit {
         this.exibirAnimais();
       }
     });
-    // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
   }
 
-  addAnimal(){
-    const ref = this.dialogService.open(AdicionarAnimalComponent, {
-      header: "Adicionar novos animais",
-      width: '50%',
-      height: '100%',
-    });
-    ref.onClose.subscribe((res) => {
-      if(res){
-        this.exibirAnimais();
-      }
-    });
-  }
-
-  show() {
+  detalharAnimal(id) {
+    console.log(id);
     setTimeout(() => {
-
       const ref = this.dialogService.open(DetalharAnimaisComponent, {
         // header: this.nomeAnimal,
         // showHeader: false,
         width: '70%',
+        data:{
+          idAnimal:id
+        },
         height: '83%',
         styleClass: 'modal-detail-animal',
         style: {
@@ -168,31 +150,11 @@ export class GerenciarAnimaisComponent implements OnInit {
         }
       });
 
-    }, 100); // Atraso de 1 segundo (1000 milissegundos) antes de abrir a modal
+    }, 100);
   }
 
-  detalharAnimal(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal, cidadeAnimal,
-    castradoAnimal,vacinadoAnimal,vermifugadoAnimal,porteAnimal, nomeDono, telefoneDono, imagens) {
-    let idModel = id;
-    this.nomeAnimal = nomeAnimal;
-    let sexoModel = sexoAnimal;
-    let descricaoModel = descricaoAnimal;
-    let especieModel = especieAnimal;
-    let racaModel = racaAnimal;
-    let idadeModel = idadeAnimal;
-    let cidadeModel = cidadeAnimal
-    let castradoModel = castradoAnimal;
-    let vacinadoModel = vacinadoAnimal;
-    let vermifugadoModel = vermifugadoAnimal;
-    let porteModel = porteAnimal;
-    let nomeDonoModel = nomeDono;
-    let telefoneDonoModel = telefoneDono;
-    let imagensModel = imagens
 
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
-      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, nomeDonoModel,
-      telefoneDonoModel, imagensModel);
-  }
+
   excluirAnimal(id){
     this.confirmationService.confirm({
       message: 'Tem certeza de que deseja excluir este animal?',

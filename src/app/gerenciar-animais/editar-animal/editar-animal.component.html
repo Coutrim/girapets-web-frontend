@@ -114,9 +114,28 @@
       </div>
     </div>
 
+    <div class="container-dropdown">
+      <h3>Estado - UF</h3>
+      <p-dropdown class="editar-dropdown-cidades" [options]="estados"
+      (onChange)="selecionarUF($event.value)"
+      optionLabel="sigla"
+      [(ngModel)]="atributosModal.uf"
+      editable="true"
+      placeholder="Selecione um estado" dataKey="sigla"></p-dropdown>
+    </div>
+
+    <div class="container-dropdown" (click)="recuperarMunicipiosPorUf()">
+      <h3>Município</h3>
+      <p-dropdown class="editar-dropdown-cidades" [options]="municipios"
+      (onChange)="selecionarMunicipio($event.value)"
+      optionLabel="nome"
+      [(ngModel)]="atributosModal.municipio"
+      placeholder="Selecione um muni.."
+      emptyFilterMessage="Nenhum resultado"></p-dropdown>
+    </div>
 
     <div>
-      <h3>Cidade</h3>
+      <h3>Cidade ou bairro</h3>
       <div>
         <input type="text" class="input-add-animal" [(ngModel)]="atributosModal.cidade" maxlength="100" />
         <div>

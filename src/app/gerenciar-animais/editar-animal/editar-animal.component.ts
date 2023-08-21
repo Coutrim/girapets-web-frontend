@@ -20,6 +20,7 @@ import {
 import {
   AnimaisService
 } from 'src/app/shared/services/animais.service';
+import { IbgeLocalidadesService } from 'src/app/shared/services/ibge-localidades.service';
 import { LoadingService } from './../../shared/components/loading-service.service';
 
 @Component({
@@ -35,7 +36,8 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     private animaisService: AnimaisService,
     private loadingService:LoadingService,
     private ref: DynamicDialogRef,
-    private config:DynamicDialogConfig
+    private config:DynamicDialogConfig,
+    private ibgeLocalidadesService: IbgeLocalidadesService
   ) {
 
   }
@@ -44,17 +46,46 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
   arrayImagens: any
   arrayIndex = 0;
   novaImagemDetectada : boolean = false;
+  estados: any;
+  municipios:any;
 
+  siglaSelecionada: string;
+  uploadedFiles: any[] = [];
 
   ngOnInit() {
     this.idAnimal = this.config.data.idAnimal;
     this.buscarDadosAnimal(this.idAnimal);
+    this.recuperarEstadosUf();
+
   }
-  uploadedFiles: any[] = [];
+
+
+  selecionarUF(event) {
+    this.atributosModal.uf = event.sigla; // Atualize atributosModal.uf com a sigla selecionada
+  }
+  selecionarMunicipio(event) {
+    this.atributosModal.municipio = event.sigla; // Atualize atributosModal.uf com a sigla selecionada
+  }
 
   fecharModal(){
     this.ref.close();
   }
+
+  recuperarEstadosUf(){
+    this.ibgeLocalidadesService.listarEstadosUf().subscribe
+    (response=>{
+      this.estados = response;
+    });
+  }
+
+  recuperarMunicipiosPorUf(){
+    this.ibgeLocalidadesService.recuperarCidadesPorUf(this.atributosModal.uf).subscribe
+    (response=>{
+      this.municipios = response;
+
+    });
+  }
+
 
   buscarDadosAnimal(id){
     this.loadingService.ativarLoading();
@@ -112,30 +143,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
   nomeAnimal: any;
 
-  // Pega os dados do HTML como parâmetro e passa pra uma variável do serviço, a qual exibe os dados apenas do animal selecionado
-  botaoEditar(id, nomeAnimal: any, sexoAnimal, descricaoAnimal, especieAnimal, racaAnimal, idadeAnimal,
-     cidadeAnimal, castradoAnimal, vacinadoAnimal, vermifugadoAnimal, porteAnimal,
-     donoAnimal, telefoneDonoAnimal, imagens) {
-    let idModel = id;
-    this.nomeAnimal = nomeAnimal;
-    let sexoModel = sexoAnimal;
-    let descricaoModel = descricaoAnimal;
-    let especieModel = especieAnimal;
-    let racaModel = racaAnimal;
-    let idadeModel = idadeAnimal;
-    let cidadeModel = cidadeAnimal
-    let castradoModel = castradoAnimal;
-    let vacinadoModel = vacinadoAnimal;
-    let vermifugadoModel = vermifugadoAnimal;
-    let porteModel = porteAnimal;
-    let donoModel = donoAnimal;
-    let telefoneDonoModel = telefoneDonoAnimal;
-    let imagensModel = imagens
 
-    this.animaisService.setAtributos(idModel, this.nomeAnimal, sexoModel, descricaoModel, especieModel, racaModel,
-      idadeModel, cidadeModel, castradoModel, vacinadoModel, vermifugadoModel, porteModel, donoModel,
-      telefoneDonoModel, imagensModel)
-  }
 
   editarAnimal() {
     if(this.selectedImages && this.selectedImages.length > 4){
@@ -159,6 +167,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     || this.atributosModal.cidade.trim() === '' || this.atributosModal.castrado.trim() === ''
     || this.atributosModal.vacinado.trim() === '' || this.atributosModal.vermifugado.trim() === ''
     || this.atributosModal.porte.trim() === ''
+    // || this.atributosModal.estado.trim() === ''
     ) {
       this.messageService.add({
         severity: 'warn',
@@ -168,8 +177,6 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     this.loadingService.ativarLoading();
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
-
-        console.log(this.atributosModal);
 
         this.loadingService.desativarLoading();
         this.ref.close(true);
