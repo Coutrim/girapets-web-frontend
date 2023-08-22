@@ -23,6 +23,7 @@ import {
 import {
   DynamicDialogRef
 } from 'primeng/dynamicdialog';
+import { IbgeLocalidadesService } from 'src/app/shared/services/ibge-localidades.service';
 import {
   AnimaisService
 } from '../../shared/services/animais.service';
@@ -52,26 +53,18 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     private messageService: MessageService,
     private animaisService: AnimaisService,
     private loadingService:LoadingService,
-    private ref: DynamicDialogRef
+    private ref: DynamicDialogRef,
+    private ibgeLocalidadesService: IbgeLocalidadesService
   ) {}
 
-  ngOnInit() {
-  }
+
 
   uploadedFiles: any[] = [];
   atributosAnimal: any
   animalData:any;
-
-  onUpload(event) {
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
-    }
-    this.messageService.add({
-      severity: 'info',
-      summary: 'File Uploaded',
-      detail: ''
-    });
-  }
+  municipioSelecionado: any;
+  estados: any;
+  municipios: any;
 
   formData = new FormData();
 
@@ -80,34 +73,6 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     name: string,
     url: string
   } [] = [];
-
-
-  onFileSelected(event: any): void {
-    const files: FileList = event.target.files;
-    const allowedExtensions = ['.jpg', '.jpeg', '.png'];
-
-    for (let i = 0; i < files.length; i++) {
-      const file: File = files[i];
-      const fileExtension: string = file.name.split('.').pop().toLowerCase();
-
-      if (!allowedExtensions.includes(`.${fileExtension}`)) {
-        this.messageService.add({
-          severity: 'warn',
-          summary: 'Arquivo não suportado: Utilize imagens .jpeg, .png ou .jpg'
-        });
-        return;
-      }
-      this.selectedImages.push(file);
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.uploadedImages.push({
-          name: file.name,
-          url: e.target.result
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  }
 
 
   formDataAnimal = new FormData();
@@ -125,8 +90,37 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     vermifugado: new FormControl(null, Validators.required),
     porte: new FormControl(null, Validators.required),
     nome_dono:new FormControl(null),
-    telefone_dono: new FormControl(null)
+    telefone_dono: new FormControl(null),
+    uf: new FormControl(null, Validators.required),
+    municipio: new FormControl(null, Validators.required),
   });
+
+  ngOnInit() {
+    this.recuperarEstadosUf();
+  }
+
+  selecionarUF(event) {
+    this.animaisFormGroup.get('uf').setValue(event.sigla);
+  }
+  selecionarMunicipio(event) {
+    this.animaisFormGroup.get('municipio').setValue(event.nome);
+  }
+
+
+  recuperarEstadosUf(){
+    this.ibgeLocalidadesService.listarEstadosUf().subscribe
+    (response=>{
+      this.estados = response;
+    });
+  }
+
+  recuperarMunicipiosPorUf(){
+    this.ibgeLocalidadesService.recuperarCidadesPorUf(this.animaisFormGroup.get('uf').value).subscribe
+    (response=>{
+      this.municipios = response;
+    });
+  }
+
 
   fecharModal(){
     this.ref.close();
@@ -154,7 +148,9 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
       vermifugado: this.animaisFormGroup.get('vermifugado').value,
       porte: this.animaisFormGroup.get('porte').value,
       nome_dono: this.animaisFormGroup.get('nome_dono').value,
-      telefone_dono: this.animaisFormGroup.get('telefone_dono').value
+      telefone_dono: this.animaisFormGroup.get('telefone_dono').value,
+      uf: this.animaisFormGroup.get('uf').value,
+      municipio: this.animaisFormGroup.get('municipio').value
     }
 
     for (const image of this.selectedImages) {
@@ -205,6 +201,49 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   }
   onTouched: any = () => {};
   onChange: any = () => {};
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+    this.messageService.add({
+      severity: 'info',
+      summary: 'File Uploaded',
+      detail: ''
+    });
+  }
+
+
+
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    const allowedExtensions = ['.jpg', '.jpeg', '.png'];
+
+    for (let i = 0; i < files.length; i++) {
+      const file: File = files[i];
+      const fileExtension: string = file.name.split('.').pop().toLowerCase();
+
+      if (!allowedExtensions.includes(`.${fileExtension}`)) {
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Arquivo não suportado: Utilize imagens .jpeg, .png ou .jpg'
+        });
+        return;
+      }
+      this.selectedImages.push(file);
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.uploadedImages.push({
+          name: file.name,
+          url: e.target.result
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+
 
   ngAfterViewInit(): void {}
   validate(control: AbstractControl): ValidationErrors {

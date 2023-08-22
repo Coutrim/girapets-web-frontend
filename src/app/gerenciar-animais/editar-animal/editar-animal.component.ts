@@ -51,6 +51,7 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
   siglaSelecionada: string;
   uploadedFiles: any[] = [];
+  municipioSelecionado:any;
 
   ngOnInit() {
     this.idAnimal = this.config.data.idAnimal;
@@ -61,15 +62,13 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
 
   selecionarUF(event) {
-    this.atributosModal.uf = event.sigla; // Atualize atributosModal.uf com a sigla selecionada
+    this.atributosModal.uf = event.sigla;
   }
   selecionarMunicipio(event) {
-    this.atributosModal.municipio = event.sigla; // Atualize atributosModal.uf com a sigla selecionada
+    this.municipioSelecionado = event.nome;
   }
 
-  fecharModal(){
-    this.ref.close();
-  }
+
 
   recuperarEstadosUf(){
     this.ibgeLocalidadesService.listarEstadosUf().subscribe
@@ -86,6 +85,10 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
     });
   }
 
+
+  fecharModal(){
+    this.ref.close();
+  }
 
   buscarDadosAnimal(id){
     this.loadingService.ativarLoading();
@@ -146,6 +149,8 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
 
 
   editarAnimal() {
+    this.atributosModal.municipio = this.municipioSelecionado;
+
     if(this.selectedImages && this.selectedImages.length > 4){
       this.messageService.add({
         severity: 'warn',
@@ -175,8 +180,16 @@ export class EditarAnimalComponent implements OnInit, ControlValueAccessor, Vali
       });
     } else{
     this.loadingService.ativarLoading();
+
+
+    console.log(this.atributosModal.municipio);
+
+    console.log(this.atributosModal);
+    console.log(  this.municipioSelecionado);
+
     this.animaisService.editarAnimal(this.formData, this.atributosModal.id).subscribe(
       (response: any) => {
+
 
         this.loadingService.desativarLoading();
         this.ref.close(true);

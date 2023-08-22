@@ -1,5 +1,4 @@
-::ng-deep {
-
+:host ::ng-deep {
 
 
   .p-dialog {
@@ -132,4 +131,15 @@
     justify-content: center;
     margin-top: 50px;
   }
+}
+
+
+.container-dropdown .p-dropdown {
+  width: 198px;
+  border: 1px solid #8e8585 !important;
+}
+
+.p-dropdown .p-dropdown-label {
+background: transparent;
+border: 0 !important;
 }

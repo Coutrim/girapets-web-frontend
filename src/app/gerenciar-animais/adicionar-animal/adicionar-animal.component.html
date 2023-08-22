@@ -73,6 +73,28 @@
         </div>
       </div>
 
+      <div class="container-dropdown">
+        <h3>Estado - UF</h3>
+        <p-dropdown class="editar-dropdown-cidades" [options]="estados"
+        (onChange)="selecionarUF($event.value)"
+        optionLabel="sigla"
+        formControlName="uf"
+        editable="true"
+        filter="true"
+        placeholder="Selecione um estado" dataKey="sigla"></p-dropdown>
+      </div>
+
+      <div class="container-dropdown" (click)="recuperarMunicipiosPorUf()">
+        <h3>Município</h3>
+        <p-dropdown class="editar-dropdown-cidades" [options]="municipios"
+        (onChange)="selecionarMunicipio($event.value)"
+        optionLabel="nome"
+        formControlName="municipio"
+        editable="true"
+        filter="true"
+        placeholder="Selecione o municipio" dataKey="nome"></p-dropdown>
+      </div>
+
       <div class="campo-form">
         <h3>Cidade</h3>
         <div >

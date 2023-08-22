@@ -121,6 +121,7 @@
       optionLabel="sigla"
       [(ngModel)]="atributosModal.uf"
       editable="true"
+      filter="true"
       placeholder="Selecione um estado" dataKey="sigla"></p-dropdown>
     </div>
 
@@ -130,9 +131,21 @@
       (onChange)="selecionarMunicipio($event.value)"
       optionLabel="nome"
       [(ngModel)]="atributosModal.municipio"
-      placeholder="Selecione um muni.."
-      emptyFilterMessage="Nenhum resultado"></p-dropdown>
+      editable="true"
+      filter="true"
+      placeholder="Selecione" dataKey="nome"></p-dropdown>
     </div>
+
+    <!-- <div class="container-dropdown" (click)="recuperarMunicipiosPorUf()">
+      <h3>Município</h3>
+      <p-dropdown class="editar-dropdown-cidades" [options]="municipios"
+      (onChange)="selecionarMunicipio($event.value)"
+      optionLabel="nome"
+      [(ngModel)]="atributosModal.municipio"
+      placeholder="Selecione um"
+      filter="true"
+      dataKey="nome"></p-dropdown>
+    </div> -->
 
     <div>
       <h3>Cidade ou bairro</h3>
@@ -272,14 +285,8 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
-
-
-
-
 
 
 <div class="container-botoes-edit">
