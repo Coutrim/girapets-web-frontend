@@ -49,6 +49,7 @@ import { LoadingService } from './../../shared/components/loading-service.servic
 })
 export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, Validator, AfterViewInit {
 
+
   constructor(
     private messageService: MessageService,
     private animaisService: AnimaisService,
@@ -65,6 +66,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
   municipioSelecionado: any;
   estados: any;
   municipios: any;
+  idUsuario: any;
 
   formData = new FormData();
 
@@ -97,6 +99,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
   ngOnInit() {
     this.recuperarEstadosUf();
+    this.recuperarIdUsuarioLogado();
   }
 
   selecionarUF(event) {
@@ -121,6 +124,9 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
     });
   }
 
+  recuperarIdUsuarioLogado(){
+   this.idUsuario =  localStorage.getItem('idUsuario')
+  }
 
   fecharModal(){
     this.ref.close();
@@ -180,7 +186,7 @@ export class AdicionarAnimalComponent implements OnInit, ControlValueAccessor, V
 
     }
     else {
-      this.animaisService.adicionarAnimal(this.formDataAnimal).subscribe(
+      this.animaisService.adicionarAnimal(this.idUsuario, this.formDataAnimal).subscribe(
         (response: any) => {
           this.messageService.add({
             severity: 'success',

@@ -42,9 +42,14 @@ export class AnimaisService {
     return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais`);
   }
 
-  adicionarAnimal(formData: FormData) {
+  listarAnimaisPorUsuario(idUsuario) : Observable<AnimaisModel[]>{
     const headers = this.authService.getAuthorizationHeader();
-    return this.http.post(`${this.apiUrl}/animais`, formData, { headers });
+    return this.http.get<AnimaisModel[]>(`${this.apiUrl}/animais/usuario/${idUsuario}`, { headers });
+  }
+
+  adicionarAnimal(idUsuario,formData: FormData) {
+    const headers = this.authService.getAuthorizationHeader();
+    return this.http.post(`${this.apiUrl}/animais/usuario/${idUsuario}`, formData, { headers });
   }
   recuperarPorId(id:number){
     const headers = this.authService.getAuthorizationHeader();

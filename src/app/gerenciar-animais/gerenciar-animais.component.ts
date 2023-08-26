@@ -34,10 +34,12 @@ export class GerenciarAnimaisComponent implements OnInit {
   isLoading: boolean = true;
   animais: AnimaisModel[] = [];
   imageUrls: string[] = [];
+  idUsuarioLogado:any;
 
   nomeAnimal: any;
 
   ngOnInit() {
+    this.recuperarIdUsuario();
     window.scrollTo(0,0)
     this.exibirAnimais();
 
@@ -59,6 +61,11 @@ export class GerenciarAnimaisComponent implements OnInit {
       this.checkTokenExpiration(localStorage.getItem('token'))
     }, 2.5 * 60 * 1000);
 
+
+  }
+
+  recuperarIdUsuario(){
+    this.idUsuarioLogado = localStorage.getItem('idUsuario')
   }
 
   checkTokenExpiration(token: string){
@@ -85,7 +92,7 @@ export class GerenciarAnimaisComponent implements OnInit {
   // Exibindo lista de animais do serviço
   exibirAnimais() {
     this.loadingService.ativarLoading()
-    this.animaisService.listarAnimais().subscribe(
+    this.animaisService.listarAnimaisPorUsuario(this.idUsuarioLogado).subscribe(
       (objetos) => {
         this.animais = objetos;
         this.loadingService.desativarLoading()

@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginData).subscribe(
       (response: any) => {
         const token = response.token;
+
         this.authService.setToken(token);
         this.loadingService.desativarLoading();
         this.router.navigate(['/gerenciar-animais']);
