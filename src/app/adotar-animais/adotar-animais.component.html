@@ -1,64 +1,113 @@
 
-<div class="container-tela" style="display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding-left: 3%;">
-<h2 class="titulo-adocao">Gatos e cachorros para adoção em Girassol-GO</h2>
+<div class="container-tela">
 
-<div class="filtrar-por">
-  <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
-  <span (click)="buscarTodosAnimais()" class="span-limpar-todos">Limpar todos</span>
-</div>
-  <div class="container-toolbar">
-
-      <div class="filtros">
-
-      <div class="caixinha-filtros">
-        <div class="filtro-dog">
-          <i style=" font-size: 30px;" class="fas fa-duotone fa-dog"></i>
-          <h2 class="label-filtros" (click)="buscarDogs()">Cachorros</h2>
-        </div>
-        <div class="filtro-cat">
-          <i style=" font-size: 30px;" class="fas fa-solid fa-cat"></i>
-          <h2 class="label-filtros" (click)="buscarGatos()">Gatos</h2>
-        </div>
-      </div>
-      </div>
-
+  <div class="breadcrumb-quero-adotar">
+    <span routerLink="/home" style="color: #3A54B4;" class="span-breadcrumb">
+      Home
+    </span>
+    <span class="span-breadcrumb">
+    / Quero adotar
+    </span>
   </div>
-<!--
-  <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" editable="true" optionLabel="name"
-   placeholder="Digite a cidade"></p-dropdown> -->
+    <h2 style="color: #3A54B4;" class="titulo-adocao">Encontre seu novo amigo</h2>
 
-  <!-- container de cards -->
-  <div class="container-animais p-grid" style="display: flex;
-  justify-content: center;">
-    <!-- cards de animais -->
-    <div class="p-grid listagem-animais-container" style="">
-      <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
-        class="p-card-shadow p-col p-md-4">
-        <p-header>
-          <img style="width:320.5px;
-          height: 246px;" [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
-        </p-header>
-        <p-title>
-         <span style="font-weight: 400;
-         margin-bottom: 0.5rem;
-         color: #6c757d;">{{objeto.cidade | uppercase}}</span>
-        </p-title>
-        <ng-template class="footer-adotar-animais" pTemplate="footer">
-          <div style="display: flex !important;
-          justify-content: center !important;">
-          <div class="container-botoes">
-          <button  class="botao-card-detalhes" (click)="detalharAnimal(objeto.id)">
-            Saiba mais
-          </button>
-          <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
-        </div>
-      </div>
-        </ng-template>
-      </p-card>
+    <div class="filtrar-por">
+      <h2 class="label-filtros" style="white-space: nowrap;">Filtrar por:</h2>
+      <span style="cursor: pointer;" (click)="buscarTodosAnimais()" (click)="limparFiltros()"
+       class="span-limpar-todos">Limpar todos</span>
     </div>
-  </div>
+
+  <div class="filtros-quero-adotar">
+
+    <form class="form-filtros" [formGroup]="animalFilterForm" (ngSubmit)="filtrarAnimais()">
+
+
+    <div class="filtro-dropdown">
+      <p-dropdown class="editar-dropdown-cidades" [options]="especie"
+      formControlName="especie"
+      placeholder="Todos as espécies" ></p-dropdown>
+    </div>
+
+
+    <div class="filtro-dropdown" >
+      <p-dropdown class="editar-dropdown-cidades" [options]="sexos"
+      formControlName="sexo"
+      placeholder="Todos os sexos" ></p-dropdown>
+    </div>
+
+
+    <div class="filtro-dropdown">
+      <p-dropdown class="editar-dropdown-cidades" [options]="porte"
+      formControlName="porte"
+      placeholder="Todos os portes"></p-dropdown>
+    </div>
+
+
+    <div class="filtro-dropdown-menor">
+      <p-dropdown class="editar-dropdown-cidades" [options]="estados"
+      (onChange)="selecionarUF($event.value)"
+      optionLabel="sigla"
+      formControlName="uf"
+      editable="true"
+      filter="true"
+      placeholder="Todos os estados" dataKey="sigla"></p-dropdown>
+    </div>
+
+    <div class="filtro-dropdown-menor" (click)="recuperarMunicipiosPorUf()">
+      <p-dropdown class="editar-dropdown-cidades" [options]="municipios"
+      (onChange)="selecionarMunicipio($event.value)"
+      optionLabel="nome"
+      formControlName="municipio"
+      editable="true"
+      filter="true"
+      placeholder="Todas as cidades" dataKey="nome"></p-dropdown>
+    </div>
+
+    <div  class="campo-form">
+      <div>
+        <input type="text" class="filtro-inputtext" pInputText formControlName="nome"
+         placeholder="Nome do animal" maxlength="50"/>
+      </div>
+    </div>
+    <button class="botao-submit-filtros" type="submit">Filtrar</button>
+  </form>
+
+
+  <ul *ngIf="animaisFiltrados.length > 0">
+    <li *ngFor="let animal of animaisFiltrados">
+      {{ animal.nome }} - {{ animal.especie }} - {{ animal.cidade }}
+    </li>
+  </ul>
+
+    </div>
+
+
+    <!-- container de cards -->
+    <div class="container-animais p-grid" style="display: flex;
+    justify-content: center;">
+      <!-- cards de animais -->
+      <div class="p-grid listagem-animais-container" style="">
+        <p-card *ngFor="let objeto of animais" header="{{objeto.nome}} " subheader="{{objeto.sexo}}"
+          class="p-card-shadow p-col p-md-4">
+          <p-header>
+            <img style="width:320.5px;
+            height: 246px;" [src]="'data:image/gif;base64,' + objeto?.imagens[0]?.url" />
+          </p-header>
+          <p-title>
+          <span >{{(objeto.municipio | titlecase ) + " / " + objeto.uf}}</span>
+          </p-title>
+          <ng-template class="footer-adotar-animais" pTemplate="footer">
+            <div style="display: flex !important;
+            justify-content: center !important;">
+            <div class="container-botoes">
+            <button  class="botao-card-detalhes" (click)="detalharAnimal(objeto.id)">
+              Saiba mais
+            </button>
+            <button class="botao-card-adotar1" routerLink="/login" label="Quero adotar">Quero adotar</button>
+          </div>
+        </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
 </div>

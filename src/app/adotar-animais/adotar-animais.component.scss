@@ -1,4 +1,95 @@
-::ng-deep {
+:host ::ng-deep {
+
+  // .filtro-dropdown{
+  //   max-width: 386px;
+  //   width: 41%;
+  // }
+
+  .filtros-quero-adotar{
+    background: white;
+    width: 1160px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    padding: 30px;
+  }
+
+  .form-filtros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .filtro-dropdown-menor .p-dropdown {
+    background: #ffffff;
+    border: 1px solid #aeb6be;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+    width: 260px;
+
+}
+
+  .filtro-dropdown .p-dropdown {
+    background: #ffffff;
+    border: 1px solid #aeb6be;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+    width: 360px;
+    margin-bottom: 30px;
+}
+
+.filtro-inputtext{
+  background: #ffffff;
+  border: 1px solid #aeb6be;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 5px;
+  width: 260px;
+}
+
+.botao-submit-filtros{
+  width: 288px;
+  border-radius: 5px;
+  background: #3A54B4;
+  color: white;
+  font-family: Mulish, sans-serif !important;
+  font-size: 17px !important;
+  border: 1px solid #3A54B4;
+  height: 39.2px;
+}
+
+.filtro-dropdown-menor .p-dropdown .p-dropdown-label::placeholder {
+  color: black;
+  font-family: Mulish, sans-serif !important;
+  font-size: 17px !important;
+}
+
+.filtro-inputtext::placeholder{
+  font-family: Mulish, sans-serif !important;
+  font-size: 17px !important;
+}
+
+.filtro-dropdown .p-dropdown .p-dropdown-label::placeholder{
+  color: black;
+  font-family: Mulish, sans-serif !important;
+  font-size: 17px !important;
+}
+
+  .container-tela{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+  .breadcrumb-quero-adotar{
+    width: 90.5%;
+  }
 
   .span-limpar-todos{
     text-decoration: underline;
@@ -40,16 +131,18 @@
   }
 
   .titulo-adocao {
+    color: #3A54B4;
+    width: 92%;
     display: flex;
-    color: #ff6a00;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
     font-family: cursive;
     text-transform: uppercase;
   }
 
   .filtrar-por{
-    margin-top: 19px;
+    margin-top: -11px;
+    margin-bottom: 23px;
     width: 351px;
     display: flex;
     height: 42px;
@@ -86,19 +179,26 @@
   .p-card .p-card-subtitle {
     font-weight: 400;
     margin-bottom: -4px;
-    color: #6c757d;
+    color: #666 !important;
+    font-family: Mulish, sans-serif;
   }
 
+  .p-card .p-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: Mulish, sans-serif !important;
+}
 
+.p-card .p-card-content {
+  padding: 1rem 0;
+  font-size: 15px;
+  font-family: Mulish, sans-serif !important;
+  color: #888 !important;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
 
-  .titulo-adocao {
-    display: flex;
-    color: #ff6a00;
-    align-items: center;
-    justify-content: center;
-    font-family: cursive;
-    text-transform: uppercase;
-  }
 
 
   .botao-card-adotar1 {
@@ -142,7 +242,7 @@
 
   .listagem-animais-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-evenly !important;
     width: 100%;
     gap: 20px;
     flex-wrap: wrap;
@@ -236,9 +336,7 @@
       width: 273px;
       margin-top: 12px;
   }
-    .container-tela{
-      margin-top: 15%;
-    }
+
 
     .label-filtros{
       font-size: 20px;
@@ -293,6 +391,129 @@
     }
   }
 
+  @media screen and (max-width:440px) {
+
+    .filtro-dropdown .p-dropdown {
+      background: #ffffff;
+      border: 1px solid #aeb6be;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+      border-radius: 5px;
+      width: 330px !important;
+      margin-bottom: 30px;
+  }
+
+    .botao-submit-filtros{
+      border-radius: 5px;
+      background: #3A54B4;
+      color: white;
+      font-family: Mulish, sans-serif !important;
+      font-size: 17px !important;
+      border: 1px solid #3A54B4;
+      height: 39.2px;
+      width: 330px !important;
+    }
+
+    .filtros-quero-adotar{
+      background: white;
+      width: 350px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5%;
+      padding: 30px;
+    }
+
+    .form-filtros {
+      display: flex;flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .filtro-dropdown-menor .p-dropdown {
+    background: #ffffff;
+    border: 1px solid #aeb6be;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+    width: 330px !important;
+    margin-bottom: 30px;
+}
+
+  .filtro-inputtext{
+    background: #ffffff;
+    border: 1px solid #aeb6be;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+    width: 330px !important;
+    margin-bottom: 30px;
+  }
+  }
+
+
+
+  @media screen and (max-width:1250px) {
+
+    .botao-submit-filtros{
+      width: 288px;
+      border-radius: 5px;
+      background: #3A54B4;
+      color: white;
+      font-family: Mulish, sans-serif !important;
+      font-size: 17px !important;
+      border: 1px solid #3A54B4;
+      height: 39.2px;
+      width: 360px;
+    }
+
+    .filtros-quero-adotar{
+      background: white;
+      width: 400px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5%;
+      padding: 30px;
+    }
+
+    .form-filtros {
+      display: flex;flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .filtro-dropdown-menor .p-dropdown {
+    background: #ffffff;
+    border: 1px solid #aeb6be;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+    width: 360px;
+    margin-bottom: 30px;
+}
+
+.filtro-inputtext{
+  background: #ffffff;
+  border: 1px solid #aeb6be;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 5px;
+  width: 360px;
+  margin-bottom: 30px;
+}
+  }
+
+  @media screen and (max-width:1157px) {
+    .form-filtros {
+      display: flex;flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+
+  }
 
 
 
@@ -367,3 +588,6 @@
 .p-dialog .p-dialog-content {
   overflow-x: hidden;
 }
+
+
+
