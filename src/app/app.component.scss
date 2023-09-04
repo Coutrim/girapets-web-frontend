@@ -35,9 +35,10 @@
     background: transparent;
     border: none;
     color: black;
-    color: rgb(117, 117, 117);
-    font-size: 17px;
-    font-family: cursive;
+    color: #3A54B4;
+     font-size: 17px;
+      font-family: Mulish, sans-serif;
+      font-weight: 700;
     cursor: default;
   }
 
@@ -45,7 +46,7 @@
     width: 2.357rem;
     padding: 0.5rem 0;
     background: transparent;
-    color: rgb(117, 117, 117);
+    color: #3A54B4;
     border: none;
     margin-left: -20px;
   }
@@ -59,7 +60,6 @@
 
   .botao-faq .p-button:enabled:hover {
     background: transparent;
-    color: rgb(117, 117, 117);
     border: none;
     border-color: transparent;
   }
