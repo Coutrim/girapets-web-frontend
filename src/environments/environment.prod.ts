@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: "https://api.gira-pets.com.br/api"
+  apiURL: "http://146.235.58.244:8443/api"
 };
