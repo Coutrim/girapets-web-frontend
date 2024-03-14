@@ -8,6 +8,7 @@ import { AdotarAnimaisComponent } from './adotar-animais/adotar-animais.componen
 import { DetalharAnimaisComponent } from './adotar-animais/detalhar-animais/detalhar-animais.component';
 import { AdicionarAnimalComponent } from './gerenciar-animais/adicionar-animal/adicionar-animal.component';
 import { GerenciarAnimaisComponent } from './gerenciar-animais/gerenciar-animais.component';
+import { QueroDoarComponent } from './doacao/quero-doar/quero-doar.component';
 
 const routes: Routes = [
   //{path:'', component: AppComponent, canActivate: [AuthGuard]},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'quero-adotar', component: AdotarAnimaisComponent},
   {path: 'adicionar-animal', component: AdicionarAnimalComponent},
   {path: 'gerenciar-animais', component: GerenciarAnimaisComponent, canActivate: [AuthGuard],},
+  {path: 'quero-doar', component: QueroDoarComponent},
 
 
 

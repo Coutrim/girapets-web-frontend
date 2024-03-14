@@ -22,6 +22,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment.prod';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
+import { QueroDoarComponent } from './doacao/quero-doar/quero-doar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
     AdicionarAnimalComponent,
     EditarAnimalComponent,
     LoadingComponent,
-    MenuSidebarComponent
+    MenuSidebarComponent,
+    QueroDoarComponent
   ],
   imports: [
     BrowserModule,

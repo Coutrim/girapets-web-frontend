@@ -1,0 +1,38 @@
+.container-card-doacao{
+  border: 1px solid #a59e9e;
+  width: 42%;
+  height: 849.7px;
+  border-radius: 12px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.img-dogs-doacao{
+  border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 100%;
+    height: 30%;
+}
+
+.subcontainer-card-doacao{
+  height: 50%;
+  width: 75%;
+  border: 1px solid black;
+  margin-top: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+
+}
+
+.label-doacao{
+  color: rgb(0, 20, 53);
+    font-family: PayPalOpen-Regular, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
