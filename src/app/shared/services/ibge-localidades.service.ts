@@ -6,10 +6,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class IbgeLocalidadesService {
-  constructor(public http: HttpClient, private authService : AuthService) {
-
-
-  }
+  constructor(public http: HttpClient, private authService : AuthService) {}
 
   recuperarCidadesPorUf(uf:string){
     return this.http.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
